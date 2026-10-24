@@ -1,0 +1,536 @@
+    :root {
+      --brand-teal: #14B8A6;
+      --brand-cyan: #06B6D4;
+      --brand-blue: #3B82F6;
+      --brand-gradient: linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-cyan) 50%, var(--brand-blue) 100%);
+      --brand-bg: #050B0F;
+    }
+
+    body {
+      background-color: var(--brand-bg);
+      color: #E2E8F0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: -0.015em;
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Brand-consistent visible keyboard focus ring (layers on top of the existing
+       focus:border-cyan-400/30 utility, which is too low-contrast to serve as the
+       only focus indicator for keyboard users) */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    [tabindex]:focus-visible,
+    [role="button"]:focus-visible {
+      outline: 2px solid var(--brand-cyan) !important;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Trionn Typography Hierarchy: Familjen Grotesk for Headings */
+    h1, .h1 {
+      font-family: 'Familjen Grotesk', sans-serif;
+      letter-spacing: -0.055em;
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+    h2, .h2 {
+      font-family: 'Familjen Grotesk', sans-serif;
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+    h3, .h3 {
+      font-family: 'Familjen Grotesk', sans-serif;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+    }
+    h4, .h4 {
+      font-family: 'Familjen Grotesk', sans-serif;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+    }
+
+    /* Trionn Editorial Serif Numbers & Accents */
+    .editorial-num {
+      font-family: 'Instrument Serif', 'PP Editorial New', Georgia, serif;
+      font-style: italic;
+      letter-spacing: -0.04em;
+      line-height: 0.88;
+    }
+    .editorial-italic {
+      font-family: 'Instrument Serif', 'PP Editorial New', Georgia, serif;
+      font-style: italic;
+      letter-spacing: -0.02em;
+    }
+
+    /* Header Navbar Typography: Times New Roman */
+    .nav-item, nav button, #mobile-menu button {
+      font-family: 'Times New Roman', Times, Baskerville, Georgia, serif !important;
+    }
+
+    /* Trionn Monospace UI Tags & Buttons */
+    .tag-mono {
+      font-family: 'Martian Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .btn-mono {
+      font-family: 'Martian Mono', monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Trionn Architectural Hairline Crosshair Plus */
+    .plus-crosshair {
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      pointer-events: none;
+      opacity: 0.35;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .group:hover .plus-crosshair {
+      opacity: 0.85;
+      transform: rotate(90deg);
+    }
+
+    ::selection {
+      background: var(--brand-cyan);
+      color: #000000;
+    }
+
+    /* Hollow Stroke Typography */
+    .text-stroke {
+      -webkit-text-stroke: 1.5px rgba(6, 182, 212, 0.35);
+      color: transparent;
+      transition: all 0.4s ease;
+    }
+    .text-stroke:hover {
+      -webkit-text-stroke: 1.5px var(--brand-cyan);
+      color: rgba(6, 182, 212, 0.12);
+    }
+
+    /* Cloud Production Brand Gradient Text & Surface Styling (matches logo) */
+    .gradient-cloud-text {
+      background: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-cloud-bg {
+      background: var(--brand-gradient);
+      color: #FFFFFF !important;
+    }
+
+    /* Subtle Brand-Tinted Ambient Highlights */
+    .radial-glow-ambient, .radial-glow-ambient {
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.10) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 70%);
+    }
+
+    /* Infinite Marquee */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 24s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Trionn Dribbble / Creative Lab Section */
+    #dribbble-section {
+      background-color: #C3C3C3;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dribble-stripe-item {
+      background-color: #040508;
+      will-change: transform;
+      transform: scaleY(0);
+      transform-origin: center bottom;
+    }
+
+    /* Trionn Button Dual-Underline Hover Effect */
+    .trionn-btn .u-right {
+      transform-origin: right center;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .trionn-btn .u-left {
+      transform-origin: left center;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .trionn-btn:hover .u-right {
+      transform: scaleX(0);
+    }
+    .trionn-btn:hover .u-left {
+      transform: scaleX(1);
+    }
+    .trionn-btn .btn-arrow {
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .trionn-btn:hover .btn-arrow {
+      transform: translate(3px, -2px);
+    }
+
+    /* Trionn Vision Section & Cascading Stripes Animation */
+    #vision-section {
+      background-color: var(--brand-bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #s3-text {
+      mix-blend-mode: difference;
+    }
+
+    .stripe-item {
+      background-color: #D2D2D2;
+      will-change: transform;
+      transform: scaleY(0);
+      transform-origin: center bottom;
+    }
+
+    @keyframes trionnMarqueeAnim {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    .vision-marquee-anim {
+      display: flex;
+      width: max-content;
+      animation: trionnMarqueeAnim 22s linear infinite;
+      will-change: transform;
+    }
+
+    .vision-marquee-anim:hover {
+      animation-play-state: paused;
+    }
+
+    /* Hero Service Clouds — each cloud keeps its own spread-out home position (so
+       they keep a clear distance from each other instead of piling up), and spawns
+       on a staggered delay so they rise up one at a time rather than all at once.
+       Each one wanders/drifts in place for ~20s, fades out, then rises again from
+       the same spot on its own independent loop — a continuous, asynchronous
+       relay rather than a synchronized batch. */
+    .cp-cloud {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 30s;
+    }
+    .cp-cloud-a { animation-name: cpCloudWanderA; animation-delay: 0s; }
+    .cp-cloud-b { animation-name: cpCloudWanderB; animation-delay: -5s; }
+    .cp-cloud-c { animation-name: cpCloudWanderC; animation-delay: -10s; }
+    .cp-cloud-d { animation-name: cpCloudWanderD; animation-delay: -15s; }
+    .cp-cloud-e { animation-name: cpCloudWanderE; animation-delay: -20s; }
+    .cp-cloud-f { animation-name: cpCloudWanderF; animation-delay: -25s; }
+
+    .cp-cloud-label {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Martian Mono', monospace;
+      font-size: 9px;
+      line-height: 1.3;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #ECFEFF;
+      text-align: center;
+      white-space: nowrap;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 0, 0, 0.6);
+      pointer-events: none;
+    }
+
+    @keyframes cpCloudWanderA {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      23%  { transform: translate(calc(-50% - 115px), calc(-50% - 55px)) scale(1.05); }
+      44%  { transform: translate(calc(-50% + 70px), calc(-50% - 95px)) scale(0.95); }
+      62%  { transform: translate(calc(-50% + 125px), calc(-50% + 45px)) scale(1); }
+      78%  { opacity: 1; transform: translate(calc(-50% - 25px), calc(-50% + 70px)) scale(1); }
+      85%  { opacity: 0; transform: translate(calc(-50% - 25px), calc(-50% + 70px)) scale(0.8); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    }
+    @keyframes cpCloudWanderB {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      20%  { transform: translate(calc(-50% + 100px), calc(-50% + 60px)) scale(0.96); }
+      40%  { transform: translate(calc(-50% - 90px), calc(-50% + 90px)) scale(1.05); }
+      58%  { transform: translate(calc(-50% - 130px), calc(-50% - 35px)) scale(1); }
+      81%  { opacity: 1; transform: translate(calc(-50% + 40px), calc(-50% - 60px)) scale(1); }
+      89%  { opacity: 0; transform: translate(calc(-50% + 40px), calc(-50% - 60px)) scale(0.8); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    }
+    @keyframes cpCloudWanderC {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      25%  { transform: translate(calc(-50% - 60px), calc(-50% + 100px)) scale(1.04); }
+      46%  { transform: translate(calc(-50% + 130px), calc(-50% + 20px)) scale(0.95); }
+      65%  { transform: translate(calc(-50% + 55px), calc(-50% - 100px)) scale(1); }
+      87%  { opacity: 1; transform: translate(calc(-50% - 100px), calc(-50% - 10px)) scale(1); }
+      94%  { opacity: 0; transform: translate(calc(-50% - 100px), calc(-50% - 10px)) scale(0.8); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    }
+    @keyframes cpCloudWanderD {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      21%  { transform: translate(calc(-50% + 90px), calc(-50% - 80px)) scale(1.05); }
+      41%  { transform: translate(calc(-50% - 120px), calc(-50% - 50px)) scale(0.96); }
+      60%  { transform: translate(calc(-50% - 50px), calc(-50% + 95px)) scale(1); }
+      78%  { opacity: 1; transform: translate(calc(-50% + 110px), calc(-50% + 55px)) scale(1); }
+      85%  { opacity: 0; transform: translate(calc(-50% + 110px), calc(-50% + 55px)) scale(0.8); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    }
+    @keyframes cpCloudWanderE {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      24%  { transform: translate(calc(-50% + 50px), calc(-50% + 105px)) scale(0.95); }
+      43%  { transform: translate(calc(-50% + 115px), calc(-50% - 40px)) scale(1.04); }
+      63%  { transform: translate(calc(-50% - 95px), calc(-50% - 85px)) scale(1); }
+      90%  { opacity: 1; transform: translate(calc(-50% - 30px), calc(-50% + 30px)) scale(1); }
+      97%  { opacity: 0; transform: translate(calc(-50% - 30px), calc(-50% + 30px)) scale(0.8); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    }
+    @keyframes cpCloudWanderF {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      22%  { transform: translate(calc(-50% - 80px), calc(-50% + 70px)) scale(1); }
+      42%  { transform: translate(calc(-50% + 60px), calc(-50% + 100px)) scale(0.95); }
+      61%  { transform: translate(calc(-50% + 100px), calc(-50% - 65px)) scale(1.05); }
+      83%  { opacity: 1; transform: translate(calc(-50% - 110px), calc(-50% - 20px)) scale(1); }
+      91%  { opacity: 0; transform: translate(calc(-50% - 110px), calc(-50% - 20px)) scale(0.8); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    }
+
+    /* 3D Tilt container */
+    .tilt-card {
+      transform-style: preserve-3d;
+      perspective: 1200px;
+      transition: transform 0.25s ease-out, box-shadow 0.3s ease;
+    }
+    .tilt-card-inner {
+      transition: transform 0.25s ease-out;
+      transform-style: preserve-3d;
+    }
+
+    /* Starburst badge */
+    .starburst-badge {
+      clip-path: polygon(50% 0%, 63% 13%, 80% 6%, 86% 23%, 100% 29%, 97% 47%, 100% 65%, 88% 74%, 84% 92%, 67% 89%, 55% 100%, 39% 92%, 24% 97%, 18% 81%, 2% 76%, 8% 59%, 0% 43%, 12% 31%, 9% 14%, 27% 15%, 36% 2%);
+    }
+
+    /* Animated Network Flight Data Pulse */
+    @keyframes streamData {
+      0% { stroke-dashoffset: 240; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .data-flow-line {
+      stroke-dasharray: 8 16;
+      animation: streamData 3s linear infinite;
+    }
+
+    /* Architectural Trionn-Grade Animations & Shading */
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spinSlow 22s linear infinite;
+    }
+    .hero-glow-ring {
+      box-shadow: 0 0 35px rgba(0, 210, 211, 0.25), inset 0 0 15px rgba(0, 210, 211, 0.2);
+    }
+
+    /* Ambient Cyber Floating Pixel Cubes */
+    .cyber-pixel {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #FFFFFF;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--brand-bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272727;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--brand-cyan);
+    }
+  
+    /* Ultra-sleek frosted glass scrollbar for inspection panel */
+    #dribbble-inspect-content {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(17, 17, 19, 0.15) transparent;
+    }
+    #dribbble-inspect-content::-webkit-scrollbar {
+      width: 5px;
+    }
+    #dribbble-inspect-content::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #dribbble-inspect-content::-webkit-scrollbar-thumb {
+      background: rgba(17, 17, 19, 0.16);
+      border-radius: 9999px;
+    }
+    #dribbble-inspect-content::-webkit-scrollbar-thumb:hover {
+      background: rgba(17, 17, 19, 0.32);
+    }
+
+    /* Custom Cursor — ring + dot, monochrome brand palette */
+    @media (hover: hover) and (pointer: fine) {
+      html, body, a, button, [onclick], .cursor-pointer, input, select, textarea, label, [role="button"] {
+        cursor: none !important;
+      }
+    }
+    .cp-cursor-dot,
+    .cp-cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-radius: 9999px;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      will-change: transform;
+    }
+    .cp-cursor-dot {
+      width: 7px;
+      height: 7px;
+      margin: -3.5px 0 0 -3.5px;
+      background: #FFFFFF;
+      mix-blend-mode: difference;
+      transition: opacity 0.2s ease, transform 0.15s ease;
+    }
+    .cp-cursor-ring {
+      width: 34px;
+      height: 34px;
+      margin: -17px 0 0 -17px;
+      border: 1.5px solid #FFFFFF;
+      mix-blend-mode: difference;
+      transition: width 0.25s ease, height 0.25s ease, margin 0.25s ease, opacity 0.2s ease, background-color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+    }
+    .cp-cursor-dot.is-visible,
+    .cp-cursor-ring.is-visible {
+      opacity: 1;
+    }
+    .cp-cursor-dot.is-hidden {
+      opacity: 0;
+    }
+    .cp-cursor-ring.is-active {
+      transform: scale(0.85);
+    }
+
+    /* Page Preloader — minimal: a small spinner + label, simple fade-out when done */
+    #cp-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--brand-bg);
+      transition: opacity 0.45s ease;
+    }
+    #cp-loader.cp-loader-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .cp-loader-inner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .cp-loader-spinner {
+      width: 20px;
+      height: 20px;
+      border-radius: 9999px;
+      border: 2px solid rgba(6, 182, 212, 0.18);
+      border-top-color: var(--brand-cyan);
+      flex-shrink: 0;
+      animation: cpLoaderSpin 0.8s linear infinite;
+    }
+    @keyframes cpLoaderSpin {
+      to { transform: rotate(360deg); }
+    }
+    .cp-loader-text {
+      font-family: 'Familjen Grotesk', 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #D8D8D8;
+      display: inline-flex;
+      align-items: baseline;
+    }
+    .cp-loader-dots span {
+      display: inline-block;
+      animation: cpLoaderDot 1.4s infinite;
+      opacity: 0;
+    }
+    .cp-loader-dots span:nth-child(1) { animation-delay: 0s; }
+    .cp-loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .cp-loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes cpLoaderDot {
+      0%, 20% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* Respect OS-level reduced-motion preference: stop continuous/looping motion
+       (marquees, floating, pulsing, spinning, the cursor-chase effect) and let the
+       native cursor show. GSAP-driven entrance/scroll animations are sped up to
+       near-instant via main.js. */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-marquee,
+      .vision-marquee-anim,
+      .animate-float,
+      .animate-float-delayed,
+      .animate-pulse-glow,
+      .animate-shimmer,
+      .animate-spin-slow,
+      .data-flow-line,
+      .cp-loader-spinner,
+      .cp-loader-dots span {
+        animation: none !important;
+      }
+
+      .cp-cloud {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) scale(1) !important;
+      }
+
+      html, body, a, button, [onclick], .cursor-pointer, input, select, textarea, label, [role="button"] {
+        cursor: auto !important;
+      }
+      .cp-cursor-dot,
+      .cp-cursor-ring {
+        display: none !important;
+      }
+    }

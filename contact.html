@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Cloud Production LTD</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Martian+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Three.js for 3D Background Particles -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="assets/js/tailwind-config.js"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="relative min-h-screen">
+
+  <!-- Page Preloader -->
+  <div id="cp-loader" aria-hidden="true">
+    <div class="cp-loader-inner">
+      <span class="cp-loader-spinner"></span>
+      <span class="cp-loader-text">Loading<span class="cp-loader-dots"><span>.</span><span>.</span><span>.</span></span></span>
+    </div>
+  </div>
+
+  <div class="fixed top-10 right-[-10%] w-[680px] h-[680px] rounded-full radial-glow-ambient blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed top-[45%] left-[-15%] w-[720px] h-[720px] rounded-full radial-glow-ambient blur-3xl pointer-events-none z-0 opacity-60"></div>
+  <div class="fixed bottom-[-10%] right-[10%] w-[550px] h-[550px] rounded-full radial-glow-ambient blur-3xl pointer-events-none z-0 opacity-40"></div>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-[#050B0F]/85 border-b border-[#272727]/70 transition-all duration-300">
+    <div class="max-w-[1520px] xl:max-w-[1600px] 2xl:max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 h-24 flex items-center justify-between">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3.5 group cursor-pointer" aria-label="Cloud Production Ltd Home">
+        <img src="assets/images/logo.png" alt="Cloud Production Ltd" class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-[16px] tracking-wide" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+        <button onclick="navigateTo('home')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Home
+        </button>
+        <button onclick="navigateTo('about')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          About
+        </button>
+        <button onclick="navigateTo('services')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Services
+        </button>
+        <button onclick="navigateTo('portfolio')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Portfolio
+        </button>
+        <button onclick="navigateTo('solutions')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Solutions
+        </button>
+        <button onclick="navigateTo('pricing')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Pricing
+        </button>
+        <button onclick="navigateTo('blog')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Blog
+        </button>
+        <button onclick="navigateTo('contact')" class="nav-item text-white font-bold text-[16px] tracking-wide transition-colors relative py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Contact
+          <span class="absolute bottom-0 left-0 w-full h-[2px] gradient-cloud-bg rounded-full"></span>
+        </button>
+      </nav>
+
+      <!-- Nav Action Buttons -->
+      <div class="hidden sm:flex items-center gap-4">
+        <form id="search-wrap" onsubmit="handleSearchSubmit(event)" class="relative flex items-center">
+          <input id="search-input" type="text" placeholder="Search..." aria-label="Search the site" class="absolute right-12 top-1/2 -translate-y-1/2 w-0 opacity-0 pointer-events-none px-0 py-2.5 rounded-full bg-[#0C0C0C] border border-[#272727] text-white text-sm outline-none focus:border-cyan-400/40 transition-all duration-300">
+          <button type="button" onclick="toggleSearchField()" aria-label="Search" class="p-2.5 rounded-full bg-[#0C0C0C] hover:bg-[#161616] text-neutral-300 hover:text-white border border-[#272727] transition-all shrink-0">
+            <i data-lucide="search" class="w-4 h-4"></i>
+          </button>
+        </form>
+        <button onclick="openContactModal()" class="relative group overflow-hidden rounded-full px-6 py-2.5 gradient-cloud-bg text-black font-mono font-bold text-xs tracking-wider uppercase shadow-lg shadow-cyan-400/5 hover:shadow-cyan-400/10 hover:scale-[1.02] transition-all duration-300">
+          <span class="relative z-10 flex items-center gap-2">
+            Get In Touch
+            <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+          </span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Hamburger Button -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-[#0C0C0C] border border-[#272727] text-neutral-300 hover:text-white" onclick="toggleMobileMenu()">
+        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-[#272727] bg-[#0C0C0C]/95 backdrop-blur-2xl px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-lg" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+        <button onclick="navigateTo('home')" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Home</button>
+        <button onclick="navigateTo('about')" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">About</button>
+        <button onclick="navigateTo('services')" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Services</button>
+        <button onclick="navigateTo('portfolio')" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Portfolio</button>
+        <button onclick="navigateTo('solutions')" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Solutions</button>
+        <button onclick="navigateTo('pricing')" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Pricing</button>
+        <button onclick="navigateTo('blog')" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Blog</button>
+        <button onclick="navigateTo('contact')" class="text-left text-white font-bold py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Contact</button>
+        <div class="pt-4 border-t border-[#272727] flex flex-col gap-3">
+          <button onclick="openContactModal(); toggleMobileMenu()" class="w-full text-center rounded-xl py-3 gradient-cloud-bg text-black font-bold text-sm">
+            Get In Touch
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- BANNER -->
+    <section class="relative h-[380px] sm:h-[440px] lg:h-[500px] overflow-hidden border-b border-[#272727]/70">
+      <img src="assets/images/team-collaboration-alt.jpg"
+           alt="Cloud Production Ltd Team"
+           class="absolute inset-0 w-full h-full object-cover opacity-60"
+           onerror="this.src='assets/images/fallback-hero-banner.svg'">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/25 to-black"></div>
+
+      <div class="relative z-10 h-full max-w-[1520px] xl:max-w-[1600px] 2xl:max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 flex flex-col items-center justify-center text-center">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-400/10 bg-teal-400/5 text-[11px] font-mono tracking-widest uppercase text-neutral-300 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-ping"></span>
+          <span class="text-teal-400">✦</span> We'd Love To Hear From You
+        </span>
+        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black font-display uppercase tracking-[-0.055em] text-white leading-[0.92]">
+          Contact <span class="font-editorial italic font-normal lowercase tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500">us</span>
+        </h1>
+        <p class="text-neutral-300 text-sm sm:text-base leading-relaxed max-w-2xl mt-6 font-normal">
+          You're not going to hit a ridiculously long phone menu when you call us. Your email isn't going to the inbox abyss, never to be seen or heard from again. At Cloud Production LTD, we provide the exceptional service and communication we'd want to experience ourselves.
+        </p>
+      </div>
+    </section>
+
+    <!-- THREE FEATURE CARDS -->
+    <section class="py-20 sm:py-28 bg-[#050B0F] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <div class="group relative rounded-3xl p-8 sm:p-10 bg-[#0C0C0C] border border-[#272727] hover:border-teal-400/40 transition-all duration-300 tilt-card text-center" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="w-14 h-14 mx-auto rounded-2xl gradient-cloud-bg flex items-center justify-center mb-6 shadow-lg shadow-teal-400/10">
+              <i data-lucide="shield-check" class="w-6 h-6 text-black"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-display font-bold uppercase tracking-[-0.02em] text-white mb-3">Safe &amp; Secure</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              We take IP seriously. You can send us an NDA and we'll sign it right away.
+            </p>
+          </div>
+
+          <div class="group relative rounded-3xl p-8 sm:p-10 bg-[#0C0C0C] border border-[#272727] hover:border-cyan-400/40 transition-all duration-300 tilt-card text-center" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="w-14 h-14 mx-auto rounded-2xl gradient-cloud-bg flex items-center justify-center mb-6 shadow-lg shadow-cyan-400/10">
+              <i data-lucide="gift" class="w-6 h-6 text-black"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-display font-bold uppercase tracking-[-0.02em] text-white mb-3">Free</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              You'll get a free expert consultation about your project.
+            </p>
+          </div>
+
+          <div class="group relative rounded-3xl p-8 sm:p-10 bg-[#0C0C0C] border border-[#272727] hover:border-blue-400/40 transition-all duration-300 tilt-card text-center" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="w-14 h-14 mx-auto rounded-2xl gradient-cloud-bg flex items-center justify-center mb-6 shadow-lg shadow-blue-400/10">
+              <i data-lucide="zap" class="w-6 h-6 text-black"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-display font-bold uppercase tracking-[-0.02em] text-white mb-3">Fast Response</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Our representative will contact you within 24 hours of the request. Usually much quicker.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GET IN TOUCH INFO + FORM -->
+    <section class="pb-24 sm:pb-32 bg-[#050B0F] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+          <!-- Info Card -->
+          <div class="lg:col-span-4 p-8 sm:p-10 rounded-3xl bg-[#0C0C0C] border border-[#272727] h-fit space-y-7">
+            <div>
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white inline-flex items-center gap-2"><span class="text-teal-400">✦</span> CONTACT DETAILS</span>
+              <h3 class="text-2xl sm:text-3xl font-black font-display uppercase text-white mt-3">Get in Touch</h3>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 shrink-0 rounded-full bg-teal-400/[0.06] border border-teal-400/12 flex items-center justify-center">
+                <i data-lucide="phone" class="w-4 h-4 text-teal-300"></i>
+              </div>
+              <span class="text-sm text-neutral-300 pt-1.5">+8801752411182</span>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 shrink-0 rounded-full bg-cyan-400/[0.06] border border-cyan-400/12 flex items-center justify-center">
+                <i data-lucide="mail" class="w-4 h-4 text-cyan-300"></i>
+              </div>
+              <span class="text-sm text-neutral-300 pt-1.5 leading-relaxed">
+                info@cloudproductionltd.com<br>admin@cloudproductionltd.com
+              </span>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 shrink-0 rounded-full bg-blue-400/[0.06] border border-blue-400/12 flex items-center justify-center">
+                <i data-lucide="map-pin" class="w-4 h-4 text-blue-300"></i>
+              </div>
+              <span class="text-sm text-neutral-300 pt-1.5 leading-relaxed">
+                2nd Floor, 273/3, Dhaka Cantonment, Mirpur Link Road, Dhaka-1206
+              </span>
+            </div>
+
+            <div class="pt-5 border-t border-[#272727] flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-xs font-mono uppercase tracking-widest text-neutral-400">Typically replies within 24 hours</span>
+            </div>
+          </div>
+
+          <!-- Contact Form Card -->
+          <div class="lg:col-span-8 p-8 sm:p-12 rounded-3xl bg-[#0C0C0C] border border-[#272727]">
+            <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white inline-flex items-center gap-2"><span class="text-cyan-400">✦</span> SEND A MESSAGE</span>
+            <h3 class="text-2xl sm:text-3xl font-black font-display uppercase text-white mt-3 mb-8">Let's Talk Business</h3>
+
+            <form id="contact-page-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">First Name</label>
+                  <input type="text" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Last Name</label>
+                  <input type="text" required placeholder="Last name" class="w-full px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Company Name</label>
+                  <input type="text" placeholder="Company Name" class="w-full px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Email</label>
+                  <input type="email" required placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Service</label>
+                <div class="relative">
+                  <select required class="w-full appearance-none px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm pr-10 cursor-pointer">
+                    <option value="" disabled selected>Select service</option>
+                    <option>Web Development</option>
+                    <option>Offshore Development Teams</option>
+                    <option>AI Integration &amp; Gen AI</option>
+                    <option>Custom Software Development</option>
+                    <option>Mobile App Development</option>
+                    <option>Game Development</option>
+                    <option>Business Automation &amp; ERP</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-400">
+                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Message</label>
+                <textarea rows="5" required placeholder="Tell us about your project or idea." class="w-full px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm resize-none"></textarea>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="px-8 py-3.5 rounded-xl gradient-cloud-bg text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center gap-2">
+                  Submit
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION MAP -->
+    <section class="relative w-full h-[380px] sm:h-[460px] lg:h-[520px] border-t border-[#272727]/80 overflow-hidden">
+      <iframe
+        src="https://www.google.com/maps?q=2nd+Floor,+273%2F3,+Dhaka+Cantonment,+Mirpur+Link+Road,+Dhaka-1206&output=embed"
+        class="w-full h-full border-0"
+        style="filter: invert(92%) hue-rotate(180deg) brightness(95%) contrast(90%);"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Cloud Production Ltd Location Map">
+      </iframe>
+      <div class="absolute top-5 left-5 sm:top-8 sm:left-8 z-10 max-w-[240px] p-4 rounded-2xl bg-[#0C0C0C]/95 border border-[#272727] backdrop-blur-xl shadow-2xl pointer-events-none">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-1"><span class="text-cyan-400">✦</span> Find Us Here</span>
+        <p class="text-sm font-bold text-white leading-snug">Cloud Production Ltd</p>
+        <p class="text-xs text-neutral-400 mt-1 leading-relaxed">2nd Floor, 273/3, Dhaka Cantonment, Mirpur Link Road, Dhaka-1206</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="relative bg-[#050B0F] border-t border-[#272727]/80 pt-28 pb-16 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- LET'S WORK TOGETHER SECTION WITH INLINE FORM -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pb-16 border-b border-[#272727]">
+
+        <div class="lg:col-span-5 flex flex-col justify-between space-y-8">
+          <div>
+            <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white"><span class="text-blue-400">✦</span> HAVE AN IDEA IN MIND?</span>
+            <h2 class="text-5xl sm:text-7xl lg:text-8xl font-black font-display uppercase tracking-[-0.055em] text-white mt-3 leading-[0.92]">
+              LET'S WORK <br><span class="font-editorial italic font-normal lowercase tracking-normal text-white">together</span>
+            </h2>
+            <p class="text-neutral-400 text-sm mt-5 leading-relaxed max-w-sm">
+              Ready to elevate your digital presence? Let's discuss your project.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-5 pt-2">
+            <button onclick="document.getElementById('form-fullname').focus()" class="group relative w-24 h-24 sm:w-28 sm:h-28 rounded-full gradient-cloud-bg text-black flex flex-col items-center justify-center font-mono font-bold uppercase text-[11px] sm:text-xs tracking-wider shadow-xl shadow-blue-400/10 hover:scale-105 active:scale-95 transition-all duration-300">
+              <span class="leading-none text-center">GET IN<br>TOUCH</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 mt-0.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+            </button>
+            <div class="text-xs text-neutral-400">
+              <span class="text-white font-semibold block text-sm">Quick Response</span>
+              <span>Typically replies within 24 hours</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 flex justify-end w-full">
+          <div class="w-full max-w-xl bg-[#0C0C0C] border border-[#272727]/90 rounded-3xl p-6 sm:p-9 shadow-2xl relative backdrop-blur-md">
+
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <h3 class="text-2xl sm:text-3xl font-bold font-display text-white uppercase tracking-tight">LET'S TALK BUSINESS</h3>
+                <p class="text-neutral-400 text-xs sm:text-sm mt-1">
+                  Share your parameters to receive an architectural brief within 24 hours.
+                </p>
+              </div>
+              <button type="button" onclick="resetFooterForm()" class="p-1.5 rounded-full bg-neutral-900/60 border border-neutral-800 text-neutral-400 hover:text-white transition-colors" title="Clear form">
+                <i data-lucide="x" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <form id="direct-business-form" onsubmit="handleContactSubmit(event)" class="space-y-4 sm:space-y-5 text-xs">
+              <div>
+                <label for="form-fullname" class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-2 text-[11px]">FULL NAME</label>
+                <input id="form-fullname" type="text" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-[#050505] border border-[#272727]/80 text-white placeholder-neutral-600 outline-none focus:border-blue-400/30 transition-colors text-sm">
+              </div>
+
+              <div>
+                <label for="form-email" class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-2 text-[11px]">EMAIL ADDRESS</label>
+                <input id="form-email" type="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-[#050505] border border-[#272727]/80 text-white placeholder-neutral-600 outline-none focus:border-blue-400/30 transition-colors text-sm">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="form-service" class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-2 text-[11px]">SERVICE</label>
+                  <div class="relative">
+                    <select id="form-service" class="w-full appearance-none px-4 py-3 rounded-xl bg-[#050505] border border-[#272727]/80 text-white outline-none focus:border-blue-400/30 transition-colors text-sm pr-10 cursor-pointer">
+                      <option value="web">Web Development</option>
+                      <option value="offshore">Offshore Development Teams</option>
+                      <option value="ai">AI Integration &amp; Gen AI</option>
+                      <option value="software">Custom Software &amp; ERP</option>
+                      <option value="mobile">Mobile App Development</option>
+                      <option value="game">Game Development</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-400">
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label for="form-budget" class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-2 text-[11px]">EXPECTED BUDGET</label>
+                  <div class="relative">
+                    <select id="form-budget" class="w-full appearance-none px-4 py-3 rounded-xl bg-[#050505] border border-[#272727]/80 text-white outline-none focus:border-blue-400/30 transition-colors text-sm pr-10 cursor-pointer">
+                      <option value="free">Free Consultation</option>
+                      <option value="1k-5k">$1K – $5K</option>
+                      <option value="5k-10k">$5K – $10K</option>
+                      <option value="10k+">$10K+ / Dedicated Squad</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-400">
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label for="form-details" class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-2 text-[11px]">PROJECT DETAILS</label>
+                <textarea id="form-details" rows="3" required placeholder="Outline your requirements..." class="w-full px-4 py-3 rounded-xl bg-[#050505] border border-[#272727]/80 text-white placeholder-neutral-600 outline-none focus:border-blue-400/30 transition-colors text-sm resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-4 rounded-xl gradient-cloud-bg font-mono font-bold uppercase tracking-wider text-black text-xs sm:text-sm shadow-xl shadow-blue-400/5 hover:shadow-blue-400/10 hover:opacity-95 active:scale-[0.99] transition-all flex items-center justify-center gap-2">
+                SUBMIT INQUIRY <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 py-12 text-sm">
+
+        <div class="space-y-4">
+          <div class="flex items-center gap-3.5 group cursor-pointer" onclick="navigateTo('home')">
+            <img src="assets/images/logo.png" alt="Cloud Production Ltd" class="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+          </div>
+          <p class="text-neutral-400 text-xs leading-relaxed">
+            Crafting immersive web ecosystems and scalable cloud architectures for forward-thinking brands.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono uppercase font-bold tracking-widest text-white mb-4"><span class="text-teal-400">✦</span> Quick Links</h4>
+          <ul class="space-y-2.5 font-mono text-xs uppercase tracking-wider text-neutral-400">
+            <li><button onclick="navigateTo('about')" class="hover:text-white transition-colors">About Us</button></li>
+            <li><button onclick="navigateTo('services')" class="hover:text-white transition-colors">Services &amp; Capabilities</button></li>
+            <li><button onclick="navigateTo('portfolio')" class="hover:text-white transition-colors">Case Studies</button></li>
+            <li><button onclick="navigateTo('pricing')" class="hover:text-white transition-colors">Pricing Packages</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono uppercase font-bold tracking-widest text-white mb-4"><span class="text-cyan-400">✦</span> Global Presence</h4>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            <strong class="text-neutral-200 block">Dhaka Headquarters:</strong>
+            2nd Floor, 273/3, Dhaka Cantonment, Mirpur Link Road, Dhaka-1206<br>
+            <strong class="text-neutral-200 block mt-2">Tokyo Partner Branch:</strong>
+            In collaboration with Arousal Tech Japan &amp; Techs Cafe<br>
+            <span class="block mt-2">Tel: +8801752411182</span>
+            <span>info@cloudproductionltd.com</span>
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono uppercase font-bold tracking-widest text-white mb-4"><span class="text-blue-400">✦</span> Subscribe to Digest</h4>
+          <form onsubmit="handleNewsletter(event)" class="flex flex-col gap-2">
+            <input type="email" required placeholder="Enter email address" class="px-4 py-2.5 rounded-xl bg-[#0C0C0C] border border-[#272727] text-white text-xs outline-none focus:border-blue-400/30">
+            <button type="submit" class="px-5 py-3 rounded-xl bg-neutral-800 hover:bg-cyan-400 hover:text-black font-mono font-bold text-xs uppercase tracking-wider text-white transition-colors">
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-[#272727]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-4">
+        <p>© 2026 Cloud Production Ltd. All Rights Reserved.</p>
+        <div class="flex gap-6">
+          <a href="https://cloudproductionltd.com" target="_blank" class="hover:text-white transition-colors">Official Website</a>
+          <a href="javascript:void(0)" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="javascript:void(0)" class="hover:text-white transition-colors">Security</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div id="contact-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-lg bg-[#0C0C0C] border border-[#272727] rounded-3xl p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeContactModal()" class="absolute top-5 right-5 p-2 rounded-full bg-neutral-900 text-neutral-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <h3 class="text-2xl font-bold font-display text-white uppercase tracking-tight">Let's talk business</h3>
+      <p class="text-xs text-neutral-400 mt-1 mb-6">Share your parameters to receive an architectural brief within 24 hours.</p>
+
+      <form onsubmit="handleContactSubmit(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Full Name</label>
+          <input type="text" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-teal-400/30">
+        </div>
+        <div>
+          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Email Address</label>
+          <input type="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-teal-400/30">
+        </div>
+        <div>
+          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Expected Budget</label>
+          <select class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-teal-400/30">
+            <option>$5k - $15k</option>
+            <option>$15k - $40k</option>
+            <option>$40k+</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Project Details</label>
+          <textarea rows="3" required placeholder="Outline your requirements..." class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-teal-400/30"></textarea>
+        </div>
+        <button type="submit" class="w-full py-4 rounded-xl gradient-cloud-bg font-mono font-bold uppercase tracking-wider text-black text-xs transition-opacity hover:opacity-90 flex items-center justify-center gap-2">
+          Submit Inquiry
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Standalone page: route cross-page nav items back to index.html's SPA sections
+    function navigateTo(pageId) {
+      if (pageId === 'contact') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      if (pageId === 'services') {
+        window.location.href = 'services.html';
+        return;
+      }
+      if (pageId === 'about') {
+        window.location.href = 'about.html';
+        return;
+      }
+      if (pageId === 'portfolio') {
+        window.location.href = 'portfolio.html';
+        return;
+      }
+      if (pageId === 'solutions') {
+        window.location.href = 'solutions.html';
+        return;
+      }
+      window.location.href = pageId === 'home' ? 'index.html' : `index.html#${pageId}`;
+    }
+  </script>
+</body>
+</html>

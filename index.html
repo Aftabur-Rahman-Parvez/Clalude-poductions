@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Production LTD — Expert Software Development & AI Solutions</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Trionn Reference Typography: Familjen Grotesk (Headings/Display), Martian Mono (Microcopy/UI/Buttons/Pills), Instrument Serif (Editorial/Stats Numbers/Accents), Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Martian+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Three.js for 3D Background Particles -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP & ScrollTrigger for Trionn Vision Section Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="assets/js/tailwind-config.js"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="relative min-h-screen">
+
+  <!-- Page Preloader -->
+  <div id="cp-loader" aria-hidden="true">
+    <div class="cp-loader-inner">
+      <span class="cp-loader-spinner"></span>
+      <span class="cp-loader-text">Loading<span class="cp-loader-dots"><span>.</span><span>.</span><span>.</span></span></span>
+    </div>
+  </div>
+
+  <div class="fixed top-10 right-[-10%] w-[680px] h-[680px] rounded-full radial-glow-ambient blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed top-[45%] left-[-15%] w-[720px] h-[720px] rounded-full radial-glow-ambient blur-3xl pointer-events-none z-0 opacity-60"></div>
+  <div class="fixed bottom-[-10%] right-[10%] w-[550px] h-[550px] rounded-full radial-glow-ambient blur-3xl pointer-events-none z-0 opacity-40"></div>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-[#050B0F]/85 border-b border-[#272727]/70 transition-all duration-300">
+    <div class="max-w-[1520px] xl:max-w-[1600px] 2xl:max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 h-24 flex items-center justify-between">
+      
+      <!-- Brand Logo - Vector Cloud Production Ltd (Minimalist Architectural Emblem) -->
+      <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center gap-3.5 group cursor-pointer" aria-label="Cloud Production Ltd Home">
+        <img src="assets/images/logo.png" alt="Cloud Production Ltd" class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Navigation Links (Times New Roman) -->
+      <nav class="hidden lg:flex items-center gap-8 text-[16px] tracking-wide" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+        <button onclick="navigateTo('home')" class="nav-item text-white font-bold text-[16px] tracking-wide transition-colors relative py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Home
+          <span class="absolute bottom-0 left-0 w-full h-[2px] gradient-cloud-bg rounded-full"></span>
+        </button>
+        <a href="about.html" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          About
+        </a>
+        <a href="services.html" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Services
+        </a>
+        <button onclick="navigateTo('portfolio')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Portfolio
+        </button>
+        <button onclick="navigateTo('solutions')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Solutions
+        </button>
+        <button onclick="navigateTo('pricing')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Pricing
+        </button>
+        <button onclick="navigateTo('blog')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Blog
+        </button>
+        <a href="contact.html" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Nav Action Buttons -->
+      <div class="hidden sm:flex items-center gap-4">
+        <form id="search-wrap" onsubmit="handleSearchSubmit(event)" class="relative flex items-center">
+          <input id="search-input" type="text" placeholder="Search..." aria-label="Search the site" class="absolute right-12 top-1/2 -translate-y-1/2 w-0 opacity-0 pointer-events-none px-0 py-2.5 rounded-full bg-[#0C0C0C] border border-[#272727] text-white text-sm outline-none focus:border-cyan-400/40 transition-all duration-300">
+          <button type="button" onclick="toggleSearchField()" aria-label="Search" class="p-2.5 rounded-full bg-[#0C0C0C] hover:bg-[#161616] text-neutral-300 hover:text-white border border-[#272727] transition-all shrink-0">
+            <i data-lucide="search" class="w-4 h-4"></i>
+          </button>
+        </form>
+        <button onclick="openContactModal()" class="relative group overflow-hidden rounded-full px-6 py-2.5 gradient-cloud-bg text-black font-mono font-bold text-xs tracking-wider uppercase shadow-lg shadow-cyan-400/5 hover:shadow-cyan-400/10 hover:scale-[1.02] transition-all duration-300">
+          <span class="relative z-10 flex items-center gap-2">
+            Get In Touch
+            <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+          </span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Hamburger Button -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-[#0C0C0C] border border-[#272727] text-neutral-300 hover:text-white" onclick="toggleMobileMenu()">
+        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Navigation (Times New Roman) -->
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-[#272727] bg-[#0C0C0C]/95 backdrop-blur-2xl px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-lg" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+        <button onclick="navigateTo('home'); toggleMobileMenu()" class="text-left text-white font-bold py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Home</button>
+        <a href="about.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">About</a>
+        <a href="services.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Services</a>
+        <button onclick="navigateTo('portfolio'); toggleMobileMenu()" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Portfolio</button>
+        <button onclick="navigateTo('solutions'); toggleMobileMenu()" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Solutions</button>
+        <button onclick="navigateTo('pricing'); toggleMobileMenu()" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Pricing</button>
+        <button onclick="navigateTo('blog'); toggleMobileMenu()" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Blog</button>
+        <a href="contact.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Contact</a>
+        <div class="pt-4 border-t border-[#272727] flex flex-col gap-3">
+          <button onclick="openContactModal(); toggleMobileMenu()" class="w-full text-center rounded-xl py-3 gradient-cloud-bg text-black font-bold text-sm">
+            Get In Touch
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="relative z-10">
+
+    <div id="page-home" class="page-view block">
+
+      <section class="relative pt-14 sm:pt-18 md:pt-18 lg:pt-18 pb-36 sm:pb-24 md:pb-24 lg:pb-24 xl:pb-24 overflow-hidden">
+
+        <div class="relative z-10 max-w-[1520px] xl:max-w-[1600px] 2xl:max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16">
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-start">
+
+            <!-- LEFT COLUMN: Typography, Branding, Radar Badge, Description, CTAs, Social Proof -->
+            <div class="lg:col-span-6 xl:col-span-6 flex flex-col justify-center space-y-8 sm:space-y-10 z-10">
+
+              
+              <!-- <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-400/10 bg-teal-400/5 text-[11px] font-mono tracking-widest uppercase text-neutral-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-ping"></span>
+                  <span class="text-cyan-400">✦</span> Expert Software & AI Engineering Studio
+                </div>
+
+                
+                <div class="flex border border-[#2F323B] overflow-hidden rounded-sm text-light-font">
+                  <div class="flex items-center justify-center px-3.5 py-1.5 border-r border-[#2F323B] gap-1.5">
+                    <span class="text-[11px] font-mono uppercase tracking-widest text-white font-semibold">Est. 2018</span>
+                  </div>
+                  <div class="px-3.5 py-1.5 flex items-center">
+                    <span class="text-[11px] font-mono uppercase tracking-wider text-neutral-400">Dhaka, Bangladesh • Tokyo, Japan</span>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- Main Hero Headline -->
+              <div>
+                <h1 class="text-5xl sm:text-7xl xl:text-8xl font-black tracking-[-0.055em] uppercase leading-[0.92] font-display text-white">
+                  SMARTER </br><span class="font-editorial italic font-normal lowercase tracking-normal text-white text-[0.85em]">faster & better</span><br>
+                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500">SOFTWARE</span>
+                  <span class="text-stroke block sm:inline">SOLUTIONS</span>
+                </h1>
+              </div>
+
+              <!-- Brand Mission Copy -->
+              <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-lg font-normal">
+                Empowering your ideas with smarter, faster, and better software solutions. From idea to impact — our engineers power custom web applications, mobile apps, enterprise ERPs, and cutting-edge Gen AI solutions for global clients across 15+ countries.
+              </p>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-wrap items-center gap-4 pt-1">
+                <button onclick="openContactModal()" class="relative group overflow-hidden rounded-full px-8 py-4 gradient-cloud-bg text-black font-mono font-bold text-xs tracking-wider uppercase shadow-xl shadow-cyan-400/5 hover:shadow-cyan-400/10 hover:scale-[1.02] transition-all duration-300">
+                  <span class="relative z-10 flex items-center gap-2">
+                    Book a Free Consultation
+                    <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                  </span>
+                </button>
+
+                <button onclick="navigateTo('portfolio')" class="px-8 py-4 rounded-full bg-[#0C0C0C] hover:bg-[#161616] text-neutral-200 hover:text-white border border-[#272727] hover:border-cyan-400/30 text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center gap-2">
+                  <svg viewBox="0 0 20 20" fill="none" class="w-4 h-4 text-white">
+                    <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.6"/>
+                    <path d="M10 5 L12.5 10 L10 15 L7.5 10 Z" fill="currentColor"/>
+                  </svg>
+                  Explore Portfolio
+                </button>
+              </div>
+
+              <!-- Social Proof & Review Badge -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-[#0C0C0C]/90 border border-[#272727] backdrop-blur-lg flex items-center justify-between shadow-xl max-w-lg">
+                <div class="flex items-center gap-3">
+                  <div class="flex -space-x-3 overflow-hidden">
+                    <img class="inline-block h-10 w-10 sm:h-11 sm:w-11 rounded-full ring-2 ring-[#0C0C0C] object-cover" src="assets/images/avatar-client-1.jpg" alt="Client 1" onerror="this.src='assets/images/fallback-client-1.svg'">
+                    <img class="inline-block h-10 w-10 sm:h-11 sm:w-11 rounded-full ring-2 ring-[#0C0C0C] object-cover" src="assets/images/avatar-takuya-sato.jpg" alt="Client 2" onerror="this.src='assets/images/fallback-client-2.svg'">
+                    <img class="inline-block h-10 w-10 sm:h-11 sm:w-11 rounded-full ring-2 ring-[#0C0C0C] object-cover" src="assets/images/avatar-client-3.jpg" alt="Client 3" onerror="this.src='assets/images/fallback-client-3.svg'">
+                  </div>
+                  <div>
+                    <div class="flex items-center text-[#D8D8D8] text-xs">
+                      <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                      <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                      <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                      <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                      <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    </div>
+                    <span class="text-xs font-mono tracking-wide text-neutral-400">110+ Projects • 20+ Offshore Clients</span>
+                  </div>
+                </div>
+                <div class="text-right border-l border-[#272727] pl-4">
+                  <span class="text-3xl font-editorial italic text-white leading-none">100%</span>
+                  <span class="block text-[9px] font-mono gradient-cloud-text uppercase tracking-widest font-bold mt-0.5">Delivery</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Service Clouds — each keeps its own spread-out spot and
+                 rises up on a staggered delay (one at a time, not all together), wanders
+                 for ~20s, fades, then rises again from the same spot on its own loop
+                 (see cpCloudWander[A-F] + per-cloud animation-delay in style.css) -->
+            <div class="lg:col-span-6 xl:col-span-6 relative min-h-[320px] sm:min-h-[420px] lg:min-h-[520px]">
+              <div class="cp-cloud-scene absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+                <div class="cp-cloud cp-cloud-a" style="top:24%; left:20%;">
+                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-teal-300/70 drop-shadow-[0_0_18px_rgba(45,212,191,0.2)]"></i>
+                  <span class="cp-cloud-label">Web<br>Development</span>
+                </div>
+                <div class="cp-cloud cp-cloud-b" style="top:18%; left:74%;">
+                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-cyan-300/70 drop-shadow-[0_0_18px_rgba(34,211,238,0.2)]"></i>
+                  <span class="cp-cloud-label">Offshore<br>Development</span>
+                </div>
+                <div class="cp-cloud cp-cloud-c" style="top:70%; left:16%;">
+                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-blue-300/70 drop-shadow-[0_0_18px_rgba(96,165,250,0.2)]"></i>
+                  <span class="cp-cloud-label">AI<br>Integration</span>
+                </div>
+                <div class="cp-cloud cp-cloud-d" style="top:74%; left:68%;">
+                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-teal-200/70 drop-shadow-[0_0_18px_rgba(94,234,212,0.2)]"></i>
+                  <span class="cp-cloud-label">Software<br>Development</span>
+                </div>
+                <div class="cp-cloud cp-cloud-e" style="top:46%; left:45%;">
+                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-cyan-200/70 drop-shadow-[0_0_18px_rgba(103,232,249,0.2)]"></i>
+                  <span class="cp-cloud-label">Mobile App<br>Development</span>
+                </div>
+                <div class="cp-cloud cp-cloud-f hidden sm:flex" style="top:50%; left:86%;">
+                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-blue-200/70 drop-shadow-[0_0_18px_rgba(191,219,254,0.2)]"></i>
+                  <span class="cp-cloud-label">Game<br>Development</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Trionn Vision Section with Cascading Stripes & Dynamic Inversion Animation -->
+      <section id="vision-section" class="relative min-h-screen h-screen w-full overflow-hidden select-none bg-[#050B0F]">
+        
+        <!-- Cascading Stripes Container (Rises from bottom on scroll) -->
+        <div class="stripes-container absolute inset-0 pointer-events-none flex flex-col w-full h-full z-10">
+          <div class="stripe-item flex-1 w-full h-full bg-[#D2D2D2]" style="padding-bottom: 1px;"></div>
+          <div class="stripe-item flex-1 w-full h-full bg-[#D2D2D2]" style="margin-top: -1px; padding-bottom: 1px;"></div>
+          <div class="stripe-item flex-1 w-full h-full bg-[#D2D2D2]" style="margin-top: -1px; padding-bottom: 1px;"></div>
+          <div class="stripe-item flex-1 w-full h-full bg-[#D2D2D2]" style="margin-top: -1px; padding-bottom: 1px;"></div>
+          <div class="stripe-item flex-1 w-full h-full bg-[#D2D2D2]" style="margin-top: -1px; padding-bottom: 1px;"></div>
+        </div>
+
+        <!-- Foreground Typography Layer with mix-blend-difference -->
+        <div id="s3-text" class="relative z-20 w-full h-full min-h-screen flex flex-col justify-between items-center text-white py-16 sm:py-20 lg:py-24 xl:py-28">
+          
+          <!-- Top Title: Focused vision. Measured execution. -->
+          <div class="w-full max-w-[1520px] xl:max-w-[1600px] 2xl:max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 grid grid-cols-12 gap-x-6">
+            <span class="title z-3 col-span-12 lg:col-start-2 lg:col-span-11 font-display text-4xl sm:text-6xl lg:text-7xl font-bold uppercase tracking-[-0.05em] leading-[0.94] text-white">
+              Focused vision. <br>Measured execution.
+            </span>
+          </div>
+
+          <!-- Center Marquee: Inspire ✦ innovate ✦ Impact -->
+          <div class="relative w-full overflow-hidden pointer-events-none py-8 lg:py-12">
+            <div class="marquee-wrapper w-full overflow-hidden">
+              <div class="vision-marquee-anim">
+                <!-- Group 1 -->
+                <div class="shrink-0 flex items-center font-display uppercase leading-none tracking-[-0.06em] text-7xl sm:text-8xl md:text-9xl lg:text-[11.5rem] font-bold text-white">
+                  <span class="marquee-text-item">Inspire</span>
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="mx-8 sm:mx-12 lg:mx-16 w-6 sm:w-8 lg:w-10 h-6 sm:h-8 lg:h-10 mt-2 shrink-0"><line x1="20.2256" y1="0" x2="20.2256" y2="40" stroke="#D8D8D8" stroke-width="1.5"></line><line x1="40" y1="20.226" x2="0" y2="20.226" stroke="#D8D8D8" stroke-width="1.5"></line></svg>
+                  <span class="marquee-text-item lowercase">innovate</span>
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="mx-8 sm:mx-12 lg:mx-16 w-6 sm:w-8 lg:w-10 h-6 sm:h-8 lg:h-10 mt-2 shrink-0"><line x1="20.2256" y1="0" x2="20.2256" y2="40" stroke="#D8D8D8" stroke-width="1.5"></line><line x1="40" y1="20.226" x2="0" y2="20.226" stroke="#D8D8D8" stroke-width="1.5"></line></svg>
+                  <span class="marquee-text-item">Impact</span>
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="mx-8 sm:mx-12 lg:mx-16 w-6 sm:w-8 lg:w-10 h-6 sm:h-8 lg:h-10 mt-2 shrink-0"><line x1="20.2256" y1="0" x2="20.2256" y2="40" stroke="#D8D8D8" stroke-width="1.5"></line><line x1="40" y1="20.226" x2="0" y2="20.226" stroke="#D8D8D8" stroke-width="1.5"></line></svg>
+                </div>
+                <!-- Group 2 (identical duplicate for seamless infinite loop) -->
+                <div class="shrink-0 flex items-center font-display uppercase leading-none tracking-[-0.06em] text-7xl sm:text-8xl md:text-9xl lg:text-[11.5rem] font-bold text-white" aria-hidden="true">
+                  <span class="marquee-text-item">Inspire</span>
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="mx-8 sm:mx-12 lg:mx-16 w-6 sm:w-8 lg:w-10 h-6 sm:h-8 lg:h-10 mt-2 shrink-0"><line x1="20.2256" y1="0" x2="20.2256" y2="40" stroke="#D8D8D8" stroke-width="1.5"></line><line x1="40" y1="20.226" x2="0" y2="20.226" stroke="#D8D8D8" stroke-width="1.5"></line></svg>
+                  <span class="marquee-text-item lowercase">innovate</span>
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="mx-8 sm:mx-12 lg:mx-16 w-6 sm:w-8 lg:w-10 h-6 sm:h-8 lg:h-10 mt-2 shrink-0"><line x1="20.2256" y1="0" x2="20.2256" y2="40" stroke="#D8D8D8" stroke-width="1.5"></line><line x1="40" y1="20.226" x2="0" y2="20.226" stroke="#D8D8D8" stroke-width="1.5"></line></svg>
+                  <span class="marquee-text-item">Impact</span>
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="mx-8 sm:mx-12 lg:mx-16 w-6 sm:w-8 lg:w-10 h-6 sm:h-8 lg:h-10 mt-2 shrink-0"><line x1="20.2256" y1="0" x2="20.2256" y2="40" stroke="#D8D8D8" stroke-width="1.5"></line><line x1="40" y1="20.226" x2="0" y2="20.226" stroke="#D8D8D8" stroke-width="1.5"></line></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Subtitle: ✦ From idea to outcome. -->
+          <div class="w-full max-w-[1520px] xl:max-w-[1600px] 2xl:max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 pb-4 text-center">
+            <span class="title z-3 col-span-12 font-mono text-xs sm:text-sm lg:text-base tracking-[0.24em] uppercase font-bold text-white/95">
+              <span class="text-cyan-400">✦</span> From idea to outcome.
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="py-24 sm:py-36 lg:py-24 relative bg-[#F3F3F5] text-black border-y border-[#E2E2E5] z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-8">
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ WHO WE ARE
+              </span>
+              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black leading-[0.95]">
+                Why Trust Cloud Production LTD <br>
+                <span class="font-editorial italic font-normal lowercase tracking-normal text-black">to lead the</span> WAY?
+              </h2>
+              <p class="text-neutral-600 text-base sm:text-lg leading-relaxed max-w-lg font-normal">
+                Cloud Production LTD is a trusted name in software development, known for delivering high-quality, scalable, and reliable digital solutions tailored to your business needs. With years of hands-on experience across industries, we specialize in building custom software, mobile applications, web platforms, and complete business automation systems.
+              </p>
+
+              <div class="grid grid-cols-2 gap-8 pt-4 border-t border-[#D5D5D8] max-w-lg">
+                <div>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-6xl sm:text-7xl lg:text-8xl font-editorial italic text-black leading-none" id="count-members">110</span>
+                    <span class="text-3xl sm:text-4xl font-editorial italic text-neutral-500">+</span>
+                  </div>
+                  <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.15em] text-neutral-500 mt-2 font-medium">Completed Projects</p>
+                </div>
+                <div>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-6xl sm:text-7xl lg:text-8xl font-editorial italic text-black leading-none" id="count-awards">50</span>
+                    <span class="text-3xl sm:text-4xl font-editorial italic text-neutral-500">+</span>
+                  </div>
+                  <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.15em] text-neutral-500 mt-2 font-medium">Team Specialists</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="relative w-72 h-80 sm:w-96 sm:h-[420px] tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+                <div class="tilt-card-inner w-full h-full rounded-3xl overflow-hidden border border-[#D5D5D8] relative shadow-2xl group">
+                  <img src="assets/images/team-collaboration-alt.jpg" 
+                       alt="Cloud Production Creative Team" 
+                       class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                       onerror="this.src='assets/images/fallback-team-specialists.svg'">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                  
+                  <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/95 backdrop-blur-md border border-black/10 shadow-lg">
+                    <p class="text-black font-bold text-sm">Innovating Through Software Excellence</p>
+                    <p class="text-xs text-neutral-600 font-semibold font-mono">Dhaka Headquarters & Tokyo Collaboration</p>
+                  </div>
+                </div>
+
+                <div class="absolute -top-4 -left-4 w-16 h-16 border border-[#D5D5D8] rounded-2xl -z-10 animate-pulse"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="py-24 sm:py-24 lg:py-24 bg-[#050B0F] relative border-t border-[#272727]/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div class="max-w-3xl">
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white inline-flex items-center gap-2"><span class="text-cyan-400">✦</span> WHAT WE DO</span>
+              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-white mt-4 leading-[0.95]">
+                Explore Our Comprehensive <br><span class="font-editorial italic font-normal lowercase tracking-normal text-stroke">software</span> SERVICES
+              </h2>
+              <p class="text-neutral-300 text-sm sm:text-base leading-relaxed mt-4 font-normal">
+                Cloud Production incorporates the full cycle of offshore software development services. We focus on providing managed dedicated teams and developing sophisticated enterprise applications.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-teal-400/40 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div>
+                <div class="flex items-center justify-between pb-4 mb-6 border-b border-teal-400/10">
+                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">01 / WEB DEVELOPMENT</span>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] text-white group-hover:text-[#D8D8D8] transition-colors">Web Development</h3>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
+                  Our web design and development service offers expert solutions to create responsive, stunning and functional websites tailored to meet your specific needs (React, Next.js, Node.js, Angular, Laravel, ASP.NET).
+                </p>
+              </div>
+              <a href="services.html" class="inline-flex items-center gap-2 text-white group-hover:text-white transition-colors">
+                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
+              </a>
+            </div>
+
+            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-cyan-400/40 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div>
+                <div class="flex items-center justify-between pb-4 mb-6 border-b border-cyan-400/10">
+                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">02 / OFFSHORE SQUADS</span>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] gradient-cloud-text transition-colors">Offshore Development</h3>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
+                  At Cloud Production Ltd., we offer top-notch offshore development services designed to meet your software development needs efficiently and cost-effectively with managed dedicated teams.
+                </p>
+              </div>
+              <a href="services.html" class="inline-flex items-center gap-2 text-white group-hover:text-[#D8D8D8] transition-colors">
+                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
+              </a>
+            </div>
+
+            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-blue-400/40 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div>
+                <div class="flex items-center justify-between pb-4 mb-6 border-b border-blue-400/10">
+                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">03 / GEN AI & LLMS</span>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] text-white group-hover:text-white transition-colors">AI Integration</h3>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
+                  Elevate your business with our cutting-edge AI integration expertise. We seamlessly merge artificial intelligence, RAG pipelines, autonomous agent swarms, and vector databases into your operations.
+                </p>
+              </div>
+              <a href="services.html" class="inline-flex items-center gap-2 text-white group-hover:text-white transition-colors">
+                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
+              </a>
+            </div>
+
+            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-teal-500/40 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div>
+                <div class="flex items-center justify-between pb-4 mb-6 border-b border-teal-500/10">
+                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">04 / CUSTOM SYSTEMS</span>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] text-white group-hover:text-[#D8D8D8] transition-colors">Software Development</h3>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
+                  Cloud Production Limited provides high quality and reliable software development related services. We focus on your specific needs with scalable cloud-native architectures that match your budget and timeframe.
+                </p>
+              </div>
+              <a href="services.html" class="inline-flex items-center gap-2 text-white group-hover:text-white transition-colors">
+                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
+              </a>
+            </div>
+
+            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-cyan-500/40 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div>
+                <div class="flex items-center justify-between pb-4 mb-6 border-b border-cyan-500/10">
+                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">05 / MOBILE APPS</span>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] text-white group-hover:text-white transition-colors">Mobile App Development</h3>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
+                  Cloud Production Ltd is dedicated to crafting exceptional mobile applications (iOS, Android, Flutter, React Native, Kotlin) that cater to your specific enterprise and consumer user needs.
+                </p>
+              </div>
+              <a href="services.html" class="inline-flex items-center gap-2 text-white group-hover:text-white transition-colors">
+                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
+              </a>
+            </div>
+
+            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-blue-500/40 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div>
+                <div class="flex items-center justify-between pb-4 mb-6 border-b border-blue-500/10">
+                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">06 / GAME DEV</span>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] text-white group-hover:text-[#D8D8D8] transition-colors">Game Development</h3>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
+                  We specialize in delivering AAA-type game development services that cater to the diverse needs of the gaming industry. Powered by a team of highly skilled and passionate game developers.
+                </p>
+              </div>
+              <a href="services.html" class="inline-flex items-center gap-2 text-white group-hover:text-white transition-colors">
+                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Cloud Production LTD: Core Technologies Marquee Ribbon -->
+          <div class="mt-20 pt-12 border-t border-cyan-400/10">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.2em] text-neutral-400"><span class="text-cyan-400">✦</span> OUR CORE TECHNOLOGIES</span>
+              <span class="text-xs font-mono text-neutral-500 uppercase tracking-wider">World-Class Enterprise Stack</span>
+            </div>
+            <div class="relative w-full overflow-hidden py-3 bg-[#08080A] rounded-2xl border border-cyan-400/10">
+              <div class="animate-marquee whitespace-nowrap flex items-center gap-8 text-neutral-300 font-mono text-xs uppercase tracking-wider font-semibold">
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Python & Django</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> React & Next.js</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Flutter & Dart</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> C# & .NET Core</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Node.js & Express</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Java & Spring</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> PHP & Laravel</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Android & Kotlin</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Ruby on Rails</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> LangChain & CrewAI</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> OpenAI & Claude</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Pinecone Vector DB</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> AWS & Docker</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> PostgreSQL & Redis</span>
+                <!-- Repeat for infinite marquee effect -->
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Python & Django</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> React & Next.js</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Flutter & Dart</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> C# & .NET Core</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Node.js & Express</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Java & Spring</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> PHP & Laravel</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Android & Kotlin</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Ruby on Rails</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> LangChain & CrewAI</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> OpenAI & Claude</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> Pinecone Vector DB</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> AWS & Docker</span>
+                <span class="flex items-center gap-2"><span class="text-cyan-400">✦</span> PostgreSQL & Redis</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="py-24 sm:py-24 lg:py-24 relative bg-[#F3F3F5] text-black border-y border-[#E2E2E5] z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ PROVEN TRACK RECORD
+              </span>
+              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black mt-3 leading-[0.95]">
+                Selected Production <br><span class="font-editorial italic font-normal lowercase tracking-normal text-black">featured</span> CASE STUDIES
+              </h2>
+              <p class="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-xl font-normal mt-3">
+                We go the extra mile in all our projects, carefully analyzing requirements through launch to deliver the best fit for your business case.
+              </p>
+              <a href="portfolio.html" class="inline-flex items-center gap-2 mt-5 font-mono text-xs font-bold uppercase tracking-wider text-black border-b-2 border-black pb-0.5 hover:gap-3 transition-all">
+                View Full Portfolio <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+            
+            <div class="flex flex-wrap gap-2">
+              <button onclick="filterPortfolio('all', this)" class="portfolio-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-black text-white border border-black transition-all">All</button>
+              <button onclick="filterPortfolio('web', this)" class="portfolio-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-[#D5D5D8] hover:border-black transition-all">Web</button>
+              <button onclick="filterPortfolio('app', this)" class="portfolio-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-[#D5D5D8] hover:border-black transition-all">Apps</button>
+              <button onclick="filterPortfolio('game', this)" class="portfolio-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-[#D5D5D8] hover:border-black transition-all">Games</button>
+              <button onclick="filterPortfolio('ai-projects', this)" class="portfolio-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-[#D5D5D8] hover:border-black transition-all">AI Projects</button>
+            </div>
+          </div>
+
+          <!-- One real, representative project per portfolio.html category -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="portfolio-grid">
+
+            <div class="portfolio-item web group relative rounded-3xl overflow-hidden bg-[#0C0C0C] border border-[#272727] hover:border-teal-400/40 transition-all tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div class="tilt-card-inner aspect-[3/4] overflow-hidden relative bg-[#f3f3f5]">
+                <img src="assets/images/portfolio-live/cloud-hr-track.png"
+                     alt="Cloud HR Track"
+                     class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+                <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                  <div>
+                    <span class="text-[10px] font-mono uppercase font-bold text-[#D8D8D8] tracking-widest">Web</span>
+                    <h4 class="text-xl font-display font-bold text-white group-hover:text-white transition-colors mt-1 tracking-tight">Cloud HR Track</h4>
+                    <p class="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">Cloud-Based HR Management Platform</p>
+                  </div>
+                  <a href="portfolio.html" class="w-9 h-9 shrink-0 rounded-full bg-teal-400/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-teal-400 group-hover:text-black transition-all">
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item app group relative rounded-3xl overflow-hidden bg-[#0C0C0C] border border-[#272727] hover:border-blue-400/40 transition-all tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div class="tilt-card-inner aspect-[3/4] overflow-hidden relative bg-[#f3f3f5]">
+                <img src="assets/images/portfolio-live/id-check-app.png"
+                     alt="ID Check KYC App"
+                     class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+                <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                  <div>
+                    <span class="text-[10px] uppercase font-bold text-white tracking-widest">Apps</span>
+                    <h4 class="text-xl font-display font-bold text-white group-hover:text-white transition-colors mt-1 tracking-tight">ID Check KYC</h4>
+                    <p class="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">Mobile Identity Verification App</p>
+                  </div>
+                  <a href="portfolio.html" class="w-9 h-9 shrink-0 rounded-full bg-blue-400/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-blue-400 group-hover:text-black transition-all">
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item game group relative rounded-3xl overflow-hidden bg-[#0C0C0C] border border-[#272727] hover:border-amber-400/40 transition-all tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div class="tilt-card-inner aspect-[3/4] overflow-hidden relative bg-[#f3f3f5]">
+                <img src="assets/images/portfolio-live/word-game.png"
+                     alt="Word Android Game"
+                     class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+                <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                  <div>
+                    <span class="text-[10px] font-mono uppercase font-bold text-[#D8D8D8] tracking-widest">Games</span>
+                    <h4 class="text-xl font-display font-bold text-white group-hover:text-[#D8D8D8] transition-colors mt-1 tracking-tight">Word Android Game</h4>
+                    <p class="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">Mobile Vocabulary Puzzle Game</p>
+                  </div>
+                  <a href="portfolio.html" class="w-9 h-9 shrink-0 rounded-full bg-amber-400/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-amber-400 group-hover:text-black transition-all">
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item ai-projects group relative rounded-3xl overflow-hidden bg-[#0C0C0C] border border-[#272727] hover:border-emerald-400/40 transition-all tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div class="tilt-card-inner aspect-[3/4] overflow-hidden relative bg-[#f3f3f5]">
+                <img src="assets/images/portfolio-live/b2b-marketing.png"
+                     alt="AI-Powered B2B Marketing Platform"
+                     class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-[9px] font-mono font-bold uppercase tracking-widest backdrop-blur-md">Upcoming</span>
+
+                <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                  <div>
+                    <span class="text-[10px] uppercase font-bold text-white tracking-widest">AI Projects</span>
+                    <h4 class="text-lg font-display font-bold text-white group-hover:text-[#D8D8D8] transition-colors mt-1 tracking-tight leading-snug">AI B2B Marketing Platform</h4>
+                    <p class="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">AI-Driven Lead Discovery & Outreach</p>
+                  </div>
+                  <a href="portfolio.html" class="w-9 h-9 shrink-0 rounded-full bg-emerald-400/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-emerald-400 group-hover:text-black transition-all">
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      
+      <!-- Trionn Dribbble / Creative Lab Section: DESIGN IN MOTION -->
+      <section id="dribbble-section" class="relative min-h-screen h-screen w-full overflow-hidden select-none bg-[#C3C3C3]">
+        
+        <!-- Background Large Typography: DESIGN IN ... MOTION (Exact Trionn 1:1 Architecture) -->
+        <div class="pointer-events-none select-none dribble-title absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full overflow-visible whitespace-nowrap z-0" style="z-index: 5;">
+          <div class="flex flex-col w-full overflow-visible">
+            <h2 id="dribbble-top-word" class="text-[#1F1F21] relative font-display leading-[0.8] uppercase font-bold text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] tracking-[-0.05em] will-change-transform self-start opacity-0" style="transform: translate3d(-550px, 0px, 0px);">
+              Design in
+            </h2>
+            <span id="dribbble-subtitle" class="text-[#444447] relative font-mono text-xs sm:text-sm tracking-[0.24em] uppercase font-bold my-2 sm:my-3 mx-auto text-center opacity-0 will-change-transform" style="transform: translate3d(0px, 20px, 0px);">
+              Exploring ideas through daily design practice.
+            </span>
+            <h2 id="dribbble-bottom-word" class="text-[#1F1F21] relative font-display leading-[0.8] uppercase font-bold text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] tracking-[-0.05em] will-change-transform self-end text-right opacity-0" style="transform: translate3d(550px, 0px, 0px);">
+              motion
+            </h2>
+          </div>
+        </div>
+
+        <!-- Middle Layer: Three.js 3D Curved Project Cards Canvas -->
+        <!-- Ambient Studio Frosted Glass Blur Layer (Activated on Card Inspection - Blurs all background elements into a dreamy luxury bokeh) -->
+        <div id="dribbble-inspection-blur" class="absolute inset-0 z-10 pointer-events-none opacity-0 transition-opacity duration-600 ease-out" style="z-index: 10; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); background: radial-gradient(circle at 35% 50%, rgba(224, 226, 232, 0.76) 0%, rgba(180, 182, 192, 0.86) 100%);"></div>
+
+        <canvas id="dribbble-canvas" class="absolute inset-0 w-full h-full z-20 cursor-pointer" style="z-index: 20;"></canvas>
+
+        <!-- Foreground UI Layer (1:1 Trionn Container Architecture - Pure Uncluttered Design) -->
+        <div class="tr__container relative z-20 w-full h-full min-h-screen flex flex-col justify-between items-center pb-10 sm:pb-12 px-6 sm:px-10 lg:px-16 pointer-events-none" style="z-index: 25;">
+          
+          <!-- Open Header Space for 3D Cards flow -->
+          <div class="hidden md:block flex-1"></div>
+
+          <!-- Bottom Row: Exact Trionn Philosophy, Quick Selector & Signature View on Dribbble Button -->
+          <div id="dribbble-bottom-row" class="w-full max-w-[1520px] mx-auto flex flex-col md:flex-row items-center md:items-end justify-between gap-6 pointer-events-auto transition-opacity duration-500">
+            <div class="max-w-xs text-center md:text-left">
+              <p class="font-mono text-xs sm:text-sm text-[#222225] leading-relaxed font-semibold">
+                Concepts, explorations, and interface <br class="hidden sm:inline">experiments shared openly as part of <br class="hidden sm:inline">our creative process.
+              </p>
+            </div>
+
+            <!-- Quick Project Selector Pills (01 to 08) -->
+            <div class="flex items-center gap-1.5 p-1.5 rounded-full bg-[#111113]/8 border border-[#111113]/15 backdrop-blur-md shadow-xs">
+              <span class="hidden xl:inline text-[9px] font-mono font-bold text-[#555558] uppercase pl-2 pr-1">PROJECTS:</span>
+              <button onclick="selectDribbbleCard(0)" title="01 / Elmi Laboratory" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">01</button>
+              <button onclick="selectDribbbleCard(1)" title="02 / Floor Inventory" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">02</button>
+              <button onclick="selectDribbbleCard(2)" title="03 / ID Check KYC" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">03</button>
+              <button onclick="selectDribbbleCard(3)" title="04 / Word Android Game" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">04</button>
+              <button onclick="selectDribbbleCard(4)" title="05 / Japanese E-Commerce" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">05</button>
+              <button onclick="selectDribbbleCard(5)" title="06 / Enterprise ERP" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">06</button>
+              <button onclick="selectDribbbleCard(6)" title="07 / Agentic RAG Engine" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">07</button>
+              <button onclick="selectDribbbleCard(7)" title="08 / Cloud Telehealth & IoT" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">08</button>
+            </div>
+
+            <!-- Trionn Signature Button with Dual-Underline Wipe -->
+            <div class="button_wrapper relative uppercase transition-opacity duration-300 hover:opacity-95 shrink-0">
+              <a target="_blank" class="trionn-btn relative inline-flex items-center gap-3 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F1F21] pb-1 cursor-pointer no-underline" href="https://dribbble.com/trionnstudio">
+                <span class="underline pointer-events-none absolute inset-x-0 bottom-0 h-[2px]">
+                  <span class="u-right absolute inset-x-0 bottom-0 h-[2px] bg-[#1F1F21] scale-x-100 will-change-transform"></span>
+                  <span class="u-left absolute inset-x-0 bottom-0 h-[2px] bg-[#1F1F21] scale-x-0 will-change-transform"></span>
+                </span>
+                <span class="word relative inline-flex tracking-wider">View on Dribbble</span>
+                <span class="btn-arrow inline-flex items-center justify-center pl-1">
+                  <svg width="11" height="10" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="#1F1F21"></path></svg>
+                </span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+                <!-- Interactive Project Inspection Detail Panel (Triggered when any 3D card is clicked) -->
+        <div id="dribbble-inspect-overlay" class="absolute inset-0 z-30 flex items-center justify-end px-6 sm:px-12 lg:px-20 pointer-events-none opacity-0 transition-opacity duration-500" style="z-index: 30;">
+          
+          <div id="dribbble-inspect-content" class="relative overflow-hidden w-full max-w-xl rounded-[2.2rem] p-6 sm:p-8 md:p-10 transform translate-x-12 transition-all duration-500 max-h-[88vh] overflow-y-auto pointer-events-auto" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.38) 38%, rgba(246, 248, 255, 0.48) 72%, rgba(255, 255, 255, 0.64) 100%); backdrop-filter: blur(54px) saturate(240%) brightness(106%); -webkit-backdrop-filter: blur(54px) saturate(240%) brightness(106%); border: 1px solid rgba(255, 255, 255, 0.92); box-shadow: 0 45px 120px -20px rgba(0, 0, 0, 0.18), 0 20px 45px -12px rgba(0, 0, 0, 0.07), 0 0 75px -10px rgba(255, 255, 255, 0.75), inset 0 2px 3px 0 rgba(255, 255, 255, 1.0), inset 1.5px 0 2px 0 rgba(255, 255, 255, 0.90), inset -1px 0 2px 0 rgba(255, 255, 255, 0.50), inset 0 -2px 3px 0 rgba(0, 0, 0, 0.04);">
+            
+            <!-- Luminous Specular Glare & Optical Glass Refraction Layers -->
+            <div class="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-white/80 via-white/25 to-transparent pointer-events-none rounded-t-[2.2rem]"></div>
+            <div class="absolute -top-40 -left-40 w-[180%] h-80 bg-gradient-to-br from-white/45 via-white/12 to-transparent -rotate-15 pointer-events-none blur-sm"></div>
+            <div class="absolute top-1/4 right-0 w-72 h-72 rounded-full bg-gradient-to-br from-cyan-200/25 via-indigo-100/20 to-transparent blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-white/35 blur-2xl pointer-events-none"></div>
+            <!-- Header: Project Counter, Code & Close Button -->
+            <div class="flex items-center justify-between border-b border-[#111113]/10 pb-4 mb-6">
+              <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#111113] animate-pulse"></span>
+                <span id="inspect-counter" class="font-mono text-xs font-bold tracking-widest text-[#111113] uppercase">
+                  PROJECT 01 / 08
+                </span>
+                <span class="text-[#88888B]">•</span>
+                <span id="inspect-code" class="font-mono text-xs font-semibold text-[#555558]">
+                  CPL #011
+                </span>
+              </div>
+
+              <button id="inspect-close-btn" class="group flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/70 hover:bg-[#111113] hover:text-white border border-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] backdrop-blur-md transition-all text-xs font-mono font-bold text-[#111113] cursor-pointer">
+                <span>CLOSE</span>
+                <i data-lucide="x" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+
+            <!-- Title & Category -->
+            <div class="space-y-2">
+              <span id="inspect-category" class="inline-block font-mono text-[11px] font-bold uppercase tracking-wider text-[#111113] px-4 py-1.5 rounded-full bg-white/70 border border-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] backdrop-blur-md">
+                Healthcare & Diagnostics
+              </span>
+              <h3 id="inspect-title" class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-[#111113] leading-[0.95]">
+                ELMI LABORATORY
+              </h3>
+              <p id="inspect-headline" class="font-display text-xl sm:text-2xl font-bold uppercase text-[#444448] tracking-tight">
+                DIAGNOSTIC PORTAL
+              </p>
+            </div>
+
+            <!-- Narrative / Descriptions -->
+            <div class="mt-6 space-y-3 font-mono text-xs sm:text-sm text-[#2D2D31] leading-relaxed border-t border-[#111113]/10 pt-5">
+              <p id="inspect-desc" class="font-semibold text-[#111113]">
+                Medical lab test platform with real-time appointment booking, test catalog, and automated patient report delivery.
+              </p>
+              <p id="inspect-overview" class="text-[#4A4A4E] text-xs leading-relaxed">
+                A full-cycle medical diagnostic portal engineered for Elmi Laboratory, streamlining clinical test appointments, automated barcode sample tracking, and instant PDF report delivery with end-to-end security.
+              </p>
+            </div>
+
+            <!-- Metadata Grid: Role, Client, Metrics, Timeline -->
+            <div class="grid grid-cols-2 gap-3.5 my-6 py-4 border-y border-[#111113]/10 font-mono text-[11px]">
+              <div class="p-4 rounded-2xl bg-white/45 hover:bg-white/60 border border-white/80 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1.5px_rgba(255,255,255,0.9)] backdrop-blur-md transition-all">
+                <span class="text-[#68686D] uppercase tracking-wider text-[9px] block font-bold">DISCIPLINE</span>
+                <span id="inspect-role" class="font-bold text-[#111113] mt-0.5 block">Full-Stack Web • Patient Portal</span>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/45 hover:bg-white/60 border border-white/80 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1.5px_rgba(255,255,255,0.9)] backdrop-blur-md transition-all">
+                <span class="text-[#68686D] uppercase tracking-wider text-[9px] block font-bold">COLLABORATION</span>
+                <span id="inspect-client" class="font-bold text-[#111113] mt-0.5 block">Elmi Diagnostic Centre</span>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/45 hover:bg-white/60 border border-white/80 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1.5px_rgba(255,255,255,0.9)] backdrop-blur-md transition-all">
+                <span class="text-[#68686D] uppercase tracking-wider text-[9px] block font-bold">PERFORMANCE</span>
+                <span id="inspect-metrics" class="font-bold text-[#111113] mt-0.5 block">10k+ Monthly Bookings • Zero Downtime</span>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/45 hover:bg-white/60 border border-white/80 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1.5px_rgba(255,255,255,0.9)] backdrop-blur-md transition-all">
+                <span class="text-[#68686D] uppercase tracking-wider text-[9px] block font-bold">TIMELINE</span>
+                <span id="inspect-year" class="font-bold text-[#111113] mt-0.5 block">Production Verified</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons & Scroll Hint -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
+              <a id="inspect-link" href="https://dribbble.com" target="_blank" rel="noopener noreferrer"
+                 class="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#111113] text-white hover:bg-neutral-800 font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-md">
+                <span>VIEW ON DRIBBBLE</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+              </a>
+
+              <span class="font-mono text-[10px] text-[#666669] flex items-center gap-1.5">
+                <i data-lucide="mouse" class="w-3.5 h-3.5"></i>
+                <span>Scroll down/up to resume 3D stream</span>
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+                <!-- 5 Dark Cascading Transition Stripes (Rises from bottom to transition to dark section) -->
+        <div class="dribble-stripes-container absolute inset-0 pointer-events-none flex flex-col w-full h-full z-40" style="z-index: 40;">
+          <div class="dribble-stripe-item flex-1 w-full h-full bg-[#040508]" style="transform: scaleY(0); transform-origin: bottom center; will-change: transform; padding-bottom: 1px;"></div>
+          <div class="dribble-stripe-item flex-1 w-full h-full bg-[#040508]" style="transform: scaleY(0); transform-origin: bottom center; will-change: transform; margin-top: -1px; padding-bottom: 1px;"></div>
+          <div class="dribble-stripe-item flex-1 w-full h-full bg-[#040508]" style="transform: scaleY(0); transform-origin: bottom center; will-change: transform; margin-top: -1px; padding-bottom: 1px;"></div>
+          <div class="dribble-stripe-item flex-1 w-full h-full bg-[#040508]" style="transform: scaleY(0); transform-origin: bottom center; will-change: transform; margin-top: -1px; padding-bottom: 1px;"></div>
+          <div class="dribble-stripe-item flex-1 w-full h-full bg-[#040508]" style="transform: scaleY(0); transform-origin: bottom center; will-change: transform; margin-top: -1px; padding-bottom: 1px;"></div>
+        </div>
+
+      </section>
+
+<section class="py-24 sm:py-24 lg:py-24 bg-[#050B0F] border-y border-[#272727]/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-8">
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white inline-flex items-center gap-2"><span class="text-cyan-400">✦</span> OUR PROMISE TO YOU</span>
+              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-white leading-[0.95]">
+                Why Trust Cloud Production LTD <br><span class="font-editorial italic font-normal lowercase tracking-normal text-[#D8D8D8]">to lead the</span> WAY?
+              </h2>
+              <p class="text-neutral-300 text-sm sm:text-base leading-relaxed max-w-xl">
+                Our strength lies in our client-focused approach, technical expertise, and commitment to innovation. Whether it’s streamlining operations or integrating advanced AI — we keep your business ahead.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-teal-400/10">
+                    <span class="font-mono text-xs text-white font-semibold tracking-[0.2em] uppercase">PILLAR 01</span>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-600"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                  </div>
+                  <h4 class="text-white font-display font-bold text-base mb-1.5 tracking-tight">Custom Solutions</h4>
+                  <p class="text-neutral-400 text-xs leading-relaxed">
+                    Tailored software built directly around your operational processes, business logic, and scaling goals.
+                  </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-cyan-400/10">
+                    <span class="font-mono text-xs text-[#D8D8D8] font-semibold tracking-[0.2em] uppercase">PILLAR 02</span>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-600"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                  </div>
+                  <h4 class="text-white font-display font-bold text-base mb-1.5 tracking-tight">Scalable Architecture</h4>
+                  <p class="text-neutral-400 text-xs leading-relaxed">
+                    Modern cloud-native foundations engineered to scale seamlessly across global regions without friction.
+                  </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-blue-400/10">
+                    <span class="font-mono text-xs text-white font-semibold tracking-[0.2em] uppercase">PILLAR 03</span>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-600"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                  </div>
+                  <h4 class="text-white font-display font-bold text-base mb-1.5 tracking-tight">Transparent Delivery</h4>
+                  <p class="text-neutral-400 text-xs leading-relaxed">
+                    Continuous communication, daily/weekly sprint demos, and agile workflows with clear milestones.
+                  </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-cyan-500/10">
+                    <span class="font-mono text-xs text-[#D8D8D8] font-semibold tracking-[0.2em] uppercase">PILLAR 04</span>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-600"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                  </div>
+                  <h4 class="text-white font-display font-bold text-base mb-1.5 tracking-tight">Ongoing Support</h4>
+                  <p class="text-neutral-400 text-xs leading-relaxed">
+                    Long-term partnership mindset with ongoing 24/7 maintenance, security patches, and strategic growth.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-teal-400/30 via-cyan-400/15 to-blue-500/10 shadow-[0_0_80px_rgba(6,182,212,0.08)] flex items-center justify-center animate-pulse-glow">
+                <div class="w-full h-full rounded-full bg-[#0C0C0C] border-4 border-[#272727] flex flex-col items-center justify-center text-center p-6 relative overflow-hidden">
+                  <div class="absolute inset-0 bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+                  
+                  <span class="text-[11px] font-mono uppercase font-bold tracking-[0.16em] gradient-cloud-text mb-2">✦ GLOBAL IMPACT</span>
+                  <span class="text-7xl sm:text-8xl font-editorial italic text-white tracking-tight leading-none">110<span class="text-white">+</span></span>
+                  <span class="text-xs sm:text-sm font-mono uppercase font-bold tracking-widest text-neutral-300 mt-2">Projects Delivered</span>
+                  <p class="text-[11px] font-mono text-neutral-400 mt-1">Across 15+ Countries & Japan</p>
+                  <div class="flex items-center gap-2 text-white mt-2 select-none">
+                    <span class="text-xs text-teal-400/70">✦</span>
+                    <span class="text-sm text-cyan-400 animate-pulse">✦</span>
+                    <span class="text-xs text-blue-400/70">✦</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section id="pricing-section" class="py-24 sm:py-24 lg:py-24 relative bg-[#F3F3F5] text-black border-y border-[#E2E2E5] z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ FLEXIBLE ENGAGEMENT
+              </span>
+              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black mt-3 leading-[0.95]">
+                Engagement Models For <br><span class="font-editorial italic font-normal lowercase tracking-normal text-black">tailored</span> SOFTWARE DELIVERY
+              </h2>
+              <p class="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-xl font-normal mt-3">
+                Transparent project scopes and dedicated offshore developer models that match your budget and scaling timeframe.
+              </p>
+            </div>
+
+            <!-- Billing Toggle: Project-Based / Monthly Squad -->
+            <div class="flex items-center p-1.5 rounded-full bg-white border border-[#D5D5D8] shadow-sm">
+              <button id="btn-monthly" onclick="setBilling('monthly')" class="px-5 py-2 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-black text-white transition-all">Project Scope</button>
+              <button id="btn-yearly" onclick="setBilling('yearly')" class="px-5 py-2 rounded-full font-mono text-xs font-bold uppercase tracking-wider text-neutral-600 hover:text-black transition-all">Dedicated Monthly Squad</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            
+            <div class="rounded-3xl p-8 bg-white border border-[#D5D5D8] hover:border-black flex flex-col justify-between transition-all tilt-card shadow-sm hover:shadow-xl" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div>
+                <div class="flex items-center justify-between pb-4 mb-5 border-b border-[#E5E5E7]">
+                  <span class="font-mono text-xs font-semibold text-neutral-500 tracking-[0.2em] uppercase">TIER 01 / DISCOVERY & MVP</span>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-400"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-black mb-1.5 tracking-tight">MVP & Web Sprint</h3>
+                <p class="text-xs text-neutral-500 mb-6 font-mono">Rapid prototyping & core product build.</p>
+                <div class="flex items-baseline gap-1 mb-8">
+                  <span class="text-4xl sm:text-5xl font-editorial italic text-black price-val leading-none" data-base="1000">$1k–$5k</span>
+                  <span class="text-xs font-mono text-neutral-500 tracking-wider uppercase period-val">/ project</span>
+                </div>
+
+                <ul class="space-y-3 font-sans text-xs sm:text-sm text-neutral-700">
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Complete UI/UX Wireframes & Design</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Responsive Web or Mobile App Build</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> RESTful API & Database Integration</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Quality Assurance & Testing Suite</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> 30 Days Post-Deployment Support</li>
+                </ul>
+              </div>
+
+              <button onclick="openContactModal()" class="mt-8 w-full py-3.5 rounded-full border border-[#D5D5D8] hover:border-transparent bg-[#F5F5F7] text-black hover:bg-gradient-to-r hover:from-teal-500 hover:to-blue-500 hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all">
+                Book Consultation
+              </button>
+            </div>
+
+            <div class="relative rounded-3xl p-8 bg-[#0C0C0C] border-2 border-black shadow-2xl flex flex-col justify-between transition-all tilt-card text-white" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 gradient-cloud-bg text-black text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+                Most Popular
+              </div>
+              <div>
+                <div class="flex items-center justify-between pb-4 mb-5 border-b border-cyan-400/10">
+                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">TIER 02 / MANAGED SQUAD</span>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-white mb-1.5 tracking-tight">Dedicated Offshore Squad</h3>
+                <p class="text-xs text-neutral-400 mb-6 font-mono">Full-time managed engineering team.</p>
+                <div class="flex items-baseline gap-1 mb-8">
+                  <span class="text-4xl sm:text-5xl font-editorial italic text-white price-val leading-none" data-base="4500">$5k–$10k</span>
+                  <span class="text-xs font-mono text-neutral-400 tracking-wider uppercase period-val">/ month</span>
+                </div>
+
+                <ul class="space-y-3 font-sans text-xs sm:text-sm text-neutral-200">
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white shrink-0"></i> Dedicated Full-Stack Engineers & Tech Lead</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white shrink-0"></i> Agile Sprints & Daily Standup Reporting</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white shrink-0"></i> Fluent English & Japanese Support Alignment</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white shrink-0"></i> Complete Code Ownership & IP Protection</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white shrink-0"></i> Seamless Scale-up / Scale-down Flexibility</li>
+                </ul>
+              </div>
+
+              <button onclick="openContactModal()" class="mt-8 w-full py-4 rounded-full gradient-cloud-bg text-black hover:opacity-90 font-mono text-xs font-bold uppercase tracking-wider shadow-lg transition-all">
+                Hire Dedicated Squad
+              </button>
+            </div>
+
+            <div class="rounded-3xl p-8 bg-white border border-[#D5D5D8] hover:border-black flex flex-col justify-between transition-all tilt-card shadow-sm hover:shadow-xl" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+              <div>
+                <div class="flex items-center justify-between pb-4 mb-5 border-b border-[#E5E5E7]">
+                  <span class="font-mono text-xs font-semibold text-neutral-500 tracking-[0.2em] uppercase">TIER 03 / CUSTOM ENTERPRISE</span>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-400"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-black mb-1.5 tracking-tight">Enterprise & AI Suite</h3>
+                <p class="text-xs text-neutral-500 mb-6 font-mono">Bespoke ERP, Automation & AI.</p>
+                <div class="flex items-baseline gap-1 mb-8">
+                  <span class="text-4xl sm:text-5xl font-editorial italic text-black price-val leading-none" data-base="10000">$10k+</span>
+                  <span class="text-xs font-mono text-neutral-500 tracking-wider uppercase period-val">/ custom</span>
+                </div>
+
+                <ul class="space-y-3 font-sans text-xs sm:text-sm text-neutral-700">
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Custom Enterprise ERP & Automation</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Generative AI, RAG & Vector DB Integration</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> High-Throughput Cloud Microservices</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> ISO / Security Compliant Architecture</li>
+                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> 24/7 Dedicated SLA & Critical Care</li>
+                </ul>
+              </div>
+
+              <button onclick="openContactModal()" class="mt-8 w-full py-3.5 rounded-full border border-[#D5D5D8] hover:border-transparent bg-[#F5F5F7] text-black hover:bg-gradient-to-r hover:from-teal-500 hover:to-blue-500 hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all">
+                Request Custom Proposal
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section class="py-24 sm:py-24 lg:py-24 relative overflow-hidden bg-[#050B0F]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="relative w-full max-w-sm sm:max-w-md tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+                <div class="absolute inset-0 bg-gradient-to-tr from-teal-400/15 via-cyan-400/10 to-blue-500/5 rounded-3xl blur-3xl opacity-20"></div>
+                <div class="tilt-card-inner w-full aspect-[4/3] rounded-3xl overflow-hidden border border-cyan-400/10 relative shadow-2xl">
+                  <img src="assets/images/testimonial-team-event.jpg"
+                       alt="Cloud Production Ltd team celebrating together"
+                       class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-transparent"></div>
+                  <span class="absolute bottom-4 left-5 right-5 text-[11px] font-mono uppercase tracking-widest text-white/90">The Cloud Production Team</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-6">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white inline-flex items-center gap-2"><span class="text-cyan-400">✦</span> CLIENT TESTIMONIALS</span>
+                <span class="text-7xl font-editorial italic text-cyan-400/30 leading-none">”</span>
+              </div>
+
+              <div id="testimonial-box" class="p-8 rounded-3xl bg-[#0C0C0C] border border-[#272727] relative transition-all duration-300">
+                <p id="testimonial-text" class="text-neutral-100 text-xl sm:text-2xl font-editorial italic leading-relaxed mb-8 min-h-[400px] sm:min-h-[320px] md:min-h-[240px] lg:min-h-[360px] xl:min-h-[280px]">
+                  "I wanted to express our sincere gratitude for the long-standing collaboration with CPL technical team. Over the years, your team has consistently demonstrated professionalism and excellence, delivering results that exceeded our expectations. Your technical expertise, timely deliveries, effective communication, problem-solving skills, and proficiency in Japanese support have made our partnership invaluable. We look forward to continuing this successful collaboration in future projects."
+                </p>
+                <div class="flex items-center justify-between pt-4 border-t border-[#272727]">
+                  <div class="flex items-center gap-3">
+                    <img id="testimonial-avatar" src="assets/images/testimonial-takuya-sato.jpg" alt="Avatar" class="w-12 h-12 rounded-full object-cover ring-2 ring-cyan-400">
+                    <div>
+                      <h4 id="testimonial-author" class="text-white font-bold text-sm">Mr. Takuya Sato</h4>
+                      <p id="testimonial-role" class="text-xs font-mono tracking-wider uppercase text-white font-medium">CEO, Arousal Tech Japan</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <button onclick="prevTestimonial()" class="p-2 rounded-lg bg-neutral-900 border border-neutral-700 text-white hover:text-white transition-colors">
+                      <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="nextTestimonial()" class="p-2 rounded-lg bg-neutral-900 border border-neutral-700 text-white hover:text-white transition-colors">
+                      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Articles Section -->
+      <section class="py-24 sm:py-24 lg:py-24 relative bg-[#F3F3F5] text-black border-y border-[#E2E2E5] z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ INSIGHTS & ARTICLES
+              </span>
+              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black mt-3 leading-[0.95]">
+                Our Latest News & Blog <br><span class="font-editorial italic font-normal lowercase tracking-normal text-black">curated</span> PERSPECTIVES
+              </h2>
+            </div>
+            <div>
+              <button onclick="navigateTo('blog')" class="px-6 py-3 rounded-full border border-[#D5D5D8] hover:border-black bg-white font-mono text-xs font-bold uppercase tracking-wider text-black transition-all">
+                Browse All Insights
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <article class="group rounded-3xl overflow-hidden bg-white border border-[#D5D5D8] hover:border-black shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+              <div>
+                <div class="aspect-[16/10] overflow-hidden relative">
+                  <img src="assets/images/portfolio-rag-engine.jpg" 
+                       alt="Enterprise RAG and LLMs" 
+                       class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                       onerror="this.src='assets/images/fallback-ai-rag.svg'">
+                  <span class="absolute top-4 left-4 bg-white/95 text-black font-mono font-bold text-[10px] uppercase tracking-widest px-3.5 py-1 rounded-full border border-black/10 shadow-sm">
+                    Gen AI & LLM
+                  </span>
+                </div>
+                <div class="p-6">
+                  <span class="text-neutral-500 font-mono text-[11px] tracking-wide">October 2026 • 5 min read</span>
+                  <h3 class="text-xl sm:text-2xl font-display font-bold text-black mt-3 mb-3 leading-snug tracking-[-0.025em] group-hover:text-neutral-700 transition-colors">
+                    Building Context-Aware Enterprise RAG Systems with LLMs and Vector Databases
+                  </h3>
+                  <p class="text-neutral-600 text-xs leading-relaxed">
+                    How combining LangChain, Pinecone, and Claude/OpenAI enables intelligent document search and zero-hallucination business Q&A.
+                  </p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-0">
+                <a href="javascript:void(0)" onclick="showToast('Article opened in reader mode')" class="font-mono text-xs font-bold uppercase tracking-wider text-black flex items-center gap-2 group-hover:gap-3 transition-all">
+                  Read Article <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="group rounded-3xl overflow-hidden bg-white border border-[#D5D5D8] hover:border-black shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+              <div>
+                <div class="aspect-[16/10] overflow-hidden relative">
+                  <img src="assets/images/team-collaboration-alt.jpg" 
+                       alt="Dhaka to Tokyo Offshore Collaboration" 
+                       class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                       onerror="this.src='assets/images/fallback-offshore.svg'">
+                  <span class="absolute top-4 left-4 bg-white/95 text-black font-mono font-bold text-[10px] uppercase tracking-widest px-3.5 py-1 rounded-full border border-black/10 shadow-sm">
+                    Offshore Engineering
+                  </span>
+                </div>
+                <div class="p-6">
+                  <span class="text-neutral-500 font-mono text-[11px] tracking-wide">October 2026 • 6 min read</span>
+                  <h3 class="text-xl sm:text-2xl font-display font-bold text-black mt-3 mb-3 leading-snug tracking-[-0.025em] group-hover:text-neutral-700 transition-colors">
+                    Bridging Dhaka to Tokyo: The Blueprint for High-Velocity Offshore Collaboration
+                  </h3>
+                  <p class="text-neutral-600 text-xs leading-relaxed">
+                    Inside our engineering methodology with Japanese enterprise partners—ensuring zero-defect deliveries, cultural alignment, and rapid sprint cycles.
+                  </p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-0">
+                <a href="javascript:void(0)" onclick="showToast('Article opened in reader mode')" class="font-mono text-xs font-bold uppercase tracking-wider text-black flex items-center gap-2 group-hover:gap-3 transition-all">
+                  Read Article <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="group rounded-3xl overflow-hidden bg-white border border-[#D5D5D8] hover:border-black shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+              <div>
+                <div class="aspect-[16/10] overflow-hidden relative">
+                  <img src="assets/images/portfolio-cloud-architecture.jpg" 
+                       alt="Scalable Cloud Architecture" 
+                       class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                       onerror="this.src='assets/images/fallback-cloud-arch.svg'">
+                  <span class="absolute top-4 left-4 bg-white/95 text-black font-mono font-bold text-[10px] uppercase tracking-widest px-3.5 py-1 rounded-full border border-black/10 shadow-sm">
+                    Cloud & Mobile
+                  </span>
+                </div>
+                <div class="p-6">
+                  <span class="text-neutral-500 font-mono text-[11px] tracking-wide">September 2026 • 4 min read</span>
+                  <h3 class="text-xl sm:text-2xl font-display font-bold text-black mt-3 mb-3 leading-snug tracking-[-0.025em] group-hover:text-neutral-700 transition-colors">
+                    Architecting Scalable Microservices with Flutter, Next.js, and Cloud-Native Backends
+                  </h3>
+                  <p class="text-neutral-600 text-xs leading-relaxed">
+                    Design patterns for high-concurrency systems handling mission-critical business transactions with sub-50ms latency.
+                  </p>
+                </div>
+              </div>
+              <div class="px-6 pb-6 pt-0">
+                <a href="javascript:void(0)" onclick="showToast('Article opened in reader mode')" class="font-mono text-xs font-bold uppercase tracking-wider text-black flex items-center gap-2 group-hover:gap-3 transition-all">
+                  Read Article <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- PAGE VIEW: ABOUT -->
+    <div id="page-about" class="page-view hidden py-24 max-w-7xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-white font-mono uppercase tracking-[0.16em] text-xs font-bold"><span class="text-cyan-400">✦</span> About Cloud Production LTD</span>
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-white mt-3 leading-[0.95]">Innovating Through Software Excellence</h1>
+        <p class="text-neutral-300 mt-6 text-base leading-relaxed">
+          Cloud Production LTD is an expert software development company offering custom software development, web applications, mobile apps, AI solutions, and business automation services in Dhaka, Bangladesh and Tokyo, Japan.
+        </p>
+        <p class="text-neutral-400 mt-4 text-sm leading-relaxed">
+          We are embarking on a transformative journey, selecting top-tier software engineers from leading universities for advanced training in high-class technologies in collaboration with prestigious Japanese powerhouses—Arousal Tech Japan, Techs Cafe Japan, and Cloud Production Japan.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 my-10 text-left">
+          <div class="p-5 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+            <span class="text-3xl font-editorial italic text-white block">110+</span>
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider mt-1 block">Completed Projects</span>
+          </div>
+          <div class="p-5 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+            <span class="text-3xl font-editorial italic text-white block">20+</span>
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider mt-1 block">Offshore Clients</span>
+          </div>
+          <div class="p-5 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+            <span class="text-3xl font-editorial italic text-white block">15+</span>
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider mt-1 block">Countries</span>
+          </div>
+          <div class="p-5 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+            <span class="text-3xl font-editorial italic text-white block">50+</span>
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider mt-1 block">Team Members</span>
+          </div>
+        </div>
+        <button onclick="navigateTo('home')" class="mt-2 px-8 py-3.5 rounded-full gradient-cloud-bg text-black font-mono font-bold text-xs uppercase tracking-wider">Back to Home</button>
+      </div>
+    </div>
+
+    <!-- PAGE VIEW: SERVICES -->
+    <div id="page-services" class="page-view hidden py-24 max-w-7xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-[#D8D8D8] font-mono uppercase tracking-[0.16em] text-xs font-bold"><span class="text-cyan-400">✦</span> Full Capabilities</span>
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-white mt-3 leading-[0.95]">Explore Our Services</h1>
+        <p class="text-neutral-300 mt-6 text-base leading-relaxed">
+          Cloud Production incorporates the full cycle of offshore software development services. We focus on providing managed dedicated teams and developing sophisticated enterprise applications.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10 text-left">
+          <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+            <h3 class="text-xl font-bold font-display text-white mb-2">Web Development</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">Expert solutions to create responsive, stunning, and functional websites tailored to meet your specific needs using React, Next.js, Node.js, Angular, and Laravel.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+            <h3 class="text-xl font-bold font-display text-white mb-2">Offshore Development</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">Top-notch offshore development services designed to meet your software development needs efficiently and cost-effectively with managed dedicated teams.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+            <h3 class="text-xl font-bold font-display text-white mb-2">AI Integration & Gen AI</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">Seamlessly merge artificial intelligence into your operations with RAG systems, autonomous agent teams (CrewAI/AutoGen), and custom LLM integrations.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+            <h3 class="text-xl font-bold font-display text-white mb-2">Custom Software & ERP</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">High quality and reliable software development related services, business automation, and enterprise cloud architecture matching budget and time frame.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+            <h3 class="text-xl font-bold font-display text-white mb-2">Mobile App Development</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">Exceptional mobile applications (iOS, Android, Flutter, React Native, Kotlin) delivering fluid UX and robust enterprise capabilities.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
+            <h3 class="text-xl font-bold font-display text-white mb-2">Game Development</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">Delivering engaging AAA-type 2D and 3D games and interactive simulations with a passionate and skilled developer team.</p>
+          </div>
+        </div>
+        <button onclick="navigateTo('home')" class="mt-2 px-8 py-3.5 rounded-full gradient-cloud-bg text-black font-mono font-bold text-xs uppercase tracking-wider">Back to Home</button>
+      </div>
+    </div>
+
+    <!-- PAGE VIEW: PORTFOLIO -->
+    <div id="page-portfolio" class="page-view hidden py-24 max-w-7xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-white font-mono uppercase tracking-[0.16em] text-xs font-bold"><span class="text-cyan-400">✦</span> Production Portfolio</span>
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-white mt-3 leading-[0.95]">Selected Production Works</h1>
+        <p class="text-neutral-300 mt-6 text-base leading-relaxed">
+          We go the extra mile in all our projects, delivering solutions that take your company to the next level of efficiency across healthcare, retail, fintech, gaming, and enterprise AI.
+        </p>
+        <button onclick="navigateTo('home')" class="mt-8 px-8 py-3.5 rounded-full gradient-cloud-bg text-black font-mono font-bold text-xs uppercase tracking-wider">Back to Home</button>
+      </div>
+    </div>
+
+    <!-- PAGE VIEW: CONTACT -->
+    <div id="page-contact" class="page-view hidden py-24 max-w-5xl mx-auto px-4">
+      <div class="p-8 sm:p-14 rounded-3xl bg-[#0C0C0C] border border-[#272727] shadow-2xl">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-white block mb-2">Get in Touch</span>
+        <h2 class="text-3xl sm:text-5xl font-black font-display text-white uppercase">Let's Talk Business</h2>
+        <p class="text-neutral-400 text-sm mt-2 mb-8">Share your parameters to receive a technical consultation and proposal within 24 hours.</p>
+        <form onsubmit="handleContactSubmit(event)" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">First Name</label>
+              <input type="text" required placeholder="Your first name" class="w-full px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Last Name</label>
+              <input type="text" required placeholder="Your last name" class="w-full px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Company Name</label>
+              <input type="text" required placeholder="Company or team" class="w-full px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Email</label>
+              <input type="email" required placeholder="info@cloudproductionltd.com" class="w-full px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Service</label>
+              <div class="relative">
+                <select required class="w-full appearance-none px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm pr-10 cursor-pointer">
+                  <option value="" disabled selected>Select service</option>
+                  <option>Web Development</option>
+                  <option>Offshore Development Teams</option>
+                  <option>AI Integration & Gen AI</option>
+                  <option>Custom Software Development</option>
+                  <option>Mobile App Development</option>
+                  <option>Game Development</option>
+                  <option>Business Automation & ERP</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-400">
+                  <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Budget</label>
+              <div class="relative">
+                <select required class="w-full appearance-none px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm pr-10 cursor-pointer">
+                  <option value="" disabled selected>Select budget</option>
+                  <option>Free Consultation</option>
+                  <option>$1K – $5K</option>
+                  <option>$5K – $10K</option>
+                  <option>$10K+ / Dedicated Squad</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-400">
+                  <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Project Brief</label>
+            <textarea rows="4" required placeholder="Tell us about your project, goals, and timeline." class="w-full px-4 py-3 rounded-xl bg-black/60 border border-[#272727] focus:border-cyan-400/30 outline-none text-white text-sm resize-none"></textarea>
+          </div>
+          <button type="submit" class="px-8 py-3.5 rounded-xl gradient-cloud-bg text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity">
+            Submit Inquiry
+          </button>
+        </form>
+      </div>
+    </div>
+</main>
+
+  <footer class="relative bg-[#050B0F] border-t border-[#272727]/80 pt-28 pb-16 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- LET'S WORK TOGETHER SECTION WITH INLINE FORM ON RIGHT AND REFINED CIRCULAR BADGE -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pb-16 border-b border-[#272727]">
+        
+        <!-- Left Side: Headline, Subtitle, and Refined Smaller "Get in Touch" Badge -->
+        <div class="lg:col-span-5 flex flex-col justify-between space-y-8">
+          <div>
+            <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white"><span class="text-cyan-400">✦</span> HAVE AN IDEA IN MIND?</span>
+            <h2 class="text-5xl sm:text-7xl lg:text-8xl font-black font-display uppercase tracking-[-0.055em] text-white mt-3 leading-[0.92]">
+              LET'S WORK <br><span class="font-editorial italic font-normal lowercase tracking-normal text-white">together</span>
+            </h2>
+            <p class="text-neutral-400 text-sm mt-5 leading-relaxed max-w-sm">
+              Ready to elevate your digital presence? Let's discuss your project.
+            </p>
+          </div>
+
+          <!-- Refined Smaller "GET IN TOUCH" Circular Badge -->
+          <div class="flex items-center gap-5 pt-2">
+            <button onclick="document.getElementById('form-fullname').focus()" class="group relative w-24 h-24 sm:w-28 sm:h-28 rounded-full gradient-cloud-bg text-black flex flex-col items-center justify-center font-mono font-bold uppercase text-[11px] sm:text-xs tracking-wider shadow-xl shadow-cyan-400/10 hover:scale-105 active:scale-95 transition-all duration-300">
+              <span class="leading-none text-center">GET IN<br>TOUCH</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 mt-0.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+            </button>
+            <div class="text-xs text-neutral-400">
+              <span class="text-white font-semibold block text-sm">Quick Response</span>
+              <span>Typically replies within 24 hours</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Directly Embedded "LET'S TALK BUSINESS" Form Card -->
+        <div class="lg:col-span-7 flex justify-end w-full">
+          <div class="w-full max-w-xl bg-[#0C0C0C] border border-[#272727]/90 rounded-3xl p-6 sm:p-9 shadow-2xl relative backdrop-blur-md">
+            
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <h3 class="text-2xl sm:text-3xl font-bold font-display text-white uppercase tracking-tight">LET\'S TALK BUSINESS</h3>
+                <p class="text-neutral-400 text-xs sm:text-sm mt-1">
+                  Share your parameters to receive an architectural brief within 24 hours.
+                </p>
+              </div>
+              <button type="button" onclick="resetFooterForm()" class="p-1.5 rounded-full bg-neutral-900/60 border border-neutral-800 text-neutral-400 hover:text-white transition-colors" title="Clear form">
+                <i data-lucide="x" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <form id="direct-business-form" onsubmit="handleContactSubmit(event)" class="space-y-4 sm:space-y-5 text-xs">
+              <div>
+                <label for="form-fullname" class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-2 text-[11px]">FULL NAME
+                </label>
+                <input id="form-fullname" type="text" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-[#050505] border border-[#272727]/80 text-white placeholder-neutral-600 outline-none focus:border-cyan-400/30 transition-colors text-sm">
+              </div>
+
+              <div>
+                <label for="form-email" class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-2 text-[11px]">EMAIL ADDRESS
+                </label>
+                <input id="form-email" type="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-[#050505] border border-[#272727]/80 text-white placeholder-neutral-600 outline-none focus:border-cyan-400/30 transition-colors text-sm">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="form-service" class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-2 text-[11px]">SERVICE
+                  </label>
+                  <div class="relative">
+                    <select id="form-service" class="w-full appearance-none px-4 py-3 rounded-xl bg-[#050505] border border-[#272727]/80 text-white outline-none focus:border-cyan-400/30 transition-colors text-sm pr-10 cursor-pointer">
+                      <option value="web">Web Development</option>
+                      <option value="offshore">Offshore Development Teams</option>
+                      <option value="ai">AI Integration & Gen AI</option>
+                      <option value="software">Custom Software & ERP</option>
+                      <option value="mobile">Mobile App Development</option>
+                      <option value="game">Game Development</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-400">
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label for="form-budget" class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-2 text-[11px]">EXPECTED BUDGET
+                  </label>
+                  <div class="relative">
+                    <select id="form-budget" class="w-full appearance-none px-4 py-3 rounded-xl bg-[#050505] border border-[#272727]/80 text-white outline-none focus:border-cyan-400/30 transition-colors text-sm pr-10 cursor-pointer">
+                      <option value="free">Free Consultation</option>
+                      <option value="1k-5k">$1K – $5K</option>
+                      <option value="5k-10k">$5K – $10K</option>
+                      <option value="10k+">$10K+ / Dedicated Squad</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-neutral-400">
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label for="form-details" class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-2 text-[11px]">PROJECT DETAILS
+                </label>
+                <textarea id="form-details" rows="3" required placeholder="Outline your requirements..." class="w-full px-4 py-3 rounded-xl bg-[#050505] border border-[#272727]/80 text-white placeholder-neutral-600 outline-none focus:border-cyan-400/30 transition-colors text-sm resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-4 rounded-xl gradient-cloud-bg font-mono font-bold uppercase tracking-wider text-black text-xs sm:text-sm shadow-xl shadow-cyan-400/5 hover:shadow-cyan-400/10 hover:opacity-95 active:scale-[0.99] transition-all flex items-center justify-center gap-2">
+                SUBMIT INQUIRY <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 py-12 text-sm">
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-3.5 group cursor-pointer" onclick="navigateTo('home')">
+            <img src="assets/images/logo.png" alt="Cloud Production Ltd" class="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+          </div>
+          <p class="text-neutral-400 text-xs leading-relaxed">
+            Crafting immersive web ecosystems and scalable cloud architectures for forward-thinking brands.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono uppercase font-bold tracking-widest text-white mb-4"><span class="text-cyan-400">✦</span> Quick Links</h4>
+          <ul class="space-y-2.5 font-mono text-xs uppercase tracking-wider text-neutral-400">
+            <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="services.html" class="hover:text-white transition-colors">Services & Capabilities</a></li>
+            <li><button onclick="navigateTo('portfolio')" class="hover:text-white transition-colors">Case Studies</button></li>
+            <li><button onclick="navigateTo('pricing')" class="hover:text-white transition-colors">Pricing Packages</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono uppercase font-bold tracking-widest text-white mb-4"><span class="text-cyan-400">✦</span> Global Presence</h4>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            <strong class="text-neutral-200 block">Dhaka Headquarters:</strong>
+            2nd Floor, 273/3, Dhaka Cantonment, Mirpur Link Road, Dhaka-1206<br>
+            <strong class="text-neutral-200 block mt-2">Tokyo Partner Branch:</strong>
+            In collaboration with Arousal Tech Japan & Techs Cafe<br>
+            <span class="block mt-2">Tel: +8801752411182</span>
+            <span>info@cloudproductionltd.com</span>
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono uppercase font-bold tracking-widest text-white mb-4"><span class="text-cyan-400">✦</span> Subscribe to Digest</h4>
+          <form onsubmit="handleNewsletter(event)" class="flex flex-col gap-2">
+            <input type="email" required placeholder="Enter email address" class="px-4 py-2.5 rounded-xl bg-[#0C0C0C] border border-[#272727] text-white text-xs outline-none focus:border-cyan-400/30">
+            <button type="submit" class="px-5 py-3 rounded-xl bg-neutral-800 hover:bg-gradient-to-r hover:from-teal-500 hover:to-blue-500 hover:text-white font-mono font-bold text-xs uppercase tracking-wider text-white transition-colors">
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-[#272727]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-4">
+        <p>© 2026 Cloud Production Ltd. All Rights Reserved.</p>
+        <div class="flex gap-6">
+          <a href="https://cloudproductionltd.com" target="_blank" class="hover:text-white transition-colors">Official Website</a>
+          <a href="javascript:void(0)" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="javascript:void(0)" class="hover:text-white transition-colors">Security</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div id="contact-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-lg bg-[#0C0C0C] border border-[#272727] rounded-3xl p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeContactModal()" class="absolute top-5 right-5 p-2 rounded-full bg-neutral-900 text-neutral-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <h3 class="text-2xl font-bold font-display text-white uppercase tracking-tight">Let\'s talk business</h3>
+      <p class="text-xs text-neutral-400 mt-1 mb-6">Share your parameters to receive an architectural brief within 24 hours.</p>
+      
+      <form onsubmit="handleContactSubmit(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Full Name</label>
+          <input type="text" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
+        </div>
+        <div>
+          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Email Address</label>
+          <input type="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
+        </div>
+        <div>
+          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Expected Budget</label>
+          <select class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
+            <option>$5k - $15k</option>
+            <option>$15k - $40k</option>
+            <option>$40k+</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Project Details</label>
+          <textarea rows="3" required placeholder="Outline your requirements..." class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30"></textarea>
+        </div>
+        <button type="submit" class="w-full py-4 rounded-xl gradient-cloud-bg font-mono font-bold uppercase tracking-wider text-black text-xs transition-opacity hover:opacity-90 flex items-center justify-center gap-2">
+          Submit Inquiry
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Route the standalone pages (Portfolio, Solutions) to their real pages;
+    // every other target keeps the original in-page SPA behavior from main.js.
+    const cpOriginalNavigateTo = navigateTo;
+    function navigateTo(pageId) {
+      if (pageId === 'portfolio') {
+        window.location.href = 'portfolio.html';
+        return;
+      }
+      if (pageId === 'solutions') {
+        window.location.href = 'solutions.html';
+        return;
+      }
+      cpOriginalNavigateTo(pageId);
+    }
+  </script>
+</body>
+</html>
