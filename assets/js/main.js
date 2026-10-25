@@ -290,7 +290,7 @@
       document.querySelectorAll('.price-val').forEach(el => {
         const base = parseInt(el.getAttribute('data-base'));
         const newPrice = isYearly ? Math.round(base * 0.8) : base;
-        el.textContent = `$${newPrice}`;
+        el.textContent = `$${newPrice.toLocaleString()}`;
       });
 
       document.querySelectorAll('.period-val').forEach(el => {
@@ -629,7 +629,56 @@
       }
     ];
 
-        function createEditorialCardTexture(cfg, index, total) {
+    window.openCardInspect = function(idx) {
+      const p = dribbleProjectsData[idx];
+      if (!p) return;
+
+      const countEl = document.getElementById('inspect-counter');
+      const codeEl = document.getElementById('inspect-code');
+      const catEl = document.getElementById('inspect-category');
+      const titleEl = document.getElementById('inspect-title');
+      const headEl = document.getElementById('inspect-headline');
+      const descEl = document.getElementById('inspect-desc');
+      const overEl = document.getElementById('inspect-overview');
+      const roleEl = document.getElementById('inspect-role');
+      const clientEl = document.getElementById('inspect-client');
+      const metricsEl = document.getElementById('inspect-metrics');
+      const yearEl = document.getElementById('inspect-year');
+
+      if (countEl) countEl.textContent = `CASE STUDY 0${idx + 1} / 0${dribbleProjectsData.length}`;
+      if (codeEl) codeEl.textContent = p.code;
+      if (catEl) catEl.textContent = p.category;
+      if (titleEl) titleEl.textContent = p.title.toUpperCase();
+      if (headEl) headEl.textContent = p.headline;
+      if (descEl) descEl.textContent = p.desc;
+      if (overEl) overEl.textContent = p.overview || p.desc;
+      if (roleEl) roleEl.textContent = p.role || 'Production Architecture';
+      if (clientEl) clientEl.textContent = p.client || 'Cloud Production Lab';
+      if (metricsEl) metricsEl.textContent = p.metrics || 'Production Verified';
+      if (yearEl) yearEl.textContent = p.year || 'Production Verified';
+
+      const overlay = document.getElementById('dribbble-inspect-overlay');
+      const panel = document.getElementById('dribbble-inspect-content');
+      if (overlay && panel) {
+        overlay.style.pointerEvents = 'auto';
+        overlay.style.opacity = '1';
+        panel.style.transform = 'translateX(0)';
+        panel.style.opacity = '1';
+      }
+    };
+
+    window.closeCardInspect = function() {
+      const overlay = document.getElementById('dribbble-inspect-overlay');
+      const panel = document.getElementById('dribbble-inspect-content');
+      if (overlay && panel) {
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+        panel.style.transform = 'translateX(50px)';
+        panel.style.opacity = '0';
+      }
+    };
+
+    function createEditorialCardTexture(cfg, index, total) {
       const c = document.createElement('canvas');
       c.width = 800;
       c.height = 520;
