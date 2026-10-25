@@ -28,6 +28,7 @@
       lucide.createIcons();
       initVisionSectionAnimation();
       initDribbble3D();
+      initNeuralBrain();
 
       // Cross-page deep link: index.html#about jumps straight to that page-view
       const hash = window.location.hash.replace('#', '');
@@ -45,11 +46,166 @@
     window.addEventListener('load', () => {
       initVisionSectionAnimation();
       initDribbble3D();
+      initNeuralBrain();
       if (typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.refresh();
       }
       hidePageLoader();
     });
+
+    // Neural Network Brain — live synapse geometry + pointer parallax.
+    // The SVG synapse paths are redrawn every frame so their endpoints stay glued to
+    // the drifting neurons, and the normalized pointer position (--px / --py,
+    // range -1..1) lets the grid, aurora and rings lean at different depths.
+    // Star topology: every outer neuron connects to the central hub.
+    function initNeuralBrain() {
+      const scene = document.querySelector('.nn-brain-scene');
+      if (!scene || scene.dataset.neuralBrainReady === 'true') return;
+      scene.dataset.neuralBrainReady = 'true';
+
+      const svg = scene.querySelector('.nn-brain-synapses');
+      const stageOf = key => scene.querySelector('.nn-neuron-' + key + ' .nn-neuron-stage');
+      const host = scene.parentElement || scene;
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      const parallaxEnabled = !reduceMotion && finePointer;
+
+      // Multi-layer neural mesh: hub connects to inner tier, inner connects to outer tier + lateral links
+      const edges = [
+        // Hub radiating to inner & bridge nodes (filling middle space)
+        ['hub', 'g', 'nn-synapse-warm'],    // Hub ↔ Voice Translator (rose)
+        ['hub', 'h', 'nn-synapse-cool'],    // Hub ↔ Autonomous Agents (sky)
+        ['hub', 'i', ''],                   // Hub ↔ Neural RAG (purple)
+        ['hub', 'j', 'nn-synapse-gold'],    // Hub ↔ Model Tuning (amber)
+        ['hub', 'k', 'nn-synapse-mint'],    // Hub ↔ Deep Learning (emerald)
+        ['hub', 'l', 'nn-synapse-warm'],    // Hub ↔ Realtime Inference (pink)
+
+        // Inner nodes connecting outward to primary capability nodes
+        ['g', 'a', 'nn-synapse-cool'],      // Voice Translator ↔ LLM Engine
+        ['g', 'e', 'nn-synapse-mint'],      // Voice Translator ↔ Gen AI
+        ['h', 'b', 'nn-synapse-warm'],      // Autonomous Agents ↔ Voice AI
+        ['h', 'f', 'nn-synapse-ice'],       // Autonomous Agents ↔ Edge ML
+        ['i', 'e', 'nn-synapse-mint'],      // Neural RAG ↔ Gen AI
+        ['i', 'c', ''],                     // Neural RAG ↔ NLP Engine
+        ['j', 'f', 'nn-synapse-ice'],       // Model Tuning ↔ Edge ML
+        ['j', 'd', 'nn-synapse-gold'],      // Model Tuning ↔ Computer Vision
+
+        // Vertical bridge links
+        ['k', 'a', 'nn-synapse-cool'],      // Deep Learning ↔ LLM Engine
+        ['k', 'b', 'nn-synapse-warm'],      // Deep Learning ↔ Voice AI
+        ['l', 'c', ''],                     // Realtime Inference ↔ NLP Engine
+        ['l', 'd', 'nn-synapse-gold'],      // Realtime Inference ↔ Computer Vision
+
+        // Hub direct anchor connections
+        ['hub', 'a', 'nn-synapse-cool'],    // Hub ↔ LLM Engine
+        ['hub', 'b', 'nn-synapse-warm'],    // Hub ↔ Voice AI
+        ['hub', 'e', 'nn-synapse-mint'],    // Hub ↔ Gen AI
+        ['hub', 'f', 'nn-synapse-ice'],     // Hub ↔ Edge ML
+      ];
+
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const paths = [];
+
+      edges.forEach(([from, to, variant], index) => {
+        const path = document.createElementNS(svgNS, 'path');
+        path.setAttribute('class', ('nn-synapse ' + variant).trim());
+        path.setAttribute('id', 'nn-synapse-' + index);
+        svg.appendChild(path);
+
+        if (!reduceMotion) {
+          const packet = document.createElementNS(svgNS, 'circle');
+          packet.setAttribute('class', 'nn-brain-packet');
+          packet.setAttribute('r', '2.5');
+          const motion = document.createElementNS(svgNS, 'animateMotion');
+          motion.setAttribute('dur', (4.6 + index * 0.6).toFixed(1) + 's');
+          motion.setAttribute('repeatCount', 'indefinite');
+          motion.setAttribute('begin', (-index * 0.8).toFixed(1) + 's');
+          const mpath = document.createElementNS(svgNS, 'mpath');
+          mpath.setAttribute('href', '#' + path.id);
+          motion.appendChild(mpath);
+          packet.appendChild(motion);
+          svg.appendChild(packet);
+        }
+
+        paths.push({ path, from: stageOf(from), to: stageOf(to) });
+      });
+
+      let targetX = 0;
+      let targetY = 0;
+      let currentX = 0;
+      let currentY = 0;
+      let frame = 0;
+      let visible = true;
+
+      const drawLinks = () => {
+        const sceneRect = scene.getBoundingClientRect();
+        paths.forEach(({ path, from, to }) => {
+          if (!from || !to) return;
+          const a = from.getBoundingClientRect();
+          const b = to.getBoundingClientRect();
+          const x1 = a.left + a.width / 2 - sceneRect.left;
+          const y1 = a.top + a.height / 2 - sceneRect.top;
+          const x2 = b.left + b.width / 2 - sceneRect.left;
+          const y2 = b.top + b.height / 2 - sceneRect.top;
+          const mx = (x1 + x2) / 2 + (y2 - y1) * 0.08;
+          const my = (y1 + y2) / 2 - (x2 - x1) * 0.08;
+          path.setAttribute('d', `M${x1.toFixed(1)} ${y1.toFixed(1)} Q${mx.toFixed(1)} ${my.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`);
+        });
+      };
+
+      const loop = () => {
+        frame = 0;
+        if (!visible || document.hidden) return;
+        if (parallaxEnabled) {
+          currentX += (targetX - currentX) * 0.06;
+          currentY += (targetY - currentY) * 0.06;
+          scene.style.setProperty('--px', currentX.toFixed(4));
+          scene.style.setProperty('--py', currentY.toFixed(4));
+        }
+        drawLinks();
+        if (!reduceMotion) frame = requestAnimationFrame(loop);
+      };
+
+      const start = () => {
+        if (!frame) frame = requestAnimationFrame(loop);
+      };
+
+      if (parallaxEnabled) {
+        const onMove = (e) => {
+          const rect = host.getBoundingClientRect();
+          targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+          targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+          start();
+        };
+
+        host.addEventListener('pointermove', onMove);
+        host.addEventListener('pointerleave', () => {
+          targetX = 0;
+          targetY = 0;
+          start();
+        });
+      }
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          visible = entries[0].isIntersecting;
+          if (visible) start();
+        }, { threshold: 0.01 });
+        observer.observe(scene);
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) start();
+      });
+
+      window.addEventListener('resize', () => {
+        drawLinks();
+      });
+
+      drawLinks();
+      start();
+    }
 
     // 3D Perspective Card Tilt
     function handleTilt(e, card) {

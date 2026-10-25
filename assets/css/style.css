@@ -220,106 +220,462 @@
       animation-play-state: paused;
     }
 
-    /* Hero Service Clouds — each cloud keeps its own spread-out home position (so
-       they keep a clear distance from each other instead of piling up), and spawns
-       on a staggered delay so they rise up one at a time rather than all at once.
-       Each one wanders/drifts in place for ~20s, fades out, then rises again from
-       the same spot on its own independent loop — a continuous, asynchronous
-       relay rather than a synchronized batch. */
-    .cp-cloud {
+    /* ── Hero Neural Network Brain ──────────────────────────────────────────
+       An animated constellation of AI capability neurons connected by synapse
+       paths with flowing data particles. Central hub radiates connections to
+       each capability node (LLM, Voice, NLP, Vision, Gen AI, Edge ML).
+       Pointer-parallax via --px/--py from main.js. */
+    .nn-brain-scene {
       position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-      animation-duration: 30s;
-    }
-    .cp-cloud-a { animation-name: cpCloudWanderA; animation-delay: 0s; }
-    .cp-cloud-b { animation-name: cpCloudWanderB; animation-delay: -5s; }
-    .cp-cloud-c { animation-name: cpCloudWanderC; animation-delay: -10s; }
-    .cp-cloud-d { animation-name: cpCloudWanderD; animation-delay: -15s; }
-    .cp-cloud-e { animation-name: cpCloudWanderE; animation-delay: -20s; }
-    .cp-cloud-f { animation-name: cpCloudWanderF; animation-delay: -25s; }
-
-    .cp-cloud-label {
-      position: absolute;
-      top: 60%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'Martian Mono', monospace;
-      font-size: 9px;
-      line-height: 1.3;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #ECFEFF;
-      text-align: center;
-      white-space: nowrap;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 0, 0, 0.6);
+      inset: 0;
+      overflow: visible;
+      isolation: isolate;
+      background: transparent;
       pointer-events: none;
     }
 
-    @keyframes cpCloudWanderA {
-      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
-      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      23%  { transform: translate(calc(-50% - 115px), calc(-50% - 55px)) scale(1.05); }
-      44%  { transform: translate(calc(-50% + 70px), calc(-50% - 95px)) scale(0.95); }
-      62%  { transform: translate(calc(-50% + 125px), calc(-50% + 45px)) scale(1); }
-      78%  { opacity: 1; transform: translate(calc(-50% - 25px), calc(-50% + 70px)) scale(1); }
-      85%  { opacity: 0; transform: translate(calc(-50% - 25px), calc(-50% + 70px)) scale(0.8); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    /* Blueprint grid — soft radial feathered circular grid, drifts slowly */
+    .nn-brain-grid {
+      position: absolute;
+      inset: -15%;
+      background-image:
+        linear-gradient(to right, rgba(167, 139, 250, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(167, 139, 250, 0.05) 1px, transparent 1px);
+      background-size: 46px 46px;
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 15%, transparent 68%);
+      mask-image: radial-gradient(circle at 50% 50%, #000 15%, transparent 68%);
+      transform: translate3d(calc(var(--px, 0) * -12px), calc(var(--py, 0) * -12px), 0);
+      animation: nnGridDrift 26s linear infinite;
+      pointer-events: none;
     }
-    @keyframes cpCloudWanderB {
-      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
-      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      20%  { transform: translate(calc(-50% + 100px), calc(-50% + 60px)) scale(0.96); }
-      40%  { transform: translate(calc(-50% - 90px), calc(-50% + 90px)) scale(1.05); }
-      58%  { transform: translate(calc(-50% - 130px), calc(-50% - 35px)) scale(1); }
-      81%  { opacity: 1; transform: translate(calc(-50% + 40px), calc(-50% - 60px)) scale(1); }
-      89%  { opacity: 0; transform: translate(calc(-50% + 40px), calc(-50% - 60px)) scale(0.8); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+
+    /* Aurora glow — soft, centered radial lights that melt seamlessly into the background */
+    .nn-brain-aurora {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
     }
-    @keyframes cpCloudWanderC {
-      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
-      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      25%  { transform: translate(calc(-50% - 60px), calc(-50% + 100px)) scale(1.04); }
-      46%  { transform: translate(calc(-50% + 130px), calc(-50% + 20px)) scale(0.95); }
-      65%  { transform: translate(calc(-50% + 55px), calc(-50% - 100px)) scale(1); }
-      87%  { opacity: 1; transform: translate(calc(-50% - 100px), calc(-50% - 10px)) scale(1); }
-      94%  { opacity: 0; transform: translate(calc(-50% - 100px), calc(-50% - 10px)) scale(0.8); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    .nn-brain-aurora-a {
+      top: 12%;
+      left: 14%;
+      width: 54%;
+      aspect-ratio: 1;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.20) 0%, rgba(167, 139, 250, 0.05) 45%, transparent 70%);
+      animation: nnAuroraDriftA 22s ease-in-out infinite alternate;
     }
-    @keyframes cpCloudWanderD {
-      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
-      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      21%  { transform: translate(calc(-50% + 90px), calc(-50% - 80px)) scale(1.05); }
-      41%  { transform: translate(calc(-50% - 120px), calc(-50% - 50px)) scale(0.96); }
-      60%  { transform: translate(calc(-50% - 50px), calc(-50% + 95px)) scale(1); }
-      78%  { opacity: 1; transform: translate(calc(-50% + 110px), calc(-50% + 55px)) scale(1); }
-      85%  { opacity: 0; transform: translate(calc(-50% + 110px), calc(-50% + 55px)) scale(0.8); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    .nn-brain-aurora-b {
+      bottom: 10%;
+      right: 14%;
+      width: 50%;
+      aspect-ratio: 1;
+      background: radial-gradient(circle, rgba(244, 114, 182, 0.16) 0%, rgba(244, 114, 182, 0.04) 45%, transparent 70%);
+      animation: nnAuroraDriftB 27s ease-in-out infinite alternate;
     }
-    @keyframes cpCloudWanderE {
-      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
-      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      24%  { transform: translate(calc(-50% + 50px), calc(-50% + 105px)) scale(0.95); }
-      43%  { transform: translate(calc(-50% + 115px), calc(-50% - 40px)) scale(1.04); }
-      63%  { transform: translate(calc(-50% - 95px), calc(-50% - 85px)) scale(1); }
-      90%  { opacity: 1; transform: translate(calc(-50% - 30px), calc(-50% + 30px)) scale(1); }
-      97%  { opacity: 0; transform: translate(calc(-50% - 30px), calc(-50% + 30px)) scale(0.8); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+
+    /* Concentric decorative arcs — neural field rings (feathered outwards) */
+    .nn-brain-arc {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(167, 139, 250, 0.08);
+      pointer-events: none;
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 45%, transparent 85%);
+      mask-image: radial-gradient(circle at 50% 50%, #000 45%, transparent 85%);
     }
-    @keyframes cpCloudWanderF {
-      0%   { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
-      5%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      22%  { transform: translate(calc(-50% - 80px), calc(-50% + 70px)) scale(1); }
-      42%  { transform: translate(calc(-50% + 60px), calc(-50% + 100px)) scale(0.95); }
-      61%  { transform: translate(calc(-50% + 100px), calc(-50% - 65px)) scale(1.05); }
-      83%  { opacity: 1; transform: translate(calc(-50% - 110px), calc(-50% - 20px)) scale(1); }
-      91%  { opacity: 0; transform: translate(calc(-50% - 110px), calc(-50% - 20px)) scale(0.8); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    .nn-brain-arc-outer {
+      top: 50%;
+      left: 50%;
+      width: 88%;
+      aspect-ratio: 1;
+      transform: translate3d(calc(-50% + var(--px, 0) * 7px), calc(-50% + var(--py, 0) * 7px), 0);
     }
+    .nn-brain-arc-inner {
+      top: 50%;
+      left: 50%;
+      width: 56%;
+      aspect-ratio: 1;
+      border-style: dashed;
+      border-color: rgba(167, 139, 250, 0.12);
+      transform: translate3d(calc(-50% + var(--px, 0) * 11px), calc(-50% + var(--py, 0) * 11px), 0);
+      animation: nnOrbitSpin 90s linear infinite;
+    }
+
+    /* Synapse links between neurons — drawn by initNeuralBrain() in main.js */
+    .nn-brain-synapses {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .nn-synapse {
+      fill: none;
+      stroke: rgba(167, 139, 250, 0.35);
+      stroke-width: 1;
+      stroke-linecap: round;
+      stroke-dasharray: 5 9;
+      vector-effect: non-scaling-stroke;
+      animation: nnSynapseFlow 11s linear infinite;
+    }
+    .nn-synapse-warm {
+      stroke: rgba(244, 114, 182, 0.30);
+      stroke-dasharray: 3 12;
+      animation-duration: 16s;
+    }
+    .nn-synapse-cool {
+      stroke: rgba(94, 234, 212, 0.30);
+      animation-duration: 13s;
+    }
+    .nn-synapse-gold {
+      stroke: rgba(251, 191, 36, 0.28);
+      stroke-dasharray: 4 10;
+      animation-duration: 14s;
+    }
+    .nn-synapse-mint {
+      stroke: rgba(52, 211, 153, 0.28);
+      stroke-dasharray: 3 11;
+      animation-duration: 15s;
+    }
+    .nn-synapse-ice {
+      stroke: rgba(147, 197, 253, 0.28);
+      stroke-dasharray: 4 9;
+      animation-duration: 12s;
+    }
+    .nn-brain-packet {
+      fill: #C4B5FD;
+      filter: drop-shadow(0 0 5px rgba(196, 181, 253, 0.95));
+    }
+
+    /* ── Panel container (frameless, open canvas) ─────────────────────────── */
+    .nn-brain-panel {
+      isolation: isolate;
+    }
+
+    /* Neuron index chip */
+    .nn-neuron-index {
+      position: absolute;
+      top: -4px;
+      right: -2px;
+      z-index: 2;
+      min-width: 20px;
+      padding: 1px 4px 2px;
+      border-radius: 5px;
+      background: rgba(5, 11, 15, 0.85);
+      border: 1px solid var(--accent-soft, rgba(167, 139, 250, 0.4));
+      font-family: 'Martian Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.06em;
+      line-height: 1.35;
+      text-align: center;
+      color: var(--accent, #A78BFA);
+      opacity: 0.9;
+    }
+
+    /* ── Neuron ── */
+    .nn-neuron {
+      position: absolute;
+      left: var(--x, 50%);
+      top: var(--y, 50%);
+      width: 0;
+      height: 0;
+      z-index: 2;
+      pointer-events: auto;
+    }
+
+    /* Neuron positions — multi-tier constellation */
+    .nn-neuron-hub { --x: 50%; --y: 49%; }
+
+    /* Outer tier (wide perimeter) */
+    .nn-neuron-a { --x: 14%; --y: 17%; }   /* LLM Engine - Top Left */
+    .nn-neuron-b { --x: 86%; --y: 17%; }   /* Voice AI - Top Right */
+    .nn-neuron-c { --x: 15%; --y: 81%; }   /* NLP Engine - Bottom Left */
+    .nn-neuron-d { --x: 85%; --y: 81%; }   /* Computer Vision - Bottom Right */
+    .nn-neuron-e { --x: 8%;  --y: 49%; }   /* Gen AI - Far Left */
+    .nn-neuron-f { --x: 92%; --y: 49%; }   /* Edge ML - Far Right */
+
+    /* Inner tier (filling the middle space) */
+    .nn-neuron-g { --x: 32%; --y: 32%; }   /* Voice Translator - Mid Top-Left */
+    .nn-neuron-h { --x: 68%; --y: 32%; }   /* Autonomous Agents - Mid Top-Right */
+    .nn-neuron-i { --x: 31%; --y: 67%; }   /* Neural RAG - Mid Bottom-Left */
+    .nn-neuron-j { --x: 69%; --y: 67%; }   /* Model Tuning - Mid Bottom-Right */
+    .nn-neuron-k { --x: 50%; --y: 17%; }   /* Deep Learning - Center Top */
+    .nn-neuron-l { --x: 50%; --y: 81%; }   /* Realtime Inference - Center Bottom */
+
+    /* Mobile: compact responsive layout */
+    @media (max-width: 639px) {
+      .nn-neuron-hub { --x: 50%; --y: 49%; }
+      .nn-neuron-a { --x: 18%; --y: 16%; }
+      .nn-neuron-b { --x: 82%; --y: 16%; }
+      .nn-neuron-c { --x: 18%; --y: 82%; }
+      .nn-neuron-d { --x: 82%; --y: 82%; }
+      .nn-neuron-e { --x: 10%; --y: 49%; }
+      .nn-neuron-f { --x: 90%; --y: 49%; }
+      .nn-neuron-g { --x: 32%; --y: 32%; }
+      .nn-neuron-h { --x: 68%; --y: 32%; }
+      .nn-neuron-i { --x: 32%; --y: 66%; }
+      .nn-neuron-j { --x: 68%; --y: 66%; }
+      .nn-neuron-k { --x: 50%; --y: 18%; }
+      .nn-neuron-l { --x: 50%; --y: 80%; }
+      .nn-neuron-stage {
+        width: clamp(46px, 12vw, 56px);
+        height: clamp(46px, 12vw, 56px);
+      }
+      .nn-neuron-stage-hub {
+        width: clamp(66px, 17vw, 84px);
+        height: clamp(66px, 17vw, 84px);
+      }
+      .nn-neuron-tag {
+        padding: 4px 8px;
+      }
+      .nn-neuron-label {
+        font-size: 7.5px;
+        letter-spacing: 0.06em;
+      }
+      .nn-telemetry-chip {
+        display: none;
+      }
+    }
+    .nn-neuron-anchor {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transform: translate(-50%, -50%);
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: calc(19s * var(--d, 1));
+      animation-delay: var(--fd, 0s);
+      will-change: transform;
+    }
+    .nn-neuron-hub .nn-neuron-anchor { animation-name: nnNeuronDrift1; }
+    .nn-neuron-a .nn-neuron-anchor   { animation-name: nnNeuronDrift1; }
+    .nn-neuron-b .nn-neuron-anchor   { animation-name: nnNeuronDrift2; }
+    .nn-neuron-c .nn-neuron-anchor   { animation-name: nnNeuronDrift3; }
+    .nn-neuron-d .nn-neuron-anchor   { animation-name: nnNeuronDrift2; }
+    .nn-neuron-e .nn-neuron-anchor   { animation-name: nnNeuronDrift3; }
+    .nn-neuron-f .nn-neuron-anchor   { animation-name: nnNeuronDrift1; }
+    .nn-neuron-g .nn-neuron-anchor   { animation-name: nnNeuronDrift2; }
+    .nn-neuron-h .nn-neuron-anchor   { animation-name: nnNeuronDrift3; }
+    .nn-neuron-i .nn-neuron-anchor   { animation-name: nnNeuronDrift1; }
+    .nn-neuron-j .nn-neuron-anchor   { animation-name: nnNeuronDrift2; }
+    .nn-neuron-k .nn-neuron-anchor   { animation-name: nnNeuronDrift3; }
+    .nn-neuron-l .nn-neuron-anchor   { animation-name: nnNeuronDrift1; }
+
+    /* Floating neural telemetry chips */
+    .nn-telemetry-chip {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      transform: translate(-50%, -50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(5, 11, 15, 0.82);
+      border: 1px solid rgba(167, 139, 250, 0.28);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-family: 'Martian Mono', monospace;
+      font-size: 7.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(224, 220, 254, 0.82);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 1;
+      animation: nnChipBreathe 6s ease-in-out infinite alternate;
+      animation-delay: var(--cd, 0s);
+    }
+    .nn-telemetry-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+    }
+    @keyframes nnChipBreathe {
+      0%   { opacity: 0.7; transform: translate(-50%, -50%) scale(0.97); }
+      100% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.03); }
+    }
+
+    /* Inner bob — keeps the glyph alive */
+    .nn-neuron-float {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      animation: nnNeuronBob 7.5s ease-in-out infinite;
+      animation-delay: var(--fd, 0s);
+    }
+
+    .nn-neuron-stage {
+      position: relative;
+      width: clamp(58px, 7vw, 80px);
+      height: clamp(58px, 7vw, 80px);
+      display: grid;
+      place-items: center;
+      animation: nnNeuronMaterialize 1.1s cubic-bezier(0.22, 0.8, 0.24, 1) both;
+    }
+    .nn-neuron-stage-hub {
+      width: clamp(88px, 10.5vw, 122px);
+      height: clamp(88px, 10.5vw, 122px);
+    }
+
+    /* Glow disc behind glyph */
+    .nn-neuron-halo {
+      position: absolute;
+      inset: -22%;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-soft, rgba(167, 139, 250, 0.35)) 0%, rgba(5, 11, 15, 0) 68%);
+      filter: blur(14px);
+      animation: nnHaloPulse 5.5s ease-in-out infinite;
+      animation-delay: var(--fd, 0s);
+    }
+    .nn-neuron-hub .nn-neuron-halo {
+      inset: -32%;
+      filter: blur(22px);
+      animation-duration: 4s;
+    }
+
+    /* Orbit rings — counter-rotating hairlines */
+    .nn-neuron-orbit {
+      position: absolute;
+      inset: 2%;
+      border-radius: 50%;
+      border: 1px dashed var(--accent-soft, rgba(167, 139, 250, 0.35));
+      opacity: 0.75;
+      animation: nnOrbitSpin 16s linear infinite;
+    }
+    .nn-neuron-orbit-2 {
+      inset: -8%;
+      border-style: solid;
+      border-color: rgba(148, 160, 220, 0.10);
+      animation-duration: 26s;
+      animation-direction: reverse;
+    }
+    .nn-neuron-orbit-3 {
+      inset: -16%;
+      border-style: dotted;
+      border-color: rgba(167, 139, 250, 0.12);
+      animation-duration: 38s;
+    }
+
+    .nn-neuron-icon {
+      position: relative;
+      z-index: 1;
+      width: 46%;
+      height: 46%;
+      color: var(--accent, #A78BFA);
+      stroke-width: 1.1;
+      filter: drop-shadow(0 0 10px var(--accent-soft, rgba(167, 139, 250, 0.45)));
+      animation: nnIconBreathe 6s ease-in-out infinite;
+      animation-delay: var(--fd, 0s);
+    }
+    .nn-neuron-hub .nn-neuron-icon {
+      width: 42%;
+      height: 42%;
+      filter: drop-shadow(0 0 18px var(--accent-soft, rgba(167, 139, 250, 0.65)));
+    }
+
+    /* Frosted label pill */
+    .nn-neuron-tag {
+      position: relative;
+      z-index: 1;
+      padding: 6px 13px 7px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(9, 12, 30, 0.72) 0%, rgba(5, 11, 15, 0.82) 100%);
+      border: 1px solid var(--accent-soft, rgba(167, 139, 250, 0.35));
+      box-shadow:
+        0 0 0 1px rgba(5, 11, 15, 0.6),
+        0 10px 26px -14px rgba(0, 0, 0, 0.9),
+        0 0 18px -6px var(--accent-soft, rgba(167, 139, 250, 0.35));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      white-space: nowrap;
+      transition: transform 0.35s cubic-bezier(0.22, 0.8, 0.24, 1), box-shadow 0.35s ease;
+    }
+    .nn-neuron:hover .nn-neuron-tag {
+      transform: translateY(-3px);
+      box-shadow:
+        0 0 0 1px rgba(5, 11, 15, 0.6),
+        0 16px 30px -14px rgba(0, 0, 0, 0.95),
+        0 0 26px -4px var(--accent-soft, rgba(167, 139, 250, 0.55));
+    }
+    .nn-neuron:hover .nn-neuron-icon {
+      filter: drop-shadow(0 0 16px var(--accent-soft, rgba(167, 139, 250, 0.8)));
+    }
+
+    .nn-neuron-label {
+      display: block;
+      font-family: 'Martian Mono', monospace;
+      font-size: 9px;
+      line-height: 1.3;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #ECFEFF;
+      text-align: center;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+      pointer-events: none;
+    }
+
+    @keyframes nnGridDrift {
+      from { background-position: 0 0; }
+      to   { background-position: 46px 46px; }
+    }
+    @keyframes nnAuroraDriftA {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to   { transform: translate3d(9%, 7%, 0) scale(1.14); }
+    }
+    @keyframes nnAuroraDriftB {
+      from { transform: translate3d(0, 0, 0) scale(1.08); }
+      to   { transform: translate3d(-8%, -6%, 0) scale(0.94); }
+    }
+    @keyframes nnSynapseFlow {
+      to { stroke-dashoffset: -52; }
+    }
+    @keyframes nnNeuronDrift1 {
+      0%, 100% { transform: translate(-50%, -50%) translate3d(0, 0, 0); }
+      30%      { transform: translate(-50%, -50%) translate3d(-13px, 9px, 0); }
+      62%      { transform: translate(-50%, -50%) translate3d(10px, -12px, 0); }
+      82%      { transform: translate(-50%, -50%) translate3d(-4px, -4px, 0); }
+    }
+    @keyframes nnNeuronDrift2 {
+      0%, 100% { transform: translate(-50%, -50%) translate3d(0, 0, 0); }
+      26%      { transform: translate(-50%, -50%) translate3d(11px, 10px, 0); }
+      58%      { transform: translate(-50%, -50%) translate3d(-12px, -8px, 0); }
+      80%      { transform: translate(-50%, -50%) translate3d(3px, -5px, 0); }
+    }
+    @keyframes nnNeuronDrift3 {
+      0%, 100% { transform: translate(-50%, -50%) translate3d(0, 0, 0); }
+      28%      { transform: translate(-50%, -50%) translate3d(-9px, -11px, 0); }
+      60%      { transform: translate(-50%, -50%) translate3d(14px, 6px, 0); }
+      84%      { transform: translate(-50%, -50%) translate3d(-5px, 6px, 0); }
+    }
+    @keyframes nnNeuronBob {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-7px); }
+    }
+    @keyframes nnNeuronMaterialize {
+      from { opacity: 0; transform: scale(0.82) translateY(10px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes nnHaloPulse {
+      0%, 100% { opacity: 0.55; transform: scale(0.92); }
+      50%      { opacity: 1;    transform: scale(1.06); }
+    }
+    @keyframes nnOrbitSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes nnIconBreathe {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-3px) scale(1.04); }
+    }
+
 
     /* 3D Tilt container */
     .tilt-card {
@@ -520,10 +876,32 @@
         animation: none !important;
       }
 
-      .cp-cloud {
+      .nn-neuron,
+      .nn-neuron-anchor,
+      .nn-neuron-float,
+      .nn-neuron-halo,
+      .nn-neuron-orbit,
+      .nn-neuron-icon,
+      .nn-brain-grid,
+      .nn-brain-aurora,
+      .nn-brain-arc,
+      .nn-synapse {
         animation: none !important;
         opacity: 1 !important;
-        transform: translate(-50%, -50%) scale(1) !important;
+      }
+      .nn-neuron-anchor {
+        transform: translate(-50%, -50%) !important;
+      }
+      .nn-neuron-float {
+        transform: none !important;
+      }
+      .nn-brain-grid,
+      .nn-brain-aurora,
+      .nn-brain-arc {
+        transform: none !important;
+      }
+      .nn-brain-packet {
+        display: none !important;
       }
 
       html, body, a, button, [onclick], .cursor-pointer, input, select, textarea, label, [role="button"] {

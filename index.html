@@ -128,7 +128,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-start">
 
             <!-- LEFT COLUMN: Typography, Branding, Radar Badge, Description, CTAs, Social Proof -->
-            <div class="lg:col-span-6 xl:col-span-6 flex flex-col justify-center space-y-8 sm:space-y-10 z-10">
+            <div class="lg:col-span-6 xl:col-span-5 flex flex-col justify-center space-y-8 sm:space-y-10 z-10">
 
               
               <!-- <div class="flex flex-wrap items-center justify-between gap-4">
@@ -207,36 +207,270 @@
 
             </div>
 
-            <!-- RIGHT COLUMN: Service Clouds — each keeps its own spread-out spot and
-                 rises up on a staggered delay (one at a time, not all together), wanders
-                 for ~20s, fades, then rises again from the same spot on its own loop
-                 (see cpCloudWander[A-F] + per-cloud animation-delay in style.css) -->
-            <div class="lg:col-span-6 xl:col-span-6 relative min-h-[320px] sm:min-h-[420px] lg:min-h-[520px]">
-              <div class="cp-cloud-scene absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-                <div class="cp-cloud cp-cloud-a" style="top:24%; left:20%;">
-                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-teal-300/70 drop-shadow-[0_0_18px_rgba(45,212,191,0.2)]"></i>
-                  <span class="cp-cloud-label">Web<br>Development</span>
+            <!-- RIGHT COLUMN: Neural Network Brain — an animated constellation of AI
+                 capability neurons connected by synapse paths with data particles.
+                 Central hub radiates connections to each capability node (LLM, Voice,
+                 NLP, Vision, Gen AI, Edge ML). Each neuron drifts on its own loop
+                 and the whole field leans with the pointer via --px/--py. -->
+            <div class="nn-brain-panel relative lg:col-span-6 xl:col-span-7 min-h-[460px] sm:min-h-[560px] lg:min-h-[660px] xl:min-h-[720px] w-full lg:w-[105%] xl:w-[110%]">
+              <div class="nn-brain-scene absolute inset-0 overflow-visible pointer-events-none" aria-hidden="true">
+
+                <span class="nn-brain-grid"></span>
+                <span class="nn-brain-aurora nn-brain-aurora-a"></span>
+                <span class="nn-brain-aurora nn-brain-aurora-b"></span>
+                <span class="nn-brain-arc nn-brain-arc-outer"></span>
+                <span class="nn-brain-arc nn-brain-arc-inner"></span>
+
+                <svg class="nn-brain-synapses" preserveAspectRatio="none"></svg>
+
+                <!-- Central AI Core Hub -->
+                <div class="nn-neuron nn-neuron-hub" style="--d:1.0; --accent:#A78BFA; --accent-soft:rgba(167,139,250,0.40); --fd:0s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage nn-neuron-stage-hub">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-3"></span>
+                        <i data-lucide="brain" class="nn-neuron-icon"></i>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">AI<br>Core</span>
+                      </span>
+                    </span>
+                  </span>
                 </div>
-                <div class="cp-cloud cp-cloud-b" style="top:18%; left:74%;">
-                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-cyan-300/70 drop-shadow-[0_0_18px_rgba(34,211,238,0.2)]"></i>
-                  <span class="cp-cloud-label">Offshore<br>Development</span>
+
+                <!-- Neuron A: LLM Engine -->
+                <div class="nn-neuron nn-neuron-a" style="--d:1.25; --accent:#5EEAD4; --accent-soft:rgba(94,234,212,0.38); --fd:-2s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="brain-circuit" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">01</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">LLM<br>Engine</span>
+                      </span>
+                    </span>
+                  </span>
                 </div>
-                <div class="cp-cloud cp-cloud-c" style="top:70%; left:16%;">
-                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-blue-300/70 drop-shadow-[0_0_18px_rgba(96,165,250,0.2)]"></i>
-                  <span class="cp-cloud-label">AI<br>Integration</span>
+
+                <!-- Neuron B: Voice AI -->
+                <div class="nn-neuron nn-neuron-b" style="--d:1.55; --accent:#F472B6; --accent-soft:rgba(244,114,182,0.38); --fd:-7s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="mic" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">02</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">Voice<br>AI</span>
+                      </span>
+                    </span>
+                  </span>
                 </div>
-                <div class="cp-cloud cp-cloud-d" style="top:74%; left:68%;">
-                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-teal-200/70 drop-shadow-[0_0_18px_rgba(94,234,212,0.2)]"></i>
-                  <span class="cp-cloud-label">Software<br>Development</span>
+
+                <!-- Neuron C: NLP Engine -->
+                <div class="nn-neuron nn-neuron-c" style="--d:1.1; --accent:#67E8F9; --accent-soft:rgba(103,232,249,0.36); --fd:-11s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="languages" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">03</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">NLP<br>Engine</span>
+                      </span>
+                    </span>
+                  </span>
                 </div>
-                <div class="cp-cloud cp-cloud-e" style="top:46%; left:45%;">
-                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-cyan-200/70 drop-shadow-[0_0_18px_rgba(103,232,249,0.2)]"></i>
-                  <span class="cp-cloud-label">Mobile App<br>Development</span>
+
+                <!-- Neuron D: Computer Vision -->
+                <div class="nn-neuron nn-neuron-d" style="--d:1.4; --accent:#FBBF24; --accent-soft:rgba(251,191,36,0.34); --fd:-16s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="eye" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">04</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">Computer<br>Vision</span>
+                      </span>
+                    </span>
+                  </span>
                 </div>
-                <div class="cp-cloud cp-cloud-f hidden sm:flex" style="top:50%; left:86%;">
-                  <i data-lucide="cloud" stroke-width="1" class="w-20 h-20 sm:w-28 sm:h-28 text-blue-200/70 drop-shadow-[0_0_18px_rgba(191,219,254,0.2)]"></i>
-                  <span class="cp-cloud-label">Game<br>Development</span>
+
+                <!-- Neuron E: Gen AI -->
+                <div class="nn-neuron nn-neuron-e" style="--d:1.85; --accent:#34D399; --accent-soft:rgba(52,211,153,0.38); --fd:-21s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="sparkles" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">05</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">Gen<br>AI</span>
+                      </span>
+                    </span>
+                  </span>
                 </div>
+
+                <!-- Neuron F: Edge ML -->
+                <div class="nn-neuron nn-neuron-f" style="--d:1.15; --accent:#93C5FD; --accent-soft:rgba(147,197,253,0.32); --fd:-26s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="cpu" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">06</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">Edge<br>ML</span>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+
+                <!-- Neuron G: Voice Translator (Middle Top-Left) -->
+                <div class="nn-neuron nn-neuron-g" style="--d:1.2; --accent:#FB7185; --accent-soft:rgba(251,113,133,0.38); --fd:-4s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="audio-waveform" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">07</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">Voice<br>Translator</span>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+
+                <!-- Neuron H: Autonomous Agents (Middle Top-Right) -->
+                <div class="nn-neuron nn-neuron-h" style="--d:1.35; --accent:#38BDF8; --accent-soft:rgba(56,189,248,0.38); --fd:-9s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="bot" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">08</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">Autonomous<br>Agents</span>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+
+                <!-- Neuron I: Neural RAG (Middle Bottom-Left) -->
+                <div class="nn-neuron nn-neuron-i" style="--d:1.25; --accent:#C084FC; --accent-soft:rgba(192,132,252,0.38); --fd:-14s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="database" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">09</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">Neural<br>RAG</span>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+
+                <!-- Neuron J: Model Tuning (Middle Bottom-Right) -->
+                <div class="nn-neuron nn-neuron-j" style="--d:1.4; --accent:#F59E0B; --accent-soft:rgba(245,158,11,0.38); --fd:-19s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="sliders" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">10</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">Model<br>Tuning</span>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+
+                <!-- Neuron K: Deep Learning (Middle Center-Top) -->
+                <div class="nn-neuron nn-neuron-k" style="--d:1.15; --accent:#10B981; --accent-soft:rgba(16,185,129,0.38); --fd:-23s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="network" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">11</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">Deep<br>Learning</span>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+
+                <!-- Neuron L: Realtime Inference (Middle Center-Bottom) -->
+                <div class="nn-neuron nn-neuron-l" style="--d:1.3; --accent:#EC4899; --accent-soft:rgba(236,72,153,0.38); --fd:-28s">
+                  <span class="nn-neuron-anchor">
+                    <span class="nn-neuron-float">
+                      <span class="nn-neuron-stage">
+                        <span class="nn-neuron-halo"></span>
+                        <span class="nn-neuron-orbit"></span>
+                        <span class="nn-neuron-orbit nn-neuron-orbit-2"></span>
+                        <i data-lucide="zap" class="nn-neuron-icon"></i>
+                        <span class="nn-neuron-index">12</span>
+                      </span>
+                      <span class="nn-neuron-tag">
+                        <span class="nn-neuron-label">Realtime<br>Inference</span>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+
+                <!-- Live Neural Telemetry Chips (Floating in the intermediate channels) -->
+                <div class="nn-telemetry-chip" style="--x: 23%; --y: 45%; --cd: 0s">
+                  <span class="nn-telemetry-dot" style="background:#5EEAD4; box-shadow:0 0 6px #5EEAD4;"></span>
+                  <span>FP16 • 120k tps</span>
+                </div>
+                <div class="nn-telemetry-chip" style="--x: 77%; --y: 45%; --cd: -2s">
+                  <span class="nn-telemetry-dot" style="background:#FB7185; box-shadow:0 0 6px #FB7185;"></span>
+                  <span>Latency &lt;140ms</span>
+                </div>
+                <div class="nn-telemetry-chip" style="--x: 50%; --y: 33%; --cd: -4s">
+                  <span class="nn-telemetry-dot" style="background:#A78BFA; box-shadow:0 0 6px #A78BFA;"></span>
+                  <span>1M Context RAG</span>
+                </div>
+
               </div>
             </div>
 
@@ -525,122 +759,7 @@
         </div>
       </section>
 
-      <section class="py-24 sm:py-24 lg:py-24 relative bg-[#F3F3F5] text-black border-y border-[#E2E2E5] z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
-              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ PROVEN TRACK RECORD
-              </span>
-              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black mt-3 leading-[0.95]">
-                Selected Production <br><span class="font-editorial italic font-normal lowercase tracking-normal text-black">featured</span> CASE STUDIES
-              </h2>
-              <p class="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-xl font-normal mt-3">
-                We go the extra mile in all our projects, carefully analyzing requirements through launch to deliver the best fit for your business case.
-              </p>
-              <a href="portfolio.html" class="inline-flex items-center gap-2 mt-5 font-mono text-xs font-bold uppercase tracking-wider text-black border-b-2 border-black pb-0.5 hover:gap-3 transition-all">
-                View Full Portfolio <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-            
-            <div class="flex flex-wrap gap-2">
-              <button onclick="filterPortfolio('all', this)" class="portfolio-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-black text-white border border-black transition-all">All</button>
-              <button onclick="filterPortfolio('web', this)" class="portfolio-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-[#D5D5D8] hover:border-black transition-all">Web</button>
-              <button onclick="filterPortfolio('app', this)" class="portfolio-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-[#D5D5D8] hover:border-black transition-all">Apps</button>
-              <button onclick="filterPortfolio('game', this)" class="portfolio-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-[#D5D5D8] hover:border-black transition-all">Games</button>
-              <button onclick="filterPortfolio('ai-projects', this)" class="portfolio-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-[#D5D5D8] hover:border-black transition-all">AI Projects</button>
-            </div>
-          </div>
 
-          <!-- One real, representative project per portfolio.html category -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="portfolio-grid">
-
-            <div class="portfolio-item web group relative rounded-3xl overflow-hidden bg-[#0C0C0C] border border-[#272727] hover:border-teal-400/40 transition-all tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
-              <div class="tilt-card-inner aspect-[3/4] overflow-hidden relative bg-[#f3f3f5]">
-                <img src="assets/images/portfolio-live/cloud-hr-track.png"
-                     alt="Cloud HR Track"
-                     class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-
-                <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                  <div>
-                    <span class="text-[10px] font-mono uppercase font-bold text-[#D8D8D8] tracking-widest">Web</span>
-                    <h4 class="text-xl font-display font-bold text-white group-hover:text-white transition-colors mt-1 tracking-tight">Cloud HR Track</h4>
-                    <p class="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">Cloud-Based HR Management Platform</p>
-                  </div>
-                  <a href="portfolio.html" class="w-9 h-9 shrink-0 rounded-full bg-teal-400/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-teal-400 group-hover:text-black transition-all">
-                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item app group relative rounded-3xl overflow-hidden bg-[#0C0C0C] border border-[#272727] hover:border-blue-400/40 transition-all tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
-              <div class="tilt-card-inner aspect-[3/4] overflow-hidden relative bg-[#f3f3f5]">
-                <img src="assets/images/portfolio-live/id-check-app.png"
-                     alt="ID Check KYC App"
-                     class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-
-                <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                  <div>
-                    <span class="text-[10px] uppercase font-bold text-white tracking-widest">Apps</span>
-                    <h4 class="text-xl font-display font-bold text-white group-hover:text-white transition-colors mt-1 tracking-tight">ID Check KYC</h4>
-                    <p class="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">Mobile Identity Verification App</p>
-                  </div>
-                  <a href="portfolio.html" class="w-9 h-9 shrink-0 rounded-full bg-blue-400/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-blue-400 group-hover:text-black transition-all">
-                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item game group relative rounded-3xl overflow-hidden bg-[#0C0C0C] border border-[#272727] hover:border-amber-400/40 transition-all tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
-              <div class="tilt-card-inner aspect-[3/4] overflow-hidden relative bg-[#f3f3f5]">
-                <img src="assets/images/portfolio-live/word-game.png"
-                     alt="Word Android Game"
-                     class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-
-                <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                  <div>
-                    <span class="text-[10px] font-mono uppercase font-bold text-[#D8D8D8] tracking-widest">Games</span>
-                    <h4 class="text-xl font-display font-bold text-white group-hover:text-[#D8D8D8] transition-colors mt-1 tracking-tight">Word Android Game</h4>
-                    <p class="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">Mobile Vocabulary Puzzle Game</p>
-                  </div>
-                  <a href="portfolio.html" class="w-9 h-9 shrink-0 rounded-full bg-amber-400/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-amber-400 group-hover:text-black transition-all">
-                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item ai-projects group relative rounded-3xl overflow-hidden bg-[#0C0C0C] border border-[#272727] hover:border-emerald-400/40 transition-all tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
-              <div class="tilt-card-inner aspect-[3/4] overflow-hidden relative bg-[#f3f3f5]">
-                <img src="assets/images/portfolio-live/b2b-marketing.png"
-                     alt="AI-Powered B2B Marketing Platform"
-                     class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-                <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-[9px] font-mono font-bold uppercase tracking-widest backdrop-blur-md">Upcoming</span>
-
-                <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                  <div>
-                    <span class="text-[10px] uppercase font-bold text-white tracking-widest">AI Projects</span>
-                    <h4 class="text-lg font-display font-bold text-white group-hover:text-[#D8D8D8] transition-colors mt-1 tracking-tight leading-snug">AI B2B Marketing Platform</h4>
-                    <p class="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">AI-Driven Lead Discovery & Outreach</p>
-                  </div>
-                  <a href="portfolio.html" class="w-9 h-9 shrink-0 rounded-full bg-emerald-400/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-emerald-400 group-hover:text-black transition-all">
-                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
 
       
       <!-- Trionn Dribbble / Creative Lab Section: DESIGN IN MOTION -->
