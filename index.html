@@ -68,12 +68,9 @@
         <button onclick="navigateTo('solutions')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
           Solutions
         </button>
-        <button onclick="navigateTo('pricing')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
-          Pricing
-        </button>
-        <button onclick="navigateTo('blog')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
-          Blog
-        </button>
+        <a href="events.html" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+          Events
+        </a>
         <a href="contact.html" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
           Contact
         </a>
@@ -109,8 +106,7 @@
         <a href="services.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Services</a>
         <button onclick="navigateTo('portfolio'); toggleMobileMenu()" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Portfolio</button>
         <button onclick="navigateTo('solutions'); toggleMobileMenu()" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Solutions</button>
-        <button onclick="navigateTo('pricing'); toggleMobileMenu()" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Pricing</button>
-        <button onclick="navigateTo('blog'); toggleMobileMenu()" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Blog</button>
+        <a href="events.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Events</a>
         <a href="contact.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Contact</a>
         <div class="pt-4 border-t border-[#272727] flex flex-col gap-3">
           <button onclick="openContactModal(); toggleMobileMenu()" class="w-full text-center rounded-xl py-3 gradient-cloud-bg text-black font-bold text-sm">
@@ -1512,25 +1508,54 @@
       <p class="text-xs text-neutral-400 mt-1 mb-6">Share your parameters to receive an architectural brief within 24 hours.</p>
       
       <form onsubmit="handleContactSubmit(event)" class="space-y-4 text-xs">
-        <div>
-          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Full Name</label>
-          <input type="text" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">First Name</label>
+            <input type="text" required placeholder="Your first name" class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
+          </div>
+          <div>
+            <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Last Name</label>
+            <input type="text" required placeholder="Your last name" class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Company Name</label>
+            <input type="text" required placeholder="Company or team" class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
+          </div>
+          <div>
+            <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Email Address</label>
+            <input type="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Service</label>
+            <select required class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
+              <option value="" disabled selected>Select service</option>
+              <option>Web Development</option>
+              <option>Offshore Development Teams</option>
+              <option>AI Integration &amp; Gen AI</option>
+              <option>Custom Software Development</option>
+              <option>Mobile App Development</option>
+              <option>Game Development</option>
+              <option>Business Automation &amp; ERP</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Expected Budget</label>
+            <select required class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
+              <option value="" disabled selected>Select budget</option>
+              <option>Free Consultation</option>
+              <option>$1K – $5K</option>
+              <option>$5K – $10K</option>
+              <option>$10K+ / Dedicated Squad</option>
+            </select>
+          </div>
         </div>
         <div>
-          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Email Address</label>
-          <input type="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
-        </div>
-        <div>
-          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Expected Budget</label>
-          <select class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30">
-            <option>$5k - $15k</option>
-            <option>$15k - $40k</option>
-            <option>$40k+</option>
-          </select>
-        </div>
-        <div>
-          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Project Details</label>
-          <textarea rows="3" required placeholder="Outline your requirements..." class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30"></textarea>
+          <label class="block font-mono font-semibold uppercase tracking-widest text-neutral-300 mb-1.5 text-[11px]">Project Brief</label>
+          <textarea rows="3" required placeholder="Tell us about your project, goals, and timeline." class="w-full px-4 py-3 rounded-xl bg-black border border-[#272727] text-white outline-none focus:border-cyan-400/30"></textarea>
         </div>
         <button type="submit" class="w-full py-4 rounded-xl gradient-cloud-bg font-mono font-bold uppercase tracking-wider text-black text-xs transition-opacity hover:opacity-90 flex items-center justify-center gap-2">
           Submit Inquiry
