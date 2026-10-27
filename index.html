@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cloud Production LTD — Expert Software Development & AI Solutions</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts -->
@@ -62,12 +67,12 @@
         <a href="services.html" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
           Services
         </a>
-        <button onclick="navigateTo('portfolio')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+        <a href="portfolio.html" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
           Portfolio
-        </button>
-        <button onclick="navigateTo('solutions')" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
+        </a>
+        <a href="solutions.html" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
           Solutions
-        </button>
+        </a>
         <a href="events.html" class="nav-item text-neutral-300 hover:text-white text-[16px] font-normal tracking-wide transition-colors" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">
           Events
         </a>
@@ -104,8 +109,8 @@
         <button onclick="navigateTo('home'); toggleMobileMenu()" class="text-left text-white font-bold py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Home</button>
         <a href="about.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">About</a>
         <a href="services.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Services</a>
-        <button onclick="navigateTo('portfolio'); toggleMobileMenu()" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Portfolio</button>
-        <button onclick="navigateTo('solutions'); toggleMobileMenu()" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Solutions</button>
+        <a href="portfolio.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Portfolio</a>
+        <a href="solutions.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Solutions</a>
         <a href="events.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Events</a>
         <a href="contact.html" class="text-left text-neutral-300 hover:text-white py-1" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;">Contact</a>
         <div class="pt-4 border-t border-[#272727] flex flex-col gap-3">
@@ -121,7 +126,7 @@
 
     <div id="page-home" class="page-view block">
 
-      <section class="relative pt-14 sm:pt-18 md:pt-18 lg:pt-18 pb-36 sm:pb-24 md:pb-24 lg:pb-24 xl:pb-24 overflow-hidden">
+      <section class="relative pt-14 sm:pt-18 md:pt-18 lg:pt-18 pb-36 sm:pb-24 md:pb-24 lg:pb-24 xl:pb-24 overflow-hidden hero-brand-bg">
 
         <div class="relative z-10 max-w-[1520px] xl:max-w-[1600px] 2xl:max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16">
 
@@ -150,10 +155,9 @@
 
               <!-- Main Hero Headline -->
               <div>
-                <h1 class="text-5xl sm:text-7xl xl:text-8xl font-black tracking-[-0.055em] uppercase leading-[0.92] font-display text-white">
-                  SMARTER </br><span class="font-editorial italic font-normal lowercase tracking-normal text-white text-[0.85em]">faster & better</span><br>
-                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500">SOFTWARE</span>
-                  <span class="text-stroke block sm:inline">SOLUTIONS</span>
+                <h1 class="text-4xl sm:text-5xl xl:text-6xl font-black tracking-[-0.055em] uppercase leading-[0.92] font-display text-white">
+                  <span id="hero-cycle-word" class="hero-cycle-word">SMART</span> <span class="font-editorial italic font-normal lowercase tracking-normal text-white text-[0.85em]">software</span><br>
+                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500">SOLUTIONS</span>
                 </h1>
               </div>
 
@@ -171,13 +175,13 @@
                   </span>
                 </button>
 
-                <button onclick="navigateTo('portfolio')" class="px-8 py-4 rounded-full bg-[#0C0C0C] hover:bg-[#161616] text-neutral-200 hover:text-white border border-[#272727] hover:border-cyan-400/30 text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center gap-2">
+                <a href="portfolio.html" class="px-8 py-4 rounded-full bg-[#0C0C0C] hover:bg-[#161616] text-neutral-200 hover:text-white border border-[#272727] hover:border-cyan-400/30 text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center gap-2">
                   <svg viewBox="0 0 20 20" fill="none" class="w-4 h-4 text-white">
                     <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.6"/>
                     <path d="M10 5 L12.5 10 L10 15 L7.5 10 Z" fill="currentColor"/>
                   </svg>
                   Explore Portfolio
-                </button>
+                </a>
               </div>
 
               <!-- Social Proof & Review Badge -->
@@ -479,9 +483,64 @@
         </div>
       </section>
 
+      <section class="py-24 sm:py-36 lg:py-24 relative bg-[#F3F3F5] text-black border-y border-[#E2E2E5] z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            <div class="lg:col-span-7 space-y-8">
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ WHO WE ARE
+              </span>
+              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black leading-[0.95]">
+                Why Trust Cloud <br><span class="font-editorial italic font-normal lowercase tracking-normal gradient-cloud-text">Production LTD?</span>
+              </h2>
+              <p class="text-neutral-600 text-base sm:text-lg leading-relaxed max-w-lg font-normal">
+                Cloud Production LTD is an elite AI engineering and software consultancy delivering production-grade machine learning systems, custom fine-tuned models, and scalable digital solutions.
+              </p>
+
+              <div class="grid grid-cols-2 gap-8 pt-4 border-t border-[#D5D5D8] max-w-lg">
+                <div>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-6xl sm:text-7xl lg:text-8xl font-editorial italic text-black leading-none" id="count-members">50</span>
+                    <span class="text-3xl sm:text-4xl font-editorial italic text-neutral-500">+</span>
+                  </div>
+                  <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.15em] text-neutral-500 mt-2 font-medium">Completed Projects</p>
+                </div>
+                <div>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-5xl sm:text-6xl lg:text-7xl font-editorial italic text-black leading-none" id="count-awards">6–7</span>
+                  </div>
+                  <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.15em] text-neutral-500 mt-2 font-medium">Core Engineers</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="relative w-72 h-80 sm:w-96 sm:h-[420px] tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+                <div class="tilt-card-inner w-full h-full rounded-3xl overflow-hidden border border-[#D5D5D8] relative shadow-2xl group">
+                  <img src="assets/images/team-collaboration-alt.jpg"
+                       alt="Cloud Production Creative Team"
+                       class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                       onerror="this.src='assets/images/fallback-team-specialists.svg'">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+                  <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/95 backdrop-blur-md border border-black/10 shadow-lg">
+                    <p class="text-black font-bold text-sm">Innovating Through Software Excellence</p>
+                    <p class="text-xs text-neutral-600 font-semibold font-mono">Dhaka Headquarters & Tokyo Collaboration</p>
+                  </div>
+                </div>
+
+                <div class="absolute -top-4 -left-4 w-16 h-16 border border-[#D5D5D8] rounded-2xl -z-10 animate-pulse"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <!-- Trionn Vision Section with Cascading Stripes & Dynamic Inversion Animation -->
-      <section id="vision-section" class="relative min-h-screen h-screen w-full overflow-hidden select-none bg-[#050B0F]">
-        
+      <section id="vision-section" class="relative min-h-screen h-screen w-full overflow-hidden bg-[#1C1C1C]">
+
         <!-- Cascading Stripes Container (Rises from bottom on scroll) -->
         <div class="stripes-container absolute inset-0 pointer-events-none flex flex-col w-full h-full z-10">
           <div class="stripe-item flex-1 w-full h-full bg-[#D2D2D2]" style="padding-bottom: 1px;"></div>
@@ -492,14 +551,7 @@
         </div>
 
         <!-- Foreground Typography Layer with mix-blend-difference -->
-        <div id="s3-text" class="relative z-20 w-full h-full min-h-screen flex flex-col justify-between items-center text-white py-16 sm:py-20 lg:py-24 xl:py-28">
-          
-          <!-- Top Title: Production-Grade AI. Measured Impact. -->
-          <div class="w-full max-w-[1520px] xl:max-w-[1600px] 2xl:max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 grid grid-cols-12 gap-x-6">
-            <span class="title z-3 col-span-12 lg:col-start-2 lg:col-span-11 font-display text-4xl sm:text-6xl lg:text-7xl font-bold uppercase tracking-[-0.05em] leading-[0.94] text-white">
-              Production-Grade AI. <br>Measured Real-World Impact.
-            </span>
-          </div>
+        <div id="s3-text" class="relative z-20 w-full h-full min-h-screen flex flex-col justify-center items-center text-white py-4 sm:py-6 lg:py-8 xl:py-10">
 
           <!-- Center Marquee: Deploy ✦ Optimize ✦ Scale -->
           <div class="relative w-full overflow-hidden pointer-events-none py-8 lg:py-12">
@@ -527,195 +579,145 @@
             </div>
           </div>
 
-          <!-- Bottom Subtitle: ✦ Custom AI Model Deployment, High-Speed Inference & Agentic Systems. -->
-          <div class="w-full max-w-[1520px] xl:max-w-[1600px] 2xl:max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 pb-4 text-center">
-            <span class="title z-3 col-span-12 font-mono text-xs sm:text-sm lg:text-base tracking-[0.24em] uppercase font-bold text-white/95">
-              <span class="text-cyan-400">✦</span> Custom AI Model Deployment, High-Speed Inference & Agentic Systems.
-            </span>
-          </div>
-
         </div>
       </section>
 
-      <section class="py-24 sm:py-36 lg:py-24 relative bg-[#F3F3F5] text-black border-y border-[#E2E2E5] z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-7 space-y-8">
-              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ WHO WE ARE
-              </span>
-              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black leading-[0.95]">
-                Why Trust Cloud Production LTD <br>
-                <span class="font-editorial italic font-normal lowercase tracking-normal text-black">to lead the</span> WAY?
-              </h2>
-              <p class="text-neutral-600 text-base sm:text-lg leading-relaxed max-w-lg font-normal">
-                Cloud Production LTD is an elite AI engineering and software consultancy delivering production-grade machine learning systems, custom fine-tuned models, and scalable digital solutions. With deep expertise across high-concurrency cloud infrastructure and Japanese enterprise partnerships, we build software that drives real-world measurable impact.
-              </p>
-
-              <div class="grid grid-cols-2 gap-8 pt-4 border-t border-[#D5D5D8] max-w-lg">
-                <div>
-                  <div class="flex items-baseline gap-1">
-                    <span class="text-6xl sm:text-7xl lg:text-8xl font-editorial italic text-black leading-none" id="count-members">50</span>
-                    <span class="text-3xl sm:text-4xl font-editorial italic text-neutral-500">+</span>
-                  </div>
-                  <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.15em] text-neutral-500 mt-2 font-medium">Completed Projects</p>
-                </div>
-                <div>
-                  <div class="flex items-baseline gap-1">
-                    <span class="text-5xl sm:text-6xl lg:text-7xl font-editorial italic text-black leading-none" id="count-awards">6–7</span>
-                  </div>
-                  <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.15em] text-neutral-500 mt-2 font-medium">Core Engineers</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="lg:col-span-5 flex justify-center">
-              <div class="relative w-72 h-80 sm:w-96 sm:h-[420px] tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
-                <div class="tilt-card-inner w-full h-full rounded-3xl overflow-hidden border border-[#D5D5D8] relative shadow-2xl group">
-                  <img src="assets/images/team-collaboration-alt.jpg" 
-                       alt="Cloud Production Creative Team" 
-                       class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                       onerror="this.src='assets/images/fallback-team-specialists.svg'">
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                  
-                  <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/95 backdrop-blur-md border border-black/10 shadow-lg">
-                    <p class="text-black font-bold text-sm">Innovating Through Software Excellence</p>
-                    <p class="text-xs text-neutral-600 font-semibold font-mono">Dhaka Headquarters & Tokyo Collaboration</p>
-                  </div>
-                </div>
-
-                <div class="absolute -top-4 -left-4 w-16 h-16 border border-[#D5D5D8] rounded-2xl -z-10 animate-pulse"></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <section class="py-24 sm:py-24 lg:py-24 bg-[#050B0F] relative border-t border-[#272727]/80">
+      <section class="py-24 sm:py-24 lg:py-24 bg-[#D2D2D2] relative border-t border-black/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div class="max-w-3xl">
-              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white inline-flex items-center gap-2"><span class="text-cyan-400">✦</span> WHAT WE DO</span>
-              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-white mt-4 leading-[0.95]">
-                Explore Our Comprehensive <br><span class="font-editorial italic font-normal lowercase tracking-normal text-stroke">ai & software</span> SERVICES
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-black inline-flex items-center gap-2"><span class="text-cyan-600">✦</span> WHAT WE DO</span>
+              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black mt-4 leading-[0.95]">
+                Explore Our <br><span class="font-editorial italic font-normal lowercase tracking-normal gradient-cloud-text">ai & software</span> SERVICES
               </h2>
-              <p class="text-neutral-300 text-sm sm:text-base leading-relaxed mt-4 font-normal">
+              <p class="text-neutral-700 text-sm sm:text-base leading-relaxed mt-4 font-normal">
                 Cloud Production LTD engineers battle-tested AI and software systems for global leaders. From dedicated GPU inference clusters and autonomous agent swarms to forward-deployed engineering squads and resilient cloud platforms.
               </p>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 services-col md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- Service 01: Custom AI Models & Inference -->
-            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-cyan-400/50 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-8 bg-white border border-black/5 shadow-md shadow-black/5 hover:shadow-xl hover:shadow-cyan-900/10 hover:border-cyan-600/50 transition-all duration-300 hover:-translate-y-2 tilt-card flex flex-col justify-between cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="window.location.href='services.html'">
               <div>
+                <div class="w-full h-36 mb-6 rounded-2xl overflow-hidden transition-transform duration-300 group-hover:scale-[1.04] bg-gradient-to-br from-cyan-400/10 to-blue-500/5 border border-cyan-400/10 flex items-center justify-center">
+                  <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                    <rect x="24" y="24" width="40" height="40" rx="6" stroke="#22D3EE" stroke-width="2"/>
+                    <rect x="34" y="34" width="20" height="20" rx="3" stroke="#22D3EE" stroke-width="1.5" opacity="0.7"/>
+                    <circle cx="44" cy="44" r="4" fill="#22D3EE"/>
+                    <path d="M44 10V24M44 64V78M10 44H24M64 44H78M18 18L27 27M61 61L70 70M70 18L61 27M27 61L18 70" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                  </svg>
+                </div>
                 <div class="flex items-center justify-between pb-4 mb-6 border-b border-cyan-400/15">
-                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">01 / CUSTOM AI & INFERENCE</span>
+                  <span class="font-mono text-[10px] font-semibold text-black tracking-[0.2em] uppercase">01 / CUSTOM AI & INFERENCE</span>
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
                 </div>
-                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] gradient-cloud-text transition-colors">Model Deployment & Quantization</h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
-                  End-to-end model fine-tuning, weight quantization (AWQ, GPTQ, GGUF), and sub-100ms inference deployment with vLLM, TensorRT-LLM, and dedicated private GPU cloud infrastructure.
-                </p>
+                <a href="services.html" class="text-base sm:text-lg lg:text-[1.3rem] font-display font-bold mt-2 mb-3 tracking-[-0.03em] whitespace-nowrap text-black group-hover:text-cyan-700 transition-colors block">Model Deployment & Quantization</a>
               </div>
-              <a href="services.html" class="inline-flex items-center gap-2 text-white hover:text-cyan-400 transition-colors">
-                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
-                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
-              </a>
             </div>
 
             <!-- Service 02: Agentic AI & Custom Tooling -->
-            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-teal-400/50 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-8 bg-white border border-black/5 shadow-md shadow-black/5 hover:shadow-xl hover:shadow-teal-900/10 hover:border-teal-500/50 transition-all duration-300 hover:-translate-y-2 tilt-card flex flex-col justify-between cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="window.location.href='services.html'">
               <div>
+                <div class="w-full h-36 mb-6 rounded-2xl overflow-hidden transition-transform duration-300 group-hover:scale-[1.04] bg-gradient-to-br from-teal-400/10 to-cyan-500/5 border border-teal-400/10 flex items-center justify-center">
+                  <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                    <circle cx="44" cy="20" r="7" stroke="#5EEAD4" stroke-width="2"/>
+                    <circle cx="20" cy="60" r="7" stroke="#5EEAD4" stroke-width="2"/>
+                    <circle cx="68" cy="60" r="7" stroke="#5EEAD4" stroke-width="2"/>
+                    <circle cx="44" cy="68" r="5" fill="#5EEAD4"/>
+                    <path d="M44 27V61M26 55L40 68M62 55L48 68" stroke="#5EEAD4" stroke-width="2" opacity="0.7"/>
+                  </svg>
+                </div>
                 <div class="flex items-center justify-between pb-4 mb-6 border-b border-teal-400/15">
-                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">02 / AGENTIC SYSTEMS</span>
+                  <span class="font-mono text-[10px] font-semibold text-black tracking-[0.2em] uppercase">02 / AGENTIC SYSTEMS</span>
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
                 </div>
-                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] text-white group-hover:text-teal-300 transition-colors">Agentic AI & Custom Tooling</h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
-                  Autonomous multi-agent swarms, tool-calling reasoning systems, structured output pipelines, and enterprise vector RAG with semantic search tailored to your core business data.
-                </p>
+                <a href="services.html" class="text-base sm:text-lg lg:text-[1.3rem] font-display font-bold mt-2 mb-3 tracking-[-0.03em] whitespace-nowrap text-black group-hover:text-teal-700 transition-colors block">Agentic AI & Custom Tooling</a>
               </div>
-              <a href="services.html" class="inline-flex items-center gap-2 text-white hover:text-teal-300 transition-colors">
-                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
-                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
-              </a>
             </div>
 
             <!-- Service 03: Forward-Deployed AI Engineering -->
-            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-blue-400/50 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-8 bg-white border border-black/5 shadow-md shadow-black/5 hover:shadow-xl hover:shadow-blue-900/10 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 tilt-card flex flex-col justify-between cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="window.location.href='services.html'">
               <div>
+                <div class="w-full h-36 mb-6 rounded-2xl overflow-hidden transition-transform duration-300 group-hover:scale-[1.04] bg-gradient-to-br from-blue-400/10 to-cyan-500/5 border border-blue-400/10 flex items-center justify-center">
+                  <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                    <rect x="14" y="20" width="60" height="48" rx="6" stroke="#60A5FA" stroke-width="2"/>
+                    <path d="M26 38L34 46L26 54" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M42 54H56" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="round"/>
+                    <circle cx="20" cy="28" r="1.6" fill="#60A5FA"/>
+                    <circle cx="26" cy="28" r="1.6" fill="#60A5FA"/>
+                    <circle cx="32" cy="28" r="1.6" fill="#60A5FA"/>
+                  </svg>
+                </div>
                 <div class="flex items-center justify-between pb-4 mb-6 border-b border-blue-400/15">
-                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">03 / FORWARD-DEPLOYED</span>
+                  <span class="font-mono text-[10px] font-semibold text-black tracking-[0.2em] uppercase">03 / FORWARD-DEPLOYED</span>
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
                 </div>
-                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] text-white group-hover:text-blue-300 transition-colors">Forward-Deployed Engineering</h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
-                  Embedded senior AI engineers and system architects working directly within your team to design, build, and deploy production software at record speed with Japanese quality standards.
-                </p>
+                <a href="services.html" class="text-base sm:text-lg lg:text-[1.3rem] font-display font-bold mt-2 mb-3 tracking-[-0.03em] whitespace-nowrap text-black group-hover:text-blue-700 transition-colors block">Forward-Deployed Engineering</a>
               </div>
-              <a href="services.html" class="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors">
-                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
-                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
-              </a>
             </div>
 
             <!-- Service 04: Full-Stack Web & SaaS Platforms -->
-            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-teal-500/50 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-8 bg-white border border-black/5 shadow-md shadow-black/5 hover:shadow-xl hover:shadow-teal-900/10 hover:border-teal-600/50 transition-all duration-300 hover:-translate-y-2 tilt-card flex flex-col justify-between cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="window.location.href='services.html'">
               <div>
+                <div class="w-full h-36 mb-6 rounded-2xl overflow-hidden transition-transform duration-300 group-hover:scale-[1.04] bg-gradient-to-br from-teal-500/10 to-blue-400/5 border border-teal-500/10 flex items-center justify-center">
+                  <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                    <rect x="14" y="18" width="60" height="46" rx="6" stroke="#2DD4BF" stroke-width="2"/>
+                    <line x1="14" y1="30" x2="74" y2="30" stroke="#2DD4BF" stroke-width="2"/>
+                    <circle cx="21" cy="24" r="1.6" fill="#2DD4BF"/>
+                    <circle cx="27" cy="24" r="1.6" fill="#2DD4BF"/>
+                    <circle cx="33" cy="24" r="1.6" fill="#2DD4BF"/>
+                    <rect x="22" y="38" width="18" height="16" rx="2" stroke="#2DD4BF" stroke-width="1.5" opacity="0.7"/>
+                    <rect x="46" y="38" width="18" height="16" rx="2" stroke="#2DD4BF" stroke-width="1.5" opacity="0.7"/>
+                  </svg>
+                </div>
                 <div class="flex items-center justify-between pb-4 mb-6 border-b border-teal-500/15">
-                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">04 / WEB PLATFORMS</span>
+                  <span class="font-mono text-[10px] font-semibold text-black tracking-[0.2em] uppercase">04 / WEB PLATFORMS</span>
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
                 </div>
-                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] text-white group-hover:text-[#D8D8D8] transition-colors">Full-Stack Web & SaaS</h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
-                  High-speed, scalable web applications and SaaS platforms architected with React, Next.js, Node.js, Python FastAPI, PostgreSQL, and resilient cloud microservices.
-                </p>
+                <a href="services.html" class="text-base sm:text-lg lg:text-[1.3rem] font-display font-bold mt-2 mb-3 tracking-[-0.03em] whitespace-nowrap text-black group-hover:text-neutral-600 transition-colors block">Full-Stack Web & SaaS</a>
               </div>
-              <a href="services.html" class="inline-flex items-center gap-2 text-white hover:text-white transition-colors">
-                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
-                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
-              </a>
             </div>
 
             <!-- Service 05: Mobile Apps & Edge ML -->
-            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-cyan-500/50 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-8 bg-white border border-black/5 shadow-md shadow-black/5 hover:shadow-xl hover:shadow-cyan-900/10 hover:border-cyan-700/50 transition-all duration-300 hover:-translate-y-2 tilt-card flex flex-col justify-between cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="window.location.href='services.html'">
               <div>
+                <div class="w-full h-36 mb-6 rounded-2xl overflow-hidden transition-transform duration-300 group-hover:scale-[1.04] bg-gradient-to-br from-cyan-500/10 to-teal-400/5 border border-cyan-500/10 flex items-center justify-center">
+                  <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                    <rect x="30" y="12" width="28" height="64" rx="6" stroke="#22D3EE" stroke-width="2"/>
+                    <line x1="30" y1="22" x2="58" y2="22" stroke="#22D3EE" stroke-width="1.5" opacity="0.6"/>
+                    <line x1="30" y1="66" x2="58" y2="66" stroke="#22D3EE" stroke-width="1.5" opacity="0.6"/>
+                    <rect x="38" y="34" width="12" height="12" rx="2" stroke="#22D3EE" stroke-width="1.5"/>
+                    <circle cx="44" cy="40" r="2.2" fill="#22D3EE"/>
+                  </svg>
+                </div>
                 <div class="flex items-center justify-between pb-4 mb-6 border-b border-cyan-500/15">
-                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">05 / MOBILE & EDGE ML</span>
+                  <span class="font-mono text-[10px] font-semibold text-black tracking-[0.2em] uppercase">05 / MOBILE & EDGE ML</span>
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
                 </div>
-                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] text-white group-hover:text-cyan-300 transition-colors">Mobile Apps & On-Device ML</h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
-                  Exceptional cross-platform mobile apps (Flutter, React Native, iOS, Android) integrated with on-device computer vision, local OCR, and offline-capable intelligent inference.
-                </p>
+                <a href="services.html" class="text-base sm:text-lg lg:text-[1.3rem] font-display font-bold mt-2 mb-3 tracking-[-0.03em] whitespace-nowrap text-black group-hover:text-cyan-700 transition-colors block">Mobile Apps & On-Device ML</a>
               </div>
-              <a href="services.html" class="inline-flex items-center gap-2 text-white hover:text-cyan-300 transition-colors">
-                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
-                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
-              </a>
             </div>
 
             <!-- Service 06: Voice AI & Real-Time Computer Vision -->
-            <div class="group relative rounded-3xl p-8 bg-[#0C0C0C] border border-[#272727] hover:border-blue-500/50 transition-all duration-300 tilt-card flex flex-col justify-between" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-8 bg-white border border-black/5 shadow-md shadow-black/5 hover:shadow-xl hover:shadow-blue-900/10 hover:border-blue-700/50 transition-all duration-300 hover:-translate-y-2 tilt-card flex flex-col justify-between cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="window.location.href='services.html'">
               <div>
+                <div class="w-full h-36 mb-6 rounded-2xl overflow-hidden transition-transform duration-300 group-hover:scale-[1.04] bg-gradient-to-br from-blue-500/10 to-teal-400/5 border border-blue-500/10 flex items-center justify-center">
+                  <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                    <path d="M10 44C10 44 20 24 44 24C68 24 78 44 78 44C78 44 68 64 44 64C20 64 10 44 10 44Z" stroke="#60A5FA" stroke-width="2"/>
+                    <circle cx="44" cy="44" r="10" stroke="#60A5FA" stroke-width="2"/>
+                    <circle cx="44" cy="44" r="3" fill="#60A5FA"/>
+                    <path d="M12 18V12M12 12H18M76 70V76M76 76H70" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                  </svg>
+                </div>
                 <div class="flex items-center justify-between pb-4 mb-6 border-b border-blue-500/15">
-                  <span class="font-mono text-xs font-semibold text-white tracking-[0.2em] uppercase">06 / SPEECH & VISION</span>
+                  <span class="font-mono text-[10px] font-semibold text-black tracking-[0.2em] uppercase">06 / SPEECH & VISION</span>
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
                 </div>
-                <h3 class="text-2xl sm:text-3xl font-display font-bold mt-2 mb-3 tracking-[-0.03em] text-white group-hover:text-[#D8D8D8] transition-colors">Voice AI & Real-Time Vision</h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-6 font-normal">
-                  Low-latency bidirectional speech translation, voice cloning pipelines, biometric KYC document scanning, and automated real-time visual inspection systems.
-                </p>
+                <a href="services.html" class="text-base sm:text-lg lg:text-[1.3rem] font-display font-bold mt-2 mb-3 tracking-[-0.03em] whitespace-nowrap text-black group-hover:text-neutral-600 transition-colors block">Voice AI & Real-Time Vision</a>
               </div>
-              <a href="services.html" class="inline-flex items-center gap-2 text-white hover:text-white transition-colors">
-                <span class="font-mono text-xs tracking-wider uppercase font-semibold">EXPLORE CAPABILITIES</span>
-                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
-              </a>
             </div>
 
           </div>
@@ -723,8 +725,8 @@
           <!-- Cloud Production LTD: Core Technologies Marquee Ribbon -->
           <div class="mt-20 pt-12 border-t border-cyan-400/10">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
-              <span class="text-xs font-mono uppercase font-bold tracking-[0.2em] text-neutral-400"><span class="text-cyan-400">✦</span> PRODUCTION AI & CLOUD STACK</span>
-              <span class="text-xs font-mono text-neutral-500 uppercase tracking-wider">Engineered for High-Throughput & Low-Latency</span>
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.2em] text-neutral-700"><span class="text-cyan-600">✦</span> PRODUCTION AI & CLOUD STACK</span>
+              <span class="text-xs font-mono text-neutral-600 uppercase tracking-wider">Engineered for High-Throughput & Low-Latency</span>
             </div>
             <div class="relative w-full overflow-hidden py-3 bg-[#08080A] rounded-2xl border border-cyan-400/10">
               <div class="animate-marquee whitespace-nowrap flex items-center gap-8 text-neutral-300 font-mono text-xs uppercase tracking-wider font-semibold">
@@ -762,30 +764,27 @@
 
       
       <!-- Project Showcase: Selected Production Case Studies (Clean, Uniform Grid) -->
-      <section id="project-showcase" class="py-24 sm:py-32 relative bg-[#060C11] text-white border-y border-[#1E293B]/80 z-10">
-        <!-- Ambient Background Glow & Subtle Grid -->
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(6,182,212,0.12),rgba(255,255,255,0))] pointer-events-none"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-30 pointer-events-none"></div>
+      <section id="project-showcase" class="py-24 sm:py-32 relative bg-[#F3F3F5] text-black border-y border-black/10 z-10">
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <!-- Header: Production Track Record -->
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-cyan-400 inline-flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> ✦ PROVEN TRACK RECORD
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-cyan-700 inline-flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span> ✦ PROVEN TRACK RECORD
               </span>
-              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-white mt-3 leading-[0.95]">
-                Selected Production <br><span class="font-editorial italic font-normal lowercase tracking-normal text-cyan-400">proven</span> CASE STUDIES
+              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black mt-3 leading-[0.95]">
+                Selected Production <br><span class="font-editorial italic font-normal lowercase tracking-normal text-cyan-600">proven</span> CASE STUDIES
               </h2>
-              <p class="text-neutral-400 text-sm sm:text-base leading-relaxed max-w-xl font-normal mt-3">
+              <p class="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-xl font-normal mt-3">
                 Real-world deployments engineered for scale. From autonomous agent reasoning swarms to low-latency retail clouds and mission-critical enterprise systems.
               </p>
             </div>
 
             <!-- Showcase Action CTA -->
             <div class="shrink-0">
-              <a href="portfolio.html" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white text-white hover:text-black font-mono text-xs font-bold uppercase tracking-wider border border-white/20 transition-all shadow-sm">
+              <a href="portfolio.html" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-black/5 hover:bg-black text-black hover:text-white font-mono text-xs font-bold uppercase tracking-wider border border-black/15 transition-all shadow-sm">
                 <span>View Full Portfolio</span>
                 <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
               </a>
@@ -796,12 +795,12 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
 
             <!-- Card 01: Agentic RAG Engine -->
-            <div class="group relative rounded-3xl p-6 sm:p-7 bg-[#0C1218] border border-[#1E293B] hover:border-cyan-400/60 transition-all duration-300 flex flex-col justify-between shadow-xl tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-6 sm:p-7 bg-white border border-black/5 hover:border-cyan-400/60 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/5 hover:shadow-xl hover:-translate-y-1 tilt-card cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="openCardInspect(6)">
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
-                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-white/10 bg-[#080D12]">
-                  <img src="assets/images/portfolio-rag-engine.jpg" 
-                       alt="Agentic RAG Engine" 
+                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
+                  <img src="assets/images/portfolio-rag-engine.svg"
+                       alt="Agentic RAG Engine"
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                        onerror="this.src='assets/images/fallback-ai-rag.svg'">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -815,33 +814,33 @@
                 </div>
 
                 <!-- Tags & Title -->
-                <span class="font-mono text-xs font-semibold text-cyan-400 tracking-[0.2em] uppercase block">AI & AGENTIC SYSTEMS</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+                <span class="font-mono text-xs font-semibold text-cyan-700 tracking-[0.2em] uppercase block">AI & AGENTIC SYSTEMS</span>
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-cyan-700 transition-colors">
                   Agentic RAG Engine
                 </h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
                   Multi-agent document intelligence and reasoning pipeline combining LangChain, hybrid vector search, and strict hallucination guardrails.
                 </p>
 
                 <!-- Metric Badge -->
-                <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 flex items-center gap-2 mb-6">
+                <div class="p-3 rounded-xl bg-black/5 border border-black/10 text-xs font-mono text-neutral-700 flex items-center gap-2 mb-6">
                   <span class="text-emerald-400 font-bold">✦</span>
                   <span>Sub-second Retrieval • Zero Hallucination</span>
                 </div>
               </div>
 
               <!-- Button to Inspect -->
-              <button onclick="openCardInspect(6)" class="w-full py-3 rounded-xl bg-white/10 hover:bg-cyan-400 hover:text-black font-mono text-xs font-bold uppercase tracking-wider text-white transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <button onclick="openCardInspect(6)" class="w-full py-3 rounded-xl bg-black/5 hover:bg-cyan-500 hover:text-white font-mono text-xs font-bold uppercase tracking-wider text-black transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <span>Inspect Architecture</span>
                 <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
               </button>
             </div>
 
             <!-- Card 02: ID Check & KYC Verification -->
-            <div class="group relative rounded-3xl p-6 sm:p-7 bg-[#0C1218] border border-[#1E293B] hover:border-teal-400/60 transition-all duration-300 flex flex-col justify-between shadow-xl tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-6 sm:p-7 bg-white border border-black/5 hover:border-teal-400/60 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/5 hover:shadow-xl hover:-translate-y-1 tilt-card cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="openCardInspect(2)">
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
-                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-white/10 bg-[#080D12]">
+                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
                   <img src="assets/images/portfolio-id-check-kyc.jpg" 
                        alt="ID Check KYC Verification" 
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -857,33 +856,33 @@
                 </div>
 
                 <!-- Tags & Title -->
-                <span class="font-mono text-xs font-semibold text-teal-400 tracking-[0.2em] uppercase block">FINTECH & IDENTITY</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-white group-hover:text-teal-300 transition-colors">
+                <span class="font-mono text-xs font-semibold text-teal-700 tracking-[0.2em] uppercase block">FINTECH & IDENTITY</span>
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-teal-700 transition-colors">
                   ID Check & KYC
                 </h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
                   Digital biometric customer verification app with automated passport OCR extraction, 3D facial liveness matching, and anti-spoofing defense.
                 </p>
 
                 <!-- Metric Badge -->
-                <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 flex items-center gap-2 mb-6">
+                <div class="p-3 rounded-xl bg-black/5 border border-black/10 text-xs font-mono text-neutral-700 flex items-center gap-2 mb-6">
                   <span class="text-teal-400 font-bold">✦</span>
                   <span>99.7% Accuracy • Sub-3s Verification</span>
                 </div>
               </div>
 
               <!-- Button to Inspect -->
-              <button onclick="openCardInspect(2)" class="w-full py-3 rounded-xl bg-white/10 hover:bg-teal-400 hover:text-black font-mono text-xs font-bold uppercase tracking-wider text-white transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <button onclick="openCardInspect(2)" class="w-full py-3 rounded-xl bg-black/5 hover:bg-teal-500 hover:text-white font-mono text-xs font-bold uppercase tracking-wider text-black transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <span>Inspect Architecture</span>
                 <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
               </button>
             </div>
 
             <!-- Card 03: Arousal Retail Japan Cloud -->
-            <div class="group relative rounded-3xl p-6 sm:p-7 bg-[#0C1218] border border-[#1E293B] hover:border-blue-400/60 transition-all duration-300 flex flex-col justify-between shadow-xl tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-6 sm:p-7 bg-white border border-black/5 hover:border-blue-400/60 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/5 hover:shadow-xl hover:-translate-y-1 tilt-card cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="openCardInspect(4)">
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
-                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-white/10 bg-[#080D12]">
+                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
                   <img src="assets/images/portfolio-arousal-retail.jpg" 
                        alt="Arousal Retail Japan Cloud" 
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -899,33 +898,33 @@
                 </div>
 
                 <!-- Tags & Title -->
-                <span class="font-mono text-xs font-semibold text-blue-400 tracking-[0.2em] uppercase block">JAPAN E-COMMERCE</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-white group-hover:text-blue-300 transition-colors">
+                <span class="font-mono text-xs font-semibold text-blue-700 tracking-[0.2em] uppercase block">JAPAN E-COMMERCE</span>
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-blue-700 transition-colors">
                   Arousal Retail Japan
                 </h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
                   High-concurrency retail platform engineered for Japanese consumer markets with Next.js headless storefront, PayPay integration, and warehouse sync.
                 </p>
 
                 <!-- Metric Badge -->
-                <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 flex items-center gap-2 mb-6">
+                <div class="p-3 rounded-xl bg-black/5 border border-black/10 text-xs font-mono text-neutral-700 flex items-center gap-2 mb-6">
                   <span class="text-blue-400 font-bold">✦</span>
                   <span>300% Sales Growth • 99.99% Uptime</span>
                 </div>
               </div>
 
               <!-- Button to Inspect -->
-              <button onclick="openCardInspect(4)" class="w-full py-3 rounded-xl bg-white/10 hover:bg-blue-400 hover:text-black font-mono text-xs font-bold uppercase tracking-wider text-white transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <button onclick="openCardInspect(4)" class="w-full py-3 rounded-xl bg-black/5 hover:bg-blue-500 hover:text-white font-mono text-xs font-bold uppercase tracking-wider text-black transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <span>Inspect Architecture</span>
                 <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
               </button>
             </div>
 
             <!-- Card 04: Floor Inventory Scanner ERP -->
-            <div class="group relative rounded-3xl p-6 sm:p-7 bg-[#0C1218] border border-[#1E293B] hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between shadow-xl tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-6 sm:p-7 bg-white border border-black/5 hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/5 hover:shadow-xl hover:-translate-y-1 tilt-card cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="openCardInspect(1)">
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
-                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-white/10 bg-[#080D12]">
+                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
                   <img src="assets/images/portfolio-floor-inventory.jpg" 
                        alt="Sales Floor Inventory ERP" 
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -941,33 +940,33 @@
                 </div>
 
                 <!-- Tags & Title -->
-                <span class="font-mono text-xs font-semibold text-emerald-400 tracking-[0.2em] uppercase block">ENTERPRISE AUTOMATION</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-white group-hover:text-emerald-300 transition-colors">
+                <span class="font-mono text-xs font-semibold text-emerald-700 tracking-[0.2em] uppercase block">ENTERPRISE AUTOMATION</span>
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-emerald-700 transition-colors">
                   Floor Inventory ERP
                 </h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
                   Real-time sales floor inventory management system featuring mobile barcode/RFID reconciliation, automated alerts, and multi-store purchase orders.
                 </p>
 
                 <!-- Metric Badge -->
-                <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 flex items-center gap-2 mb-6">
+                <div class="p-3 rounded-xl bg-black/5 border border-black/10 text-xs font-mono text-neutral-700 flex items-center gap-2 mb-6">
                   <span class="text-emerald-400 font-bold">✦</span>
                   <span>50+ Retail Outlets • Sub-second Sync</span>
                 </div>
               </div>
 
               <!-- Button to Inspect -->
-              <button onclick="openCardInspect(1)" class="w-full py-3 rounded-xl bg-white/10 hover:bg-emerald-400 hover:text-black font-mono text-xs font-bold uppercase tracking-wider text-white transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <button onclick="openCardInspect(1)" class="w-full py-3 rounded-xl bg-black/5 hover:bg-emerald-500 hover:text-white font-mono text-xs font-bold uppercase tracking-wider text-black transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <span>Inspect Architecture</span>
                 <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
               </button>
             </div>
 
             <!-- Card 05: Elmi Laboratory Diagnostic Portal -->
-            <div class="group relative rounded-3xl p-6 sm:p-7 bg-[#0C1218] border border-[#1E293B] hover:border-cyan-400/60 transition-all duration-300 flex flex-col justify-between shadow-xl tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-6 sm:p-7 bg-white border border-black/5 hover:border-cyan-400/60 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/5 hover:shadow-xl hover:-translate-y-1 tilt-card cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="openCardInspect(0)">
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
-                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-white/10 bg-[#080D12]">
+                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
                   <img src="assets/images/portfolio-elmi-laboratory.jpg" 
                        alt="Elmi Laboratory Diagnostics" 
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -983,33 +982,33 @@
                 </div>
 
                 <!-- Tags & Title -->
-                <span class="font-mono text-xs font-semibold text-cyan-400 tracking-[0.2em] uppercase block">HEALTHCARE WEB</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+                <span class="font-mono text-xs font-semibold text-cyan-700 tracking-[0.2em] uppercase block">HEALTHCARE WEB</span>
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-cyan-700 transition-colors">
                   Elmi Diagnostic Portal
                 </h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
                   End-to-end medical test portal with real-time patient appointment booking, specimen barcode tracking, and automated encrypted PDF report delivery.
                 </p>
 
                 <!-- Metric Badge -->
-                <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 flex items-center gap-2 mb-6">
+                <div class="p-3 rounded-xl bg-black/5 border border-black/10 text-xs font-mono text-neutral-700 flex items-center gap-2 mb-6">
                   <span class="text-cyan-400 font-bold">✦</span>
                   <span>10k+ Monthly Bookings • Zero Downtime</span>
                 </div>
               </div>
 
               <!-- Button to Inspect -->
-              <button onclick="openCardInspect(0)" class="w-full py-3 rounded-xl bg-white/10 hover:bg-cyan-400 hover:text-black font-mono text-xs font-bold uppercase tracking-wider text-white transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <button onclick="openCardInspect(0)" class="w-full py-3 rounded-xl bg-black/5 hover:bg-cyan-500 hover:text-white font-mono text-xs font-bold uppercase tracking-wider text-black transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <span>Inspect Architecture</span>
                 <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
               </button>
             </div>
 
             <!-- Card 06: Enterprise ERP Platform -->
-            <div class="group relative rounded-3xl p-6 sm:p-7 bg-[#0C1218] border border-[#1E293B] hover:border-indigo-400/60 transition-all duration-300 flex flex-col justify-between shadow-xl tilt-card" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
+            <div class="group relative rounded-3xl p-6 sm:p-7 bg-white border border-black/5 hover:border-indigo-400/60 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/5 hover:shadow-xl hover:-translate-y-1 tilt-card cursor-pointer" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)" onclick="openCardInspect(5)">
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
-                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-white/10 bg-[#080D12]">
+                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
                   <img src="assets/images/portfolio-enterprise-erp.jpg" 
                        alt="Enterprise ERP Platform" 
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -1025,23 +1024,23 @@
                 </div>
 
                 <!-- Tags & Title -->
-                <span class="font-mono text-xs font-semibold text-indigo-400 tracking-[0.2em] uppercase block">ENTERPRISE SYSTEMS</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-white group-hover:text-indigo-300 transition-colors">
+                <span class="font-mono text-xs font-semibold text-indigo-700 tracking-[0.2em] uppercase block">ENTERPRISE SYSTEMS</span>
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-indigo-700 transition-colors">
                   Enterprise Cloud ERP
                 </h3>
-                <p class="text-neutral-300 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
                   Comprehensive custom Enterprise Resource Planning platform unifying multi-branch supply chains, automated payroll, VAT accounting, and executive analytics.
                 </p>
 
                 <!-- Metric Badge -->
-                <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 flex items-center gap-2 mb-6">
+                <div class="p-3 rounded-xl bg-black/5 border border-black/10 text-xs font-mono text-neutral-700 flex items-center gap-2 mb-6">
                   <span class="text-indigo-400 font-bold">✦</span>
                   <span>40% Efficiency Gain • Unified Workflows</span>
                 </div>
               </div>
 
               <!-- Button to Inspect -->
-              <button onclick="openCardInspect(5)" class="w-full py-3 rounded-xl bg-white/10 hover:bg-indigo-400 hover:text-black font-mono text-xs font-bold uppercase tracking-wider text-white transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <button onclick="openCardInspect(5)" class="w-full py-3 rounded-xl bg-black/5 hover:bg-indigo-500 hover:text-white font-mono text-xs font-bold uppercase tracking-wider text-black transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <span>Inspect Architecture</span>
                 <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
               </button>
@@ -1054,8 +1053,8 @@
         <!-- Interactive Case Study Inspection Drawer Modal -->
         <div id="dribbble-inspect-overlay" class="fixed inset-0 z-50 flex items-center justify-end px-4 sm:px-8 lg:px-12 pointer-events-none opacity-0 transition-opacity duration-300" style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(12px);">
           
-          <div id="dribbble-inspect-content" class="relative overflow-hidden w-full max-w-xl rounded-3xl p-6 sm:p-8 bg-[#0C1218] border border-cyan-400/20 shadow-2xl transform translate-x-12 transition-all duration-300 max-h-[90vh] overflow-y-auto pointer-events-auto text-white">
-            
+          <div id="dribbble-inspect-content" class="relative overflow-hidden w-full max-w-xl lg:max-w-6xl rounded-3xl p-6 sm:p-8 bg-[#0C1218] border border-cyan-400/20 shadow-2xl transform translate-x-12 transition-all duration-300 max-h-[90vh] overflow-y-auto pointer-events-auto text-white">
+
             <!-- Header: Counter & Close Button -->
             <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
               <div class="flex items-center gap-3">
@@ -1075,59 +1074,76 @@
               </button>
             </div>
 
-            <!-- Title & Category -->
-            <div class="space-y-2">
-              <span id="inspect-category" class="inline-block font-mono text-[11px] font-bold uppercase tracking-wider text-cyan-300 px-3.5 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20">
-                Healthcare & Diagnostics
-              </span>
-              <h3 id="inspect-title" class="font-display text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white leading-[0.95]">
-                ELMI LABORATORY
-              </h3>
-              <p id="inspect-headline" class="font-display text-lg sm:text-xl font-bold uppercase text-neutral-400 tracking-tight">
-                DIAGNOSTIC PORTAL
-              </p>
-            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-7 gap-6 lg:gap-8">
 
-            <!-- Narrative / Descriptions -->
-            <div class="mt-6 space-y-3 font-mono text-xs sm:text-sm text-neutral-300 leading-relaxed border-t border-white/10 pt-5">
-              <p id="inspect-desc" class="font-semibold text-white">
-                Medical lab test platform with real-time appointment booking, test catalog, and automated patient report delivery.
-              </p>
-              <p id="inspect-overview" class="text-neutral-400 text-xs leading-relaxed">
-                A full-cycle medical diagnostic portal engineered for Elmi Laboratory, streamlining clinical test appointments, automated barcode sample tracking, and instant PDF report delivery with end-to-end security.
-              </p>
-            </div>
+              <!-- Left: Visual -->
+              <div class="lg:col-span-4">
+                <div class="relative w-full aspect-[4/5] lg:aspect-auto lg:h-full rounded-2xl overflow-hidden border border-white/10 bg-[#080D12]">
+                  <img id="inspect-image" src="" alt="" class="w-full h-full object-cover" onerror="this.src='assets/images/fallback-ai-rag.svg'">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                </div>
+              </div>
 
-            <!-- Metadata Grid: Role, Client, Metrics, Timeline -->
-            <div class="grid grid-cols-2 gap-3.5 my-6 py-4 border-y border-white/10 font-mono text-[11px]">
-              <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span class="text-neutral-500 uppercase tracking-wider text-[9px] block font-bold">DISCIPLINE</span>
-                <span id="inspect-role" class="font-bold text-white mt-0.5 block">Full-Stack Web • Patient Portal</span>
-              </div>
-              <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span class="text-neutral-500 uppercase tracking-wider text-[9px] block font-bold">COLLABORATION</span>
-                <span id="inspect-client" class="font-bold text-white mt-0.5 block">Elmi Diagnostic Centre</span>
-              </div>
-              <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span class="text-neutral-500 uppercase tracking-wider text-[9px] block font-bold">PERFORMANCE</span>
-                <span id="inspect-metrics" class="font-bold text-cyan-300 mt-0.5 block">10k+ Monthly Bookings</span>
-              </div>
-              <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span class="text-neutral-500 uppercase tracking-wider text-[9px] block font-bold">TIMELINE</span>
-                <span id="inspect-year" class="font-bold text-white mt-0.5 block">Production Verified</span>
-              </div>
-            </div>
+              <!-- Right: Content -->
+              <div class="lg:col-span-3">
 
-            <!-- Action Buttons -->
-            <div class="flex items-center justify-between gap-4 pt-2">
-              <a href="portfolio.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-400 text-black hover:bg-cyan-300 font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-md">
-                <span>View Full Case Study</span>
-                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
-              </a>
+                <!-- Title & Category -->
+                <div class="space-y-2">
+                  <span id="inspect-category" class="inline-block font-mono text-[11px] font-bold uppercase tracking-wider text-cyan-300 px-3.5 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20">
+                    Healthcare & Diagnostics
+                  </span>
+                  <h3 id="inspect-title" class="font-display text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white leading-[0.95]">
+                    ELMI LABORATORY
+                  </h3>
+                  <h4 id="inspect-headline" class="font-display text-lg sm:text-xl font-bold uppercase text-neutral-400 tracking-tight">
+                    DIAGNOSTIC PORTAL
+                  </h4>
+                </div>
 
-              <button onclick="closeCardInspect()" class="text-xs font-mono text-neutral-400 hover:text-white transition-colors cursor-pointer">
-                Dismiss
-              </button>
+                <!-- Narrative / Descriptions -->
+                <div class="mt-6 space-y-3 font-mono text-xs sm:text-sm text-neutral-300 leading-relaxed border-t border-white/10 pt-5">
+                  <p id="inspect-desc" class="font-semibold text-white">
+                    Medical lab test platform with real-time appointment booking, test catalog, and automated patient report delivery.
+                  </p>
+                  <p id="inspect-overview" class="text-neutral-400 text-xs leading-relaxed">
+                    A full-cycle medical diagnostic portal engineered for Elmi Laboratory, streamlining clinical test appointments, automated barcode sample tracking, and instant PDF report delivery with end-to-end security.
+                  </p>
+                </div>
+
+                <!-- Metadata Grid: Role, Client, Metrics, Timeline -->
+                <div class="grid grid-cols-2 gap-3.5 my-6 py-4 border-y border-white/10 font-mono text-[11px]">
+                  <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-neutral-500 uppercase tracking-wider text-[9px] block font-bold">DISCIPLINE</span>
+                    <span id="inspect-role" class="font-bold text-white mt-0.5 block">Full-Stack Web • Patient Portal</span>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-neutral-500 uppercase tracking-wider text-[9px] block font-bold">COLLABORATION</span>
+                    <span id="inspect-client" class="font-bold text-white mt-0.5 block">Elmi Diagnostic Centre</span>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-neutral-500 uppercase tracking-wider text-[9px] block font-bold">PERFORMANCE</span>
+                    <span id="inspect-metrics" class="font-bold text-cyan-300 mt-0.5 block">10k+ Monthly Bookings</span>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-neutral-500 uppercase tracking-wider text-[9px] block font-bold">TIMELINE</span>
+                    <span id="inspect-year" class="font-bold text-white mt-0.5 block">Production Verified</span>
+                  </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center justify-between gap-4 pt-2">
+                  <a href="portfolio.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-400 text-black hover:bg-cyan-300 font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-md">
+                    <span>View Full Case Study</span>
+                    <svg width="10" height="9" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="currentColor"></path></svg>
+                  </a>
+
+                  <button onclick="closeCardInspect()" class="text-xs font-mono text-neutral-400 hover:text-white transition-colors cursor-pointer">
+                    Dismiss
+                  </button>
+                </div>
+
+              </div>
+
             </div>
 
           </div>
@@ -1136,60 +1152,60 @@
 
       </section>
 
-<section class="py-24 sm:py-24 lg:py-24 bg-[#050B0F] border-y border-[#272727]/80 relative">
+<section class="py-24 sm:py-24 lg:py-24 bg-[#D2D2D2] border-y border-black/10 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <div class="lg:col-span-7 space-y-8">
-              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white inline-flex items-center gap-2"><span class="text-cyan-400">✦</span> OUR PROMISE TO YOU</span>
-              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-white leading-[0.95]">
-                Why Trust Cloud Production LTD <br><span class="font-editorial italic font-normal lowercase tracking-normal text-[#D8D8D8]">to lead the</span> WAY?
+              <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-black inline-flex items-center gap-2"><span class="text-cyan-600">✦</span> OUR PROMISE TO YOU</span>
+              <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black leading-[0.95]">
+                Why Trust Cloud Production LTD <br><span class="font-editorial italic font-normal lowercase tracking-normal gradient-cloud-text">to lead the</span> WAY?
               </h2>
-              <p class="text-neutral-300 text-sm sm:text-base leading-relaxed max-w-xl">
+              <p class="text-neutral-700 text-sm sm:text-base leading-relaxed max-w-xl">
                 Our strength lies in our client-focused approach, technical expertise, and commitment to innovation. Whether it’s streamlining operations or integrating advanced AI — we keep your business ahead.
               </p>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
-                <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
-                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-teal-400/10">
-                    <span class="font-mono text-xs text-white font-semibold tracking-[0.2em] uppercase">PILLAR 01</span>
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-600"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                <div class="p-6 rounded-2xl bg-white border border-black/5 shadow-md shadow-black/5">
+                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-teal-500/15">
+                    <span class="font-mono text-xs text-black font-semibold tracking-[0.2em] uppercase">PILLAR 01</span>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
                   </div>
-                  <h4 class="text-white font-display font-bold text-base mb-1.5 tracking-tight">Custom Solutions</h4>
-                  <p class="text-neutral-400 text-xs leading-relaxed">
+                  <h4 class="text-black font-display font-bold text-base mb-1.5 tracking-tight">Custom Solutions</h4>
+                  <p class="text-neutral-600 text-xs leading-relaxed">
                     Tailored software built directly around your operational processes, business logic, and scaling goals.
                   </p>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
-                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-cyan-400/10">
-                    <span class="font-mono text-xs text-[#D8D8D8] font-semibold tracking-[0.2em] uppercase">PILLAR 02</span>
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-600"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                <div class="p-6 rounded-2xl bg-white border border-black/5 shadow-md shadow-black/5">
+                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-cyan-500/15">
+                    <span class="font-mono text-xs text-neutral-700 font-semibold tracking-[0.2em] uppercase">PILLAR 02</span>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
                   </div>
-                  <h4 class="text-white font-display font-bold text-base mb-1.5 tracking-tight">Scalable Architecture</h4>
-                  <p class="text-neutral-400 text-xs leading-relaxed">
+                  <h4 class="text-black font-display font-bold text-base mb-1.5 tracking-tight">Scalable Architecture</h4>
+                  <p class="text-neutral-600 text-xs leading-relaxed">
                     Modern cloud-native foundations engineered to scale seamlessly across global regions without friction.
                   </p>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
-                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-blue-400/10">
-                    <span class="font-mono text-xs text-white font-semibold tracking-[0.2em] uppercase">PILLAR 03</span>
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-600"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                <div class="p-6 rounded-2xl bg-white border border-black/5 shadow-md shadow-black/5">
+                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-blue-500/15">
+                    <span class="font-mono text-xs text-black font-semibold tracking-[0.2em] uppercase">PILLAR 03</span>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
                   </div>
-                  <h4 class="text-white font-display font-bold text-base mb-1.5 tracking-tight">Transparent Delivery</h4>
-                  <p class="text-neutral-400 text-xs leading-relaxed">
+                  <h4 class="text-black font-display font-bold text-base mb-1.5 tracking-tight">Transparent Delivery</h4>
+                  <p class="text-neutral-600 text-xs leading-relaxed">
                     Continuous communication, daily/weekly sprint demos, and agile workflows with clear milestones.
                   </p>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-[#0C0C0C] border border-[#272727]">
-                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-cyan-500/10">
-                    <span class="font-mono text-xs text-[#D8D8D8] font-semibold tracking-[0.2em] uppercase">PILLAR 04</span>
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-600"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
+                <div class="p-6 rounded-2xl bg-white border border-black/5 shadow-md shadow-black/5">
+                  <div class="flex items-center justify-between pb-3 mb-4 border-b border-cyan-600/15">
+                    <span class="font-mono text-xs text-neutral-700 font-semibold tracking-[0.2em] uppercase">PILLAR 04</span>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-500"><line x1="6.5" y1="0" x2="6.5" y2="13" stroke="currentColor" stroke-width="1"></line><line x1="0" y1="6.5" x2="13" y2="6.5" stroke="currentColor" stroke-width="1"></line></svg>
                   </div>
-                  <h4 class="text-white font-display font-bold text-base mb-1.5 tracking-tight">Ongoing Support</h4>
-                  <p class="text-neutral-400 text-xs leading-relaxed">
+                  <h4 class="text-black font-display font-bold text-base mb-1.5 tracking-tight">Ongoing Support</h4>
+                  <p class="text-neutral-600 text-xs leading-relaxed">
                     Long-term partnership mindset with ongoing 24/7 maintenance, security patches, and strategic growth.
                   </p>
                 </div>
@@ -1228,7 +1244,7 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ FLEXIBLE ENGAGEMENT
               </span>
               <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black mt-3 leading-[0.95]">
-                Engagement Models For <br><span class="font-editorial italic font-normal lowercase tracking-normal text-black">production-grade</span> AI & SOFTWARE
+                Engagement Models
               </h2>
               <p class="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-xl font-normal mt-3">
                 Accessible, predictable pricing backed by high-velocity delivery. Choose between custom model hosting, agentic software engineering, or dedicated forward-deployed squads.
@@ -1788,7 +1804,7 @@
           <ul class="space-y-2.5 font-mono text-xs uppercase tracking-wider text-neutral-400">
             <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
             <li><a href="services.html" class="hover:text-white transition-colors">Services & Capabilities</a></li>
-            <li><button onclick="navigateTo('portfolio')" class="hover:text-white transition-colors">Case Studies</button></li>
+            <li><a href="portfolio.html" class="hover:text-white transition-colors">Case Studies</a></li>
             <li><button onclick="navigateTo('pricing')" class="hover:text-white transition-colors">Pricing Packages</button></li>
           </ul>
         </div>

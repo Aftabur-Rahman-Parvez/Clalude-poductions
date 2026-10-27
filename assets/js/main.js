@@ -23,12 +23,43 @@
     }
     setTimeout(hidePageLoader, 6000);
 
+    // Hero headline word-cycle: SMART -> BETTER -> FASTER, fading in/out on a loop
+    function initHeroWordCycle() {
+      const el = document.getElementById('hero-cycle-word');
+      if (!el) return;
+      const words = ['SMART', 'BETTER', 'FASTER'];
+
+      // Measure the widest word up front and lock it in, so swapping text
+      // never reflows "software" / the line wrap next to it.
+      const measurer = el.cloneNode(true);
+      measurer.style.cssText = 'position:absolute; visibility:hidden; pointer-events:none; white-space:nowrap;';
+      el.parentNode.appendChild(measurer);
+      let maxWidth = 0;
+      words.forEach(w => {
+        measurer.textContent = w;
+        maxWidth = Math.max(maxWidth, measurer.offsetWidth);
+      });
+      measurer.remove();
+      el.style.minWidth = maxWidth + 'px';
+
+      let i = 0;
+      setInterval(() => {
+        el.classList.add('is-swapping');
+        setTimeout(() => {
+          i = (i + 1) % words.length;
+          el.textContent = words[i];
+          el.classList.remove('is-swapping');
+        }, 900);
+      }, 2600);
+    }
+
     // Initialize Lucide Icons, 3D Particle Canvas, and Trionn Vision Animation
     function initAllInteractive() {
       lucide.createIcons();
       initVisionSectionAnimation();
       initDribbble3D();
       initNeuralBrain();
+      initHeroWordCycle();
 
       // Cross-page deep link: index.html#about jumps straight to that page-view
       const hash = window.location.hash.replace('#', '');
@@ -209,6 +240,9 @@
 
     // 3D Perspective Card Tilt
     function handleTilt(e, card) {
+      // Skip while a mouse button is held (e.g. dragging to select text) so the
+      // constant transform reassignment doesn't cancel the browser's selection.
+      if (e.buttons) return;
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -606,7 +640,7 @@
         deliverables: ['LangChain + Claude/OpenAI Pipeline', 'Pinecone / Weaviate Vector Indexing', 'Multi-Agent Autonomous DAG Workflows', 'Strict Guardrails & Citation Audit'],
         accentColor: '#059669',
         accentDark: '#047857',
-        imgUrl: 'assets/images/portfolio-rag-engine.jpg'
+        imgUrl: 'assets/images/portfolio-rag-engine.svg'
       },
       {
         title: 'Cloud Telehealth',
@@ -644,6 +678,7 @@
       const clientEl = document.getElementById('inspect-client');
       const metricsEl = document.getElementById('inspect-metrics');
       const yearEl = document.getElementById('inspect-year');
+      const imageEl = document.getElementById('inspect-image');
 
       if (countEl) countEl.textContent = `CASE STUDY 0${idx + 1} / 0${dribbleProjectsData.length}`;
       if (codeEl) codeEl.textContent = p.code;
@@ -656,6 +691,10 @@
       if (clientEl) clientEl.textContent = p.client || 'Cloud Production Lab';
       if (metricsEl) metricsEl.textContent = p.metrics || 'Production Verified';
       if (yearEl) yearEl.textContent = p.year || 'Production Verified';
+      if (imageEl) {
+        imageEl.src = p.imgUrl || 'assets/images/fallback-ai-rag.svg';
+        imageEl.alt = p.title || 'Case study visual';
+      }
 
       const overlay = document.getElementById('dribbble-inspect-overlay');
       const panel = document.getElementById('dribbble-inspect-content');

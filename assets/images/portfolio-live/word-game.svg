@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100">
+  <defs>
+    <linearGradient id="bgW" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#231405"/>
+      <stop offset="55%" stop-color="#3A2308"/>
+      <stop offset="100%" stop-color="#1D1104"/>
+    </linearGradient>
+    <radialGradient id="glowW" cx="50%" cy="42%" r="50%">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#F59E0B" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="phoneBodyW" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3A2308"/>
+      <stop offset="100%" stop-color="#241403"/>
+    </linearGradient>
+    <linearGradient id="tileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#bgW)"/>
+  <g opacity="0.08" stroke="#FDE68A" stroke-width="1">
+    <path d="M0 150 H1600 M0 300 H1600 M0 450 H1600 M0 600 H1600 M0 750 H1600 M0 900 H1600"/>
+    <path d="M200 0 V1100 M400 0 V1100 M600 0 V1100 M800 0 V1100 M1000 0 V1100 M1200 0 V1100 M1400 0 V1100"/>
+  </g>
+  <circle cx="800" cy="440" r="430" fill="url(#glowW)"/>
+
+  <!-- floating letter tiles -->
+  <g font-family="Arial, sans-serif" font-weight="800">
+    <g transform="translate(205,235) rotate(-12)">
+      <rect width="56" height="56" rx="10" fill="#FDE68A"/>
+      <text x="28" y="39" text-anchor="middle" font-size="28" fill="#3A2308">P</text>
+    </g>
+    <g transform="translate(1320,245) rotate(10)">
+      <rect width="56" height="56" rx="10" fill="#FCD34D"/>
+      <text x="28" y="39" text-anchor="middle" font-size="28" fill="#3A2308">L</text>
+    </g>
+    <g transform="translate(1270,790) rotate(-8)">
+      <rect width="56" height="56" rx="10" fill="#FDE68A"/>
+      <text x="28" y="39" text-anchor="middle" font-size="28" fill="#3A2308">A</text>
+    </g>
+    <g transform="translate(230,810) rotate(14)">
+      <rect width="56" height="56" rx="10" fill="#FCD34D"/>
+      <text x="28" y="39" text-anchor="middle" font-size="28" fill="#3A2308">Y</text>
+    </g>
+  </g>
+
+  <!-- Phone mockup -->
+  <g transform="translate(610,90)">
+    <rect x="-14" y="-14" width="408" height="748" rx="54" fill="#180E03"/>
+    <rect width="380" height="720" rx="42" fill="url(#phoneBodyW)" stroke="#5B3A0D" stroke-width="2"/>
+    <rect x="18" y="18" width="344" height="684" rx="28" fill="#1A1004"/>
+
+    <!-- status bar -->
+    <text x="190" y="54" text-anchor="middle" fill="#FDE8B8" font-family="Arial, sans-serif" font-size="16" font-weight="600">9:41</text>
+
+    <!-- score header -->
+    <g transform="translate(30,78)">
+      <rect width="150" height="46" rx="23" fill="#2E1C06"/>
+      <circle cx="26" cy="23" r="13" fill="#F59E0B"/>
+      <text x="26" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="#1A1004">★</text>
+      <text x="50" y="29" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#FFF3D6">1,420</text>
+      <rect x="170" y="0" width="150" height="46" rx="23" fill="#2E1C06"/>
+      <circle cx="196" cy="23" r="13" fill="#34D399"/>
+      <text x="220" y="29" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#FFF3D6">37</text>
+    </g>
+
+    <!-- word trail -->
+    <g transform="translate(60,170)" font-family="Arial, sans-serif" font-weight="800" font-size="26">
+      <rect x="0" y="0" width="54" height="54" rx="10" fill="url(#tileGrad)"/>
+      <text x="27" y="37" text-anchor="middle" fill="#3A2308">W</text>
+      <rect x="66" y="0" width="54" height="54" rx="10" fill="url(#tileGrad)"/>
+      <text x="93" y="37" text-anchor="middle" fill="#3A2308">O</text>
+      <rect x="132" y="0" width="54" height="54" rx="10" fill="url(#tileGrad)"/>
+      <text x="159" y="37" text-anchor="middle" fill="#3A2308">R</text>
+      <rect x="198" y="0" width="54" height="54" rx="10" fill="#3A2308" stroke="#5B3A0D" stroke-width="2"/>
+      <text x="225" y="37" text-anchor="middle" fill="#5B3A0D">D</text>
+    </g>
+
+    <!-- hex letter wheel -->
+    <g transform="translate(190,420)">
+      <circle r="105" fill="#2E1C06"/>
+      <circle r="105" fill="none" stroke="#5B3A0D" stroke-width="2"/>
+      <g font-family="Arial, sans-serif" font-weight="800" font-size="26" fill="#FFF3D6">
+        <circle cx="0" cy="-62" r="28" fill="#3A2308"/>
+        <text x="0" y="-53" text-anchor="middle">O</text>
+        <circle cx="54" cy="-31" r="28" fill="#3A2308"/>
+        <text x="54" y="-22" text-anchor="middle">R</text>
+        <circle cx="54" cy="31" r="28" fill="#3A2308"/>
+        <text x="54" y="40" text-anchor="middle">D</text>
+        <circle cx="0" cy="62" r="28" fill="#3A2308"/>
+        <text x="0" y="71" text-anchor="middle">S</text>
+        <circle cx="-54" cy="31" r="28" fill="#3A2308"/>
+        <text x="-54" y="40" text-anchor="middle">W</text>
+        <circle cx="-54" cy="-31" r="28" fill="#3A2308"/>
+        <text x="-54" y="-22" text-anchor="middle">N</text>
+        <circle r="34" fill="#F59E0B"/>
+        <text x="0" y="9" text-anchor="middle" fill="#1A1004">A</text>
+      </g>
+    </g>
+
+    <!-- cta -->
+    <rect x="30" y="652" width="320" height="52" rx="26" fill="#F59E0B"/>
+    <text x="190" y="684" text-anchor="middle" fill="#1A1004" font-family="Arial, sans-serif" font-size="16" font-weight="800">Next Level</text>
+  </g>
+</svg>

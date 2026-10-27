@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B10"/>
+      <stop offset="55%" stop-color="#0C1A24"/>
+      <stop offset="100%" stop-color="#081118"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="48%" r="55%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.35"/>
+      <stop offset="45%" stop-color="#0891B2" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0891B2" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="softer" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <linearGradient id="docGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15222C"/>
+      <stop offset="100%" stop-color="#0E1920"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <g opacity="0.06" stroke="#67E8F9" stroke-width="1">
+    <path d="M0 125 H1600 M0 250 H1600 M0 375 H1600 M0 500 H1600 M0 625 H1600 M0 750 H1600 M0 875 H1600"/>
+    <path d="M160 0 V1000 M320 0 V1000 M480 0 V1000 M640 0 V1000 M800 0 V1000 M960 0 V1000 M1120 0 V1000 M1280 0 V1000 M1440 0 V1000"/>
+  </g>
+
+  <circle cx="820" cy="470" r="420" fill="url(#glow)"/>
+
+  <!-- Source documents (left) feeding the retrieval pipeline -->
+  <g>
+    <g transform="translate(150,230) rotate(-6)">
+      <rect width="190" height="240" rx="14" fill="url(#docGrad)" stroke="#2DD4BF" stroke-opacity="0.35"/>
+      <rect x="28" y="40" width="134" height="10" rx="5" fill="#5EEAD4" fill-opacity="0.55"/>
+      <rect x="28" y="66" width="110" height="8" rx="4" fill="#5EEAD4" fill-opacity="0.3"/>
+      <rect x="28" y="88" width="120" height="8" rx="4" fill="#5EEAD4" fill-opacity="0.3"/>
+      <rect x="28" y="110" width="90" height="8" rx="4" fill="#5EEAD4" fill-opacity="0.3"/>
+      <rect x="28" y="150" width="134" height="8" rx="4" fill="#5EEAD4" fill-opacity="0.22"/>
+      <rect x="28" y="172" width="100" height="8" rx="4" fill="#5EEAD4" fill-opacity="0.22"/>
+    </g>
+    <g transform="translate(200,470) rotate(5)">
+      <rect width="170" height="215" rx="14" fill="url(#docGrad)" stroke="#22D3EE" stroke-opacity="0.35"/>
+      <rect x="24" y="36" width="120" height="10" rx="5" fill="#67E8F9" fill-opacity="0.55"/>
+      <rect x="24" y="62" width="100" height="8" rx="4" fill="#67E8F9" fill-opacity="0.3"/>
+      <rect x="24" y="84" width="110" height="8" rx="4" fill="#67E8F9" fill-opacity="0.3"/>
+      <rect x="24" y="106" width="80" height="8" rx="4" fill="#67E8F9" fill-opacity="0.3"/>
+    </g>
+    <g transform="translate(110,700) rotate(-3)">
+      <rect width="160" height="150" rx="14" fill="url(#docGrad)" stroke="#38BDF8" stroke-opacity="0.35"/>
+      <rect x="22" y="32" width="110" height="10" rx="5" fill="#7DD3FC" fill-opacity="0.5"/>
+      <rect x="22" y="58" width="90" height="8" rx="4" fill="#7DD3FC" fill-opacity="0.28"/>
+      <rect x="22" y="80" width="100" height="8" rx="4" fill="#7DD3FC" fill-opacity="0.28"/>
+    </g>
+  </g>
+
+  <!-- Vector embedding scatter -->
+  <g fill="#22D3EE">
+    <circle cx="470" cy="300" r="4" opacity="0.8"/>
+    <circle cx="500" cy="340" r="3" opacity="0.6"/>
+    <circle cx="460" cy="380" r="3" opacity="0.5"/>
+    <circle cx="520" cy="400" r="4" opacity="0.7"/>
+    <circle cx="480" cy="440" r="3" opacity="0.5"/>
+    <circle cx="540" cy="470" r="4" opacity="0.8"/>
+    <circle cx="500" cy="520" r="3" opacity="0.5"/>
+    <circle cx="460" cy="560" r="3" opacity="0.5"/>
+    <circle cx="530" cy="600" r="4" opacity="0.7"/>
+    <circle cx="480" cy="650" r="3" opacity="0.5"/>
+  </g>
+
+  <!-- Connecting lines: documents -> embedding cloud -> central agent -->
+  <g stroke="#22D3EE" stroke-width="1.5" opacity="0.4">
+    <path d="M340 320 Q420 330 480 360" fill="none"/>
+    <path d="M370 540 Q430 520 490 500" fill="none"/>
+    <path d="M270 760 Q380 700 480 620" fill="none"/>
+    <path d="M520 420 Q660 440 760 470" fill="none"/>
+    <path d="M520 560 Q650 520 760 480" fill="none"/>
+  </g>
+
+  <!-- Central agent / orchestrator node cluster -->
+  <g filter="url(#softer)">
+    <circle cx="820" cy="470" r="120" fill="#22D3EE" opacity="0.18"/>
+  </g>
+  <g>
+    <circle cx="820" cy="470" r="64" fill="#0B1620" stroke="#22D3EE" stroke-width="2"/>
+    <circle cx="820" cy="470" r="64" fill="none" stroke="#22D3EE" stroke-width="1" stroke-dasharray="4 7" opacity="0.6">
+      <animateTransform attributeName="transform" type="rotate" from="0 820 470" to="360 820 470" dur="18s" repeatCount="indefinite"/>
+    </circle>
+    <path d="M820 440 L842 458 L842 482 L820 500 L798 482 L798 458 Z" fill="none" stroke="#67E8F9" stroke-width="2.5"/>
+    <circle cx="820" cy="470" r="7" fill="#67E8F9"/>
+  </g>
+
+  <!-- Satellite agent nodes around the orchestrator -->
+  <g>
+    <circle cx="940" cy="360" r="10" fill="#0B1620" stroke="#2DD4BF" stroke-width="2"/>
+    <circle cx="990" cy="470" r="10" fill="#0B1620" stroke="#38BDF8" stroke-width="2"/>
+    <circle cx="930" cy="590" r="10" fill="#0B1620" stroke="#2DD4BF" stroke-width="2"/>
+    <circle cx="820" cy="640" r="10" fill="#0B1620" stroke="#38BDF8" stroke-width="2"/>
+    <g stroke="#22D3EE" stroke-width="1.5" opacity="0.5">
+      <line x1="876" y1="430" x2="930" y2="368"/>
+      <line x1="884" y1="470" x2="980" y2="470"/>
+      <line x1="876" y1="512" x2="922" y2="582"/>
+      <line x1="820" y1="534" x2="820" y2="630"/>
+    </g>
+  </g>
+
+  <!-- Output: retrieved, grounded answer -->
+  <g transform="translate(1120,390)">
+    <rect width="300" height="180" rx="16" fill="url(#docGrad)" stroke="#5EEAD4" stroke-opacity="0.45"/>
+    <circle cx="36" cy="40" r="10" fill="#34D399"/>
+    <path d="M31 40 l4 4 l9 -9" stroke="#06241C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="58" y="32" width="150" height="10" rx="5" fill="#5EEAD4" fill-opacity="0.6"/>
+    <rect x="30" y="70" width="240" height="8" rx="4" fill="#9CA3AF" fill-opacity="0.35"/>
+    <rect x="30" y="92" width="210" height="8" rx="4" fill="#9CA3AF" fill-opacity="0.35"/>
+    <rect x="30" y="114" width="230" height="8" rx="4" fill="#9CA3AF" fill-opacity="0.35"/>
+    <rect x="30" y="136" width="150" height="8" rx="4" fill="#9CA3AF" fill-opacity="0.25"/>
+  </g>
+  <g stroke="#22D3EE" stroke-width="1.5" opacity="0.45">
+    <path d="M884 470 Q1010 460 1120 475" fill="none"/>
+  </g>
+  <circle cx="1105" cy="475" r="4" fill="#22D3EE"/>
+
+</svg>
