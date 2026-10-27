@@ -406,13 +406,13 @@
       if (!input) return;
       const isOpen = input.classList.contains('search-open');
       if (forceClose || isOpen) {
-        input.classList.remove('search-open', 'w-56', 'sm:w-64', 'opacity-100', 'pointer-events-auto', 'px-4');
-        input.classList.add('w-0', 'opacity-0', 'pointer-events-none', 'px-0');
+        input.classList.remove('search-open', 'scale-100', 'opacity-100', 'pointer-events-auto');
+        input.classList.add('scale-95', 'opacity-0', 'pointer-events-none');
         input.blur();
         input.value = '';
       } else {
-        input.classList.remove('w-0', 'opacity-0', 'pointer-events-none', 'px-0');
-        input.classList.add('search-open', 'w-56', 'sm:w-64', 'opacity-100', 'pointer-events-auto', 'px-4');
+        input.classList.remove('scale-95', 'opacity-0', 'pointer-events-none');
+        input.classList.add('search-open', 'scale-100', 'opacity-100', 'pointer-events-auto');
         setTimeout(() => input.focus(), 50);
       }
     }
@@ -701,6 +701,7 @@
       if (overlay && panel) {
         overlay.style.pointerEvents = 'auto';
         overlay.style.opacity = '1';
+        panel.style.pointerEvents = 'auto';
         panel.style.transform = 'translateX(0)';
         panel.style.opacity = '1';
       }
@@ -712,6 +713,90 @@
       if (overlay && panel) {
         overlay.style.opacity = '0';
         overlay.style.pointerEvents = 'none';
+        panel.style.pointerEvents = 'none';
+        panel.style.transform = 'translateX(50px)';
+        panel.style.opacity = '0';
+      }
+    };
+
+    // Insights & Articles reader modal (same left-image/right-content drawer as the case-study inspector)
+    const cpArticles = [
+      {
+        category: 'Gen AI & LLM',
+        img: 'assets/images/article-rag-llm.svg',
+        title: 'Building Context-Aware Enterprise RAG Systems with LLMs and Vector Databases',
+        date: 'October 2026',
+        readTime: '5 min read',
+        body: [
+          'Enterprise teams keep running into the same wall with off-the-shelf chatbots: the model answers confidently even when it has no idea what it\'s talking about. Retrieval-Augmented Generation fixes this by grounding every response in your own documents instead of the model\'s memory alone.',
+          'Our stack combines LangChain for orchestration, Pinecone for hybrid vector search, and Claude or OpenAI for generation — with a strict guardrail layer that refuses to answer when retrieval confidence is low. The result is a Q&A system that cites its sources and knows when to say "I don\'t know."',
+          'For clients handling internal policy documents, compliance manuals, or large product catalogs, this means faster, more trustworthy answers without the hallucination risk that comes with a plain LLM wrapper.'
+        ]
+      },
+      {
+        category: 'Offshore Engineering',
+        img: 'assets/images/team-collaboration-alt.jpg',
+        title: 'Bridging Dhaka to Tokyo: The Blueprint for High-Velocity Offshore Collaboration',
+        date: 'October 2026',
+        readTime: '6 min read',
+        body: [
+          'Offshore partnerships fail for predictable reasons: timezone drag, lost context between handoffs, and communication that only happens in status meetings. Our Dhaka-Tokyo model is built specifically to remove those failure points.',
+          'Every engagement runs on overlapping working hours, daily async standups in both languages, and a shared source of truth for specs so nothing gets lost in translation — literally. Japanese-language support sits inside the delivery team, not bolted on as a separate liaison layer.',
+          'The payoff shows up in the numbers: zero-defect delivery rates and sprint cycles that keep pace with in-house teams, even across a 3-hour time difference.'
+        ]
+      },
+      {
+        category: 'Cloud & Mobile',
+        img: 'assets/images/portfolio-cloud-architecture.jpg',
+        title: 'Architecting Scalable Microservices with Flutter, Next.js, and Cloud-Native Backends',
+        date: 'September 2026',
+        readTime: '4 min read',
+        body: [
+          'High-concurrency products break for one of two reasons: the frontend can\'t keep up with real-time state, or the backend buckles the moment traffic spikes. We design around both from day one.',
+          'On the client side, Flutter and Next.js share a single design-token system so web and mobile stay visually and behaviorally consistent without duplicating UI logic. On the backend, event-driven microservices behind a message queue absorb traffic bursts instead of forwarding them straight to the database.',
+          'The architecture has held sub-50ms transaction latency in production for mission-critical retail and fintech workloads, even during peak-hour load.'
+        ]
+      }
+    ];
+
+    window.openArticleModal = function(idx) {
+      const a = cpArticles[idx];
+      if (!a) return;
+
+      const counterEl = document.getElementById('article-counter');
+      const readtimeEl = document.getElementById('article-readtime');
+      const imageEl = document.getElementById('article-image');
+      const categoryEl = document.getElementById('article-category');
+      const titleEl = document.getElementById('article-title');
+      const dateEl = document.getElementById('article-date');
+      const bodyEl = document.getElementById('article-body');
+
+      if (counterEl) counterEl.textContent = `ARTICLE 0${idx + 1} / 0${cpArticles.length}`;
+      if (readtimeEl) readtimeEl.textContent = a.readTime;
+      if (imageEl) { imageEl.src = a.img; imageEl.alt = a.title; }
+      if (categoryEl) categoryEl.textContent = a.category;
+      if (titleEl) titleEl.textContent = a.title;
+      if (dateEl) dateEl.textContent = a.date;
+      if (bodyEl) bodyEl.innerHTML = a.body.map(p => `<p>${p}</p>`).join('');
+
+      const overlay = document.getElementById('article-modal-overlay');
+      const panel = document.getElementById('article-modal-content');
+      if (overlay && panel) {
+        overlay.style.pointerEvents = 'auto';
+        overlay.style.opacity = '1';
+        panel.style.pointerEvents = 'auto';
+        panel.style.transform = 'translateX(0)';
+        panel.style.opacity = '1';
+      }
+    };
+
+    window.closeArticleModal = function() {
+      const overlay = document.getElementById('article-modal-overlay');
+      const panel = document.getElementById('article-modal-content');
+      if (overlay && panel) {
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+        panel.style.pointerEvents = 'none';
         panel.style.transform = 'translateX(50px)';
         panel.style.opacity = '0';
       }

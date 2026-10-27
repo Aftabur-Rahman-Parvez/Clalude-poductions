@@ -81,7 +81,7 @@
       <!-- Nav Action Buttons -->
       <div class="hidden sm:flex items-center gap-4">
         <form id="search-wrap" onsubmit="handleSearchSubmit(event)" class="relative flex items-center">
-          <input id="search-input" type="text" placeholder="Search..." aria-label="Search the site" class="absolute right-12 top-1/2 -translate-y-1/2 w-0 opacity-0 pointer-events-none px-0 py-2.5 rounded-full bg-[#0C0C0C] border border-[#272727] text-white text-sm outline-none focus:border-cyan-400/40 transition-all duration-300">
+          <input id="search-input" type="text" placeholder="Search..." aria-label="Search the site" class="absolute right-12 top-1/2 -translate-y-1/2 w-56 sm:w-64 origin-right scale-95 opacity-0 pointer-events-none px-4 py-1.5 rounded-full bg-[#0C0C0C] border border-[#272727] text-white text-sm outline-none focus:border-cyan-400/40 transition-all duration-300">
           <button type="button" onclick="toggleSearchField()" aria-label="Search" class="p-2.5 rounded-full bg-[#0C0C0C] hover:bg-[#161616] text-neutral-300 hover:text-white border border-[#272727] transition-all shrink-0">
             <i data-lucide="search" class="w-4 h-4"></i>
           </button>
@@ -122,8 +122,14 @@
   <main class="relative z-10">
 
     <!-- HERO -->
-    <section class="relative pt-20 pb-14 sm:pt-28 sm:pb-20 overflow-hidden bg-[#050B0F] border-b border-[#272727]/70">
-      <div class="relative z-10 max-w-4xl mx-auto px-6 sm:px-10 text-center">
+    <section class="relative h-[380px] sm:h-[440px] lg:h-[500px] overflow-hidden border-b border-[#272727]/70">
+      <img src="assets/images/events/annual-awards-ceremony-1.jpg"
+           alt="Life at Cloud Production Ltd"
+           class="absolute inset-0 w-full h-full object-cover opacity-60"
+           onerror="this.src='assets/images/fallback-hero-banner.svg'">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/25 to-black"></div>
+
+      <div class="relative z-10 h-full max-w-4xl mx-auto px-6 sm:px-10 flex flex-col items-center justify-center text-center">
         <span class="hero-reveal inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-400/10 bg-teal-400/5 text-[11px] font-mono tracking-widest uppercase text-neutral-300 mb-6">
           <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-ping"></span>
           <span class="text-teal-400">✦</span> Life At Cloud Production
@@ -131,49 +137,49 @@
         <h1 class="hero-reveal text-4xl sm:text-6xl lg:text-7xl font-black font-display uppercase tracking-[-0.05em] text-white leading-[0.95]">
           Our <span class="font-editorial italic font-normal lowercase tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500">events</span>
         </h1>
-        <p class="hero-reveal text-neutral-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mt-6 font-normal">
-          At Cloud Production LTD, our events are more than just gatherings — they're celebrations of innovation, teamwork, and growth. From tech workshops and product launches to team-building activities and cultural celebrations, every event brings our people closer and fuels fresh ideas. These moments highlight the passion, energy, and creativity that drive Cloud Production LTD forward, turning milestones into memories and connections into collaborations.
+        <p class="hero-reveal text-neutral-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mt-6 font-medium">
+          At Cloud Production LTD, our events are more than just gatherings — they're celebrations of innovation, teamwork, and growth. From tech workshops and product launches to team-building activities and cultural celebrations, every event brings our people closer and fuels fresh ideas.
         </p>
       </div>
     </section>
 
     <!-- YEARLY EVENTS -->
-    <section class="py-20 sm:py-24 bg-[#050B0F] relative border-b border-[#272727]/70">
+    <section class="py-20 sm:py-24 bg-[#F3F3F5] text-black relative border-b border-[#E2E2E5]">
       <div class="max-w-6xl mx-auto px-6 sm:px-10">
         <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white inline-flex items-center gap-2"><span class="text-cyan-400">✦</span> ANNUAL TRADITIONS</span>
-          <h2 class="text-3xl sm:text-5xl font-black font-display uppercase tracking-[-0.04em] text-white mt-3 leading-[0.95]">Yearly Events</h2>
-          <p class="text-neutral-400 text-sm mt-4 leading-relaxed">These events strengthen team unity and morale, creating lasting memories and aligning with Cloud Production LTD's mission of continuous growth and appreciation.</p>
+          <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ ANNUAL TRADITIONS</span>
+          <h2 class="text-3xl sm:text-5xl font-black font-display uppercase tracking-[-0.04em] text-black mt-3 leading-[0.95]">Yearly Events</h2>
+          <p class="text-neutral-600 text-sm mt-4 leading-relaxed">These events strengthen team unity and morale, creating lasting memories and aligning with Cloud Production LTD's mission of continuous growth and appreciation.</p>
         </div>
 
         <div class="space-y-16">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div class="rounded-3xl overflow-hidden border border-[#272727] aspect-[4/3]">
+            <div class="rounded-3xl overflow-hidden border border-[#D5D5D8] aspect-[4/3] bg-white">
               <img src="assets/images/events/Yearly-Gift-Items.jpg" alt="Yearly Gift Items" class="w-full h-full object-cover">
             </div>
             <div>
-              <h3 class="text-2xl font-display font-bold text-white mb-3 tracking-tight">Yearly Gift Items</h3>
-              <p class="text-neutral-400 text-sm leading-relaxed">Complementing these experiences is the heartfelt tradition of Yearly Gift Items. Far from being routine giveaways, these thoughtfully selected branded items reflect Cloud Production's ongoing commitment to recognizing effort, showing appreciation, and maintaining a personal connection with every team member. Whether it's custom apparel, tech accessories, or wellness products, each gift symbolizes a shared identity and appreciation for one another's role in the company's journey.</p>
+              <h3 class="text-2xl font-display font-bold text-black mb-3 tracking-tight">Yearly Gift Items</h3>
+              <p class="text-neutral-600 text-sm leading-relaxed">Complementing these experiences is the heartfelt tradition of Yearly Gift Items. Far from being routine giveaways, these thoughtfully selected branded items reflect Cloud Production's ongoing commitment to recognizing effort, showing appreciation, and maintaining a personal connection with every team member. Whether it's custom apparel, tech accessories, or wellness products, each gift symbolizes a shared identity and appreciation for one another's role in the company's journey.</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div class="lg:order-2 rounded-3xl overflow-hidden border border-[#272727] aspect-[4/3]">
+            <div class="lg:order-2 rounded-3xl overflow-hidden border border-[#D5D5D8] aspect-[4/3] bg-white">
               <img src="assets/images/events/annual-awards-ceremony-1.jpg" alt="Annual Awards Ceremony" class="w-full h-full object-cover">
             </div>
             <div class="lg:order-1">
-              <h3 class="text-2xl font-display font-bold text-white mb-3 tracking-tight">Annual Awards Ceremony</h3>
-              <p class="text-neutral-400 text-sm leading-relaxed">The Ceremony serves as a milestone moment in the professional journey of every high-performing team member. It is a powerful tradition that publicly acknowledges individual and team accomplishments, encouraging a culture where success is celebrated, not overlooked. It sends a strong message that contributions — big or small — are valued. For many, receiving an award from their peers and leaders is a moment of pride that lasts far beyond the event itself.</p>
+              <h3 class="text-2xl font-display font-bold text-black mb-3 tracking-tight">Annual Awards Ceremony</h3>
+              <p class="text-neutral-600 text-sm leading-relaxed">The Ceremony serves as a milestone moment in the professional journey of every high-performing team member. It is a powerful tradition that publicly acknowledges individual and team accomplishments, encouraging a culture where success is celebrated, not overlooked. It sends a strong message that contributions — big or small — are valued. For many, receiving an award from their peers and leaders is a moment of pride that lasts far beyond the event itself.</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div class="rounded-3xl overflow-hidden border border-[#272727] aspect-[4/3]">
+            <div class="rounded-3xl overflow-hidden border border-[#D5D5D8] aspect-[4/3] bg-white">
               <img src="assets/images/events/year-end-seleb-1.jpg" alt="Year-End Celebration" class="w-full h-full object-cover">
             </div>
             <div>
-              <h3 class="text-2xl font-display font-bold text-white mb-3 tracking-tight">Year-End Celebration</h3>
-              <p class="text-neutral-400 text-sm leading-relaxed">Equally anticipated is the Year-End Celebration, an event that blends reflection with festivity. It's a time when teams pause their busy schedules to look back on the year's challenges, breakthroughs, and growth. This celebration isn't just about having fun — it's about building community. Employees share laughter, memories, and appreciation in a relaxed, joyful setting. Leadership often takes this opportunity to offer words of thanks.</p>
+              <h3 class="text-2xl font-display font-bold text-black mb-3 tracking-tight">Year-End Celebration</h3>
+              <p class="text-neutral-600 text-sm leading-relaxed">Equally anticipated is the Year-End Celebration, an event that blends reflection with festivity. It's a time when teams pause their busy schedules to look back on the year's challenges, breakthroughs, and growth. This celebration isn't just about having fun — it's about building community. Employees share laughter, memories, and appreciation in a relaxed, joyful setting. Leadership often takes this opportunity to offer words of thanks.</p>
             </div>
           </div>
         </div>
@@ -181,7 +187,7 @@
     </section>
 
     <!-- MONTHLY EVENTS -->
-    <section class="py-20 sm:py-24 bg-[#F3F3F5] text-black relative border-b border-[#E2E2E5]">
+    <section class="py-20 sm:py-24 bg-[#D2D2D2] text-black relative border-b border-black/10">
       <div class="max-w-6xl mx-auto px-6 sm:px-10">
         <div class="text-center max-w-2xl mx-auto mb-16">
           <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ RHYTHM OF THE TEAM</span>
@@ -224,32 +230,32 @@
     </section>
 
     <!-- WEEKLY ACTIVITIES -->
-    <section class="py-20 sm:py-24 bg-[#050B0F] relative border-b border-[#272727]/70">
+    <section class="py-20 sm:py-24 bg-[#F3F3F5] text-black relative border-b border-[#E2E2E5]">
       <div class="max-w-6xl mx-auto px-6 sm:px-10">
         <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white inline-flex items-center gap-2"><span class="text-blue-400">✦</span> STAY ACTIVE, STAY CONNECTED</span>
-          <h2 class="text-3xl sm:text-5xl font-black font-display uppercase tracking-[-0.04em] text-white mt-3 leading-[0.95]">Weekly Activities</h2>
-          <p class="text-neutral-400 text-sm mt-4 leading-relaxed">Designed to promote employee well-being, encourage team bonding, and provide opportunities for relaxation and fun — these activities help break the routine, reduce stress, and improve collaboration, contributing to a healthier and more engaging workplace culture.</p>
+          <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ STAY ACTIVE, STAY CONNECTED</span>
+          <h2 class="text-3xl sm:text-5xl font-black font-display uppercase tracking-[-0.04em] text-black mt-3 leading-[0.95]">Weekly Activities</h2>
+          <p class="text-neutral-600 text-sm mt-4 leading-relaxed">Designed to promote employee well-being, encourage team bonding, and provide opportunities for relaxation and fun — these activities help break the routine, reduce stress, and improve collaboration, contributing to a healthier and more engaging workplace culture.</p>
         </div>
 
         <div class="space-y-16">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div class="rounded-3xl overflow-hidden border border-[#272727] aspect-[4/3]">
+            <div class="rounded-3xl overflow-hidden border border-[#D5D5D8] aspect-[4/3] bg-white">
               <img src="assets/images/events/Outdoor_Playing_Cricket.jpg" alt="Outdoor Playing – Cricket" class="w-full h-full object-cover">
             </div>
             <div>
-              <h3 class="text-2xl font-display font-bold text-white mb-3 tracking-tight">Outdoor Playing – Cricket</h3>
-              <p class="text-neutral-400 text-sm leading-relaxed">The Outdoor Playing activity at Cloud Production LTD is a lively weekly event held over the weekend, designed to promote physical health, boost energy, and strengthen teamwork among employees. This refreshing cricket match encourages friendly competition and collaboration, offering a fun way for team members to connect outside the office while staying active and energized.</p>
+              <h3 class="text-2xl font-display font-bold text-black mb-3 tracking-tight">Outdoor Playing – Cricket</h3>
+              <p class="text-neutral-600 text-sm leading-relaxed">The Outdoor Playing activity at Cloud Production LTD is a lively weekly event held over the weekend, designed to promote physical health, boost energy, and strengthen teamwork among employees. This refreshing cricket match encourages friendly competition and collaboration, offering a fun way for team members to connect outside the office while staying active and energized.</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div class="lg:order-2 rounded-3xl overflow-hidden border border-[#272727] aspect-[4/3]">
+            <div class="lg:order-2 rounded-3xl overflow-hidden border border-[#D5D5D8] aspect-[4/3] bg-white">
               <img src="assets/images/events/indoor-games-table-tennis.avif" alt="Indoor Games – Table Tennis" class="w-full h-full object-cover">
             </div>
             <div class="lg:order-1">
-              <h3 class="text-2xl font-display font-bold text-white mb-3 tracking-tight">Indoor Games – Table Tennis</h3>
-              <p class="text-neutral-400 text-sm leading-relaxed">The Indoor Games – Table Tennis sessions give employees a fun and engaging way to take quick breaks during the workday. Through friendly matches and mini tournaments held inside the office, this activity encourages healthy competition, sharpens focus, and helps relieve stress, all while fostering team spirit and camaraderie in a relaxed setting.</p>
+              <h3 class="text-2xl font-display font-bold text-black mb-3 tracking-tight">Indoor Games – Table Tennis</h3>
+              <p class="text-neutral-600 text-sm leading-relaxed">The Indoor Games – Table Tennis sessions give employees a fun and engaging way to take quick breaks during the workday. Through friendly matches and mini tournaments held inside the office, this activity encourages healthy competition, sharpens focus, and helps relieve stress, all while fostering team spirit and camaraderie in a relaxed setting.</p>
             </div>
           </div>
         </div>
@@ -257,10 +263,10 @@
     </section>
 
     <!-- FESTIVAL & SPECIAL CELEBRATIONS -->
-    <section class="py-20 sm:py-24 bg-[#F3F3F5] text-black relative">
+    <section class="py-20 sm:py-24 bg-[#D2D2D2] text-black relative">
       <div class="max-w-6xl mx-auto px-6 sm:px-10">
         <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-600 inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ SHARED TRADITIONS</span>
+          <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-neutral-700 inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-black"></span> ✦ SHARED TRADITIONS</span>
           <h2 class="text-3xl sm:text-5xl font-black font-display uppercase tracking-[-0.04em] text-black mt-3 leading-[0.95]">Festival &amp; Special Celebrations</h2>
           <p class="text-neutral-600 text-sm mt-4 leading-relaxed">Festival celebrations bring employees together to recognize traditions, foster a sense of community, and show appreciation. By marking occasions like Eid, Ramadan, and work anniversaries, the company creates an inclusive and joyful environment that values diversity and strengthens team spirit.</p>
         </div>
@@ -291,7 +297,7 @@
 
   </main>
 
-  <footer class="relative bg-[#050B0F] border-t border-[#272727]/80 pt-28 pb-16 z-10">
+  <footer class="relative hero-brand-bg border-t border-[#272727]/80 pt-14 pb-12 z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 py-12 text-sm">

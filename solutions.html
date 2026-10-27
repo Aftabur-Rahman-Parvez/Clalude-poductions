@@ -141,7 +141,7 @@
       <!-- Nav Action Buttons -->
       <div class="hidden sm:flex items-center gap-4">
         <form id="search-wrap" onsubmit="handleSearchSubmit(event)" class="relative flex items-center">
-          <input id="search-input" type="text" placeholder="Search..." aria-label="Search the site" class="absolute right-12 top-1/2 -translate-y-1/2 w-0 opacity-0 pointer-events-none px-0 py-2.5 rounded-full bg-[#0C0C0C] border border-[#272727] text-white text-sm outline-none focus:border-cyan-400/40 transition-all duration-300">
+          <input id="search-input" type="text" placeholder="Search..." aria-label="Search the site" class="absolute right-12 top-1/2 -translate-y-1/2 w-56 sm:w-64 origin-right scale-95 opacity-0 pointer-events-none px-4 py-1.5 rounded-full bg-[#0C0C0C] border border-[#272727] text-white text-sm outline-none focus:border-cyan-400/40 transition-all duration-300">
           <button type="button" onclick="toggleSearchField()" aria-label="Search" class="p-2.5 rounded-full bg-[#0C0C0C] hover:bg-[#161616] text-neutral-300 hover:text-white border border-[#272727] transition-all shrink-0">
             <i data-lucide="search" class="w-4 h-4"></i>
           </button>
@@ -204,13 +204,13 @@
     </section>
 
     <!-- INTERACTIVE SOLUTIONS -->
-    <section class="py-20 sm:py-24 bg-[#050B0F] relative">
+    <section class="py-20 sm:py-24 bg-[#F3F3F5] text-black border-b border-[#E2E2E5] relative">
       <div class="max-w-7xl mx-auto px-6 sm:px-10">
 
         <div class="flex flex-col items-center text-center mb-16 gap-4">
-          <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-white inline-flex items-center gap-2"><span class="text-cyan-400">✦</span> OUR DIGITAL SOLUTIONS</span>
-          <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-white leading-[0.95]">
-            Technology <span class="font-editorial italic font-normal lowercase tracking-normal text-[#D8D8D8]">built around you</span>
+          <span class="text-xs font-mono uppercase font-bold tracking-[0.16em] text-black inline-flex items-center gap-2"><span class="text-cyan-600">✦</span> OUR DIGITAL SOLUTIONS</span>
+          <h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-display uppercase tracking-[-0.05em] text-black leading-[0.95]">
+            Technology <span class="font-editorial italic font-normal lowercase tracking-normal gradient-cloud-text">built around you</span>
           </h2>
         </div>
 
@@ -232,7 +232,7 @@
 
   </main>
 
-  <footer class="relative bg-[#050B0F] border-t border-[#272727]/80 pt-28 pb-16 z-10">
+  <footer class="relative hero-brand-bg border-t border-[#272727]/80 pt-14 pb-12 z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 py-12 text-sm">
@@ -484,7 +484,7 @@
     function renderSolutionsNav() {
       const list = document.getElementById('sol-nav-list');
       list.innerHTML = cpSolutions.map(s => `
-        <div id="sol-nav-${s.id}" class="sol-nav-item group cursor-pointer rounded-2xl p-5 border transition-all duration-300" style="border-color:#272727; background:#0C0C0C" onclick="selectSolution('${s.id}')">
+        <div id="sol-nav-${s.id}" class="sol-nav-item group cursor-pointer rounded-2xl p-5 border transition-all duration-300 shadow-sm" style="border-color:rgba(0,0,0,0.08); background:#ffffff" onclick="selectSolution('${s.id}')">
           <div class="flex items-center gap-4">
             <div id="sol-icon-${s.id}" class="sol-icon-hex w-14 h-14 shrink-0" style="--sol-accent:${s.accent}" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
               <div class="sol-icon-hex-inner">
@@ -492,8 +492,8 @@
               </div>
             </div>
             <div class="flex-1">
-              <h4 class="text-white font-display font-bold text-base tracking-tight">${s.navTitle}</h4>
-              <span class="text-neutral-400 text-xs font-mono uppercase tracking-wider">${s.navSubtitle}</span>
+              <h4 class="text-black font-display font-bold text-base tracking-tight">${s.navTitle}</h4>
+              <span class="text-neutral-600 text-xs font-mono uppercase tracking-wider">${s.navSubtitle}</span>
             </div>
             <div id="sol-chevron-${s.id}" class="shrink-0 transition-transform duration-300 group-hover:translate-x-1">
               <i data-lucide="chevron-right" class="w-4 h-4 transition-colors duration-300" style="color:#525252"></i>
@@ -522,13 +522,13 @@
         const isActive = s.id === id;
 
         if (item) {
-          item.style.borderColor = isActive ? s.accent : '#272727';
-          item.style.background = isActive ? `${s.accent}14` : '#0C0C0C';
+          item.style.borderColor = isActive ? s.accent : 'rgba(0,0,0,0.08)';
+          item.style.background = isActive ? `${s.accent}14` : '#ffffff';
           item.classList.toggle('translate-x-2', isActive);
         }
-        if (iconFace) iconFace.style.background = isActive ? s.accent : '#0C0C0C';
+        if (iconFace) iconFace.style.background = isActive ? s.accent : '#ffffff';
         if (iconSvg) iconSvg.style.color = isActive ? '#050505' : s.accent;
-        if (chevSvg) chevSvg.style.color = isActive ? s.accent : '#525252';
+        if (chevSvg) chevSvg.style.color = isActive ? s.accent : '#9CA3AF';
       });
     }
 
@@ -556,15 +556,15 @@
       const s = cpSolutions.find(x => x.id === id);
       const pane = document.getElementById('sol-content-pane');
 
-      const techBadges = s.tech.map(t => `<span class="text-[11px] font-mono font-bold px-3 py-1.5 rounded-full bg-white/90 text-black">${t}</span>`).join('');
+      const techBadges = s.tech.map(t => `<span class="text-[11px] font-mono font-bold px-3 py-1.5 rounded-full bg-black/80 text-white">${t}</span>`).join('');
       const featureItems = s.features.map(f => `
-        <div class="flex items-center gap-2.5 p-3.5 rounded-xl bg-[#050505] border border-[#272727]">
+        <div class="flex items-center gap-2.5 p-3.5 rounded-xl bg-[#F5F5F7] border border-black/5">
           <i data-lucide="check" class="w-4 h-4 shrink-0" style="color:${s.accent}"></i>
-          <span class="text-neutral-200 text-xs font-medium">${f}</span>
+          <span class="text-neutral-700 text-xs font-medium">${f}</span>
         </div>`).join('');
 
       pane.innerHTML = `
-        <div class="rounded-3xl overflow-hidden bg-[#0C0C0C] border border-[#272727] shadow-2xl">
+        <div class="rounded-3xl overflow-hidden bg-white border border-black/5 shadow-xl shadow-black/5">
           <div class="relative aspect-[16/9] bg-[#f3f3f5] overflow-hidden cursor-zoom-in group/img" onclick="openImageLightbox('${s.img}', '${s.heading.replace(/'/g, "\\'")}')">
             <img src="${s.img}" alt="${s.heading}" class="w-full h-full object-cover object-top">
             <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-transparent"></div>
@@ -577,13 +577,13 @@
           </div>
           <div class="p-8 sm:p-10">
             <h3 class="text-2xl sm:text-3xl font-display font-bold mb-4 tracking-tight" style="color:${s.accent}">${s.heading}</h3>
-            <p class="text-neutral-300 text-sm leading-relaxed mb-7">${s.description}</p>
+            <p class="text-neutral-600 text-sm leading-relaxed mb-7">${s.description}</p>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-9">${featureItems}</div>
             <div class="flex flex-col sm:flex-row gap-3">
               <button onclick="openContactModal()" class="flex-1 text-center py-3.5 rounded-xl gradient-cloud-bg font-mono font-bold uppercase tracking-wider text-black text-xs flex items-center justify-center gap-2 hover:opacity-95 transition-opacity">
                 Get Started <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
               </button>
-              <a href="portfolio.html" class="flex-1 text-center py-3.5 rounded-xl border border-[#272727] hover:border-cyan-400/40 font-mono font-bold uppercase tracking-wider text-white text-xs transition-colors">
+              <a href="portfolio.html" class="flex-1 text-center py-3.5 rounded-xl border border-black/10 hover:border-cyan-500/50 font-mono font-bold uppercase tracking-wider text-black text-xs transition-colors">
                 View Projects
               </a>
             </div>

@@ -165,7 +165,7 @@
     .animate-marquee {
       display: flex;
       width: 200%;
-      animation: marquee 24s linear infinite;
+      animation: marquee 45s linear infinite;
     }
     .animate-marquee:hover {
       animation-play-state: paused;
@@ -710,12 +710,15 @@
       transform-style: preserve-3d;
     }
 
-    /* Service cards: !important beats the inline transform the tilt script
-       keeps writing on mousemove/mouseleave, so the lift still shows. */
-    .services-col .group {
+    /* Service cards + showcase case-study cards: !important beats the inline
+       transform the tilt script keeps writing on mousemove/mouseleave, so
+       the lift still shows. */
+    .services-col .group,
+    .showcase-grid .group {
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
-    .services-col .group:hover {
+    .services-col .group:hover,
+    .showcase-grid .group:hover {
       transform: translateY(-8px) !important;
       box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.22);
     }
