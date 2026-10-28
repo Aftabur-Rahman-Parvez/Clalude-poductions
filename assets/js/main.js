@@ -56,7 +56,6 @@
     // Initialize Lucide Icons, 3D Particle Canvas, and Trionn Vision Animation
     function initAllInteractive() {
       lucide.createIcons();
-      initVisionSectionAnimation();
       initDribbble3D();
       initNeuralBrain();
       initHeroWordCycle();
@@ -75,7 +74,6 @@
     }
 
     window.addEventListener('load', () => {
-      initVisionSectionAnimation();
       initDribbble3D();
       initNeuralBrain();
       if (typeof ScrollTrigger !== 'undefined') {
@@ -454,212 +452,159 @@
       e.target.reset();
     }
 
-    // Initialize Trionn Vision Section Cascading Stripes & Dynamic Inversion Animation
-    let isVisionInitialized = false;
-    function initVisionSectionAnimation() {
-      if (isVisionInitialized) return;
-      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-      const visionSection = document.getElementById("vision-section");
-      if (!visionSection) return;
-      const stripes = visionSection.querySelectorAll(".stripe-item");
-      if (stripes.length !== 5) return;
-
-      isVisionInitialized = true;
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Kill any previous ScrollTriggers for vision-section
-      ScrollTrigger.getAll().forEach(st => {
-        if (st.vars.id === "vision-pin") st.kill();
-      });
-
-      // Set initial scale to 0 from bottom center
-      stripes.forEach(stripe => {
-        gsap.set(stripe, { scaleY: 0, transformOrigin: "bottom center" });
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          id: "vision-pin",
-          trigger: visionSection,
-          start: "top top",
-          end: "+=125%",
-          pin: true,
-          anticipatePin: 1,
-          scrub: 0.5,
-          pinSpacing: true,
-          invalidateOnRefresh: true
-        },
-        defaults: { ease: "none" }
-      });
-
-      tl.addLabel("stripes_start");
-      for (let i = 0; i < 5; i++) {
-        // Bottom stripe (i=4) starts at 0.0, Top stripe (i=0) starts at 0.45
-        const startTime = 0.45 * (4 - i) / 4;
-        const endTime = startTime + 0.55;
-        tl.to(stripes[i], {
-          scaleY: 1,
-          duration: endTime - startTime,
-          ease: "none"
-        }, `stripes_start+=${startTime}`);
-      }
-      tl.to({}, { duration: 0.05 });
-    }
-
     // Initialize Trionn Dribbble Design In Motion 3D Curved Cards & Dark Stripes Transition
     const dribbleProjectsData = [
       {
-        title: 'Elmi Laboratory',
-        headline: 'DIAGNOSTIC CLOUD',
-        category: 'Healthcare & Diagnostics',
-        badge: '01 / MEDICAL WEB',
-        code: 'CPL #011',
-        desc: 'Medical lab test platform with real-time appointment booking, test catalog, and automated patient report delivery.',
-        desc1: 'AUTOMATED DIAGNOSTIC BOOKING',
-        desc2: 'CLINICAL LAB TEST PLATFORM',
-        client: 'Elmi Laboratory & Diagnostic Centre',
+        title: 'B2B Marketing AI',
+        headline: 'AI OUTREACH ENGINE',
+        category: 'AI-Powered Solutions',
+        badge: '01 / AI MARKETING AUTOMATION',
+        code: 'CPL #025',
+        desc: 'AI-driven lead discovery, personalized outreach, smart scheduling, and contact form automation for B2B campaigns.',
+        desc1: 'AUTOMATED LEAD DISCOVERY',
+        desc2: 'PERSONALIZED OUTREACH AT SCALE',
+        client: 'Cloud Production LTD Product',
         year: 'Production Verified',
-        role: 'Full-Stack Web Development • Patient Portal',
-        metrics: '10k+ Monthly Bookings • Zero-Downtime',
-        overview: 'A full-cycle medical diagnostic portal engineered for Elmi Laboratory. Streamlines clinical test scheduling, home sample collection management, automated barcode sample tracking, and instant PDF diagnostic report delivery with end-to-end security.',
-        deliverables: ['Automated Appointment Scheduler', 'Interactive Diagnostic Catalog', 'Encrypted Patient Report Engine', 'Admin Clinic Management Dashboard'],
-        accentColor: '#0284C7',
-        accentDark: '#0369A1',
-        imgUrl: 'assets/images/portfolio-elmi-laboratory.jpg'
+        role: 'AI & Backend Engineering • LangChain / RAG Pipeline',
+        metrics: 'Up to 90% Workload Reduction',
+        overview: 'An AI-driven marketing automation platform that discovers qualified B2B prospects, understands each business context, and generates personalized outreach across email and contact forms — combining lead discovery, AI content generation, and scheduled delivery with full visibility into what was sent, what failed, and what needs follow-up.',
+        deliverables: ['Lead Discovery by Industry & Location', 'AI-Generated Personalized Campaigns', 'Smart Scheduling & Follow-ups', 'Delivery Monitoring & Diagnostics'],
+        accentColor: '#7C3AED',
+        accentDark: '#6D28D9',
+        imgUrl: 'assets/images/portfolio-live/b2b-marketing.png'
+      },
+      {
+        title: 'Cloud HR Track',
+        headline: 'WORKFORCE CLOUD',
+        category: 'HR & Workforce Tech',
+        badge: '02 / HR MANAGEMENT PLATFORM',
+        code: 'CPL #026',
+        desc: 'Cloud-based HR platform for simpler employee management, workflow transparency, and team alignment.',
+        desc1: 'CUSTOMIZABLE HR WORKFLOWS',
+        desc2: 'RECRUITMENT & PERFORMANCE TRACKING',
+        client: 'Cloud Production LTD Product',
+        year: 'Production Verified',
+        role: 'Full-Stack Web • Node.js / Next.js / PostgreSQL',
+        metrics: 'Lightweight, Fully Customizable Platform',
+        overview: 'A modern cloud-based HR Management platform built from scratch to replace complex enterprise HR tools with a lightweight, fully customizable solution — covering employee data, recruitment and candidate tracking, performance management, and team collaboration.',
+        deliverables: ['Centralized Employee Database', 'Recruitment & Candidate Tracking', 'Performance & KPI Management', 'Team Communication & Collaboration'],
+        accentColor: '#0891B2',
+        accentDark: '#0E7490',
+        imgUrl: 'assets/images/portfolio-live/cloud-hr-track.png'
       },
       {
         title: 'Floor Inventory',
         headline: 'SALES FLOOR ERP',
-        category: 'Enterprise Automation',
-        badge: '02 / RETAIL INVENTORY',
-        code: 'CPL #012',
-        desc: 'Real-time sales floor inventory management system with barcode/RFID reconciliation and multi-store reporting.',
-        desc1: 'REAL-TIME SALES FLOOR AUDIT',
-        desc2: 'MULTI-STORE RECONCILIATION',
-        client: 'Apex Retail Solutions Ltd.',
+        category: 'Retail Enterprise',
+        badge: '03 / RETAIL INVENTORY',
+        code: 'CPL #027',
+        desc: 'Real-time stock tracking and sales floor inventory management built to cut shortages and manual reconciliation.',
+        desc1: 'REAL-TIME STOCK TRACKING',
+        desc2: 'AUTOMATED RECONCILIATION',
+        client: 'Cloud Production LTD Product',
         year: 'Production Verified',
-        role: 'Enterprise Cloud System • Mobile Scanner',
-        metrics: '50+ Retail Outlets • Sub-second Sync',
-        overview: 'An enterprise-grade inventory tracking ecosystem designed for high-turnover retail sales floors. Integrates mobile barcode and RFID scanning, real-time shelf depletion alerts, automated restocking purchase orders, and multi-location business analytics.',
-        deliverables: ['Mobile Barcode & RFID Scanner App', 'Live Stock Reconciliation Engine', 'Multi-Store Inventory Dashboard', 'Automated Supplier Reordering API'],
+        role: 'Enterprise Web & Mobile • Retail Systems',
+        metrics: 'Reduced Manual Reconciliation',
+        overview: 'A real-time inventory management system built for sales floors, tracking stock levels as they move and cutting down on shortages and manual stock reconciliation across locations.',
+        deliverables: ['Real-Time Stock Dashboard', 'Low-Stock & Shortage Alerts', 'Multi-Location Tracking', 'Reconciliation Reporting'],
         accentColor: '#16A34A',
         accentDark: '#15803D',
-        imgUrl: 'assets/images/portfolio-floor-inventory.jpg'
+        imgUrl: 'assets/images/portfolio-live/inventory-management.png'
       },
       {
-        title: 'ID Check KYC',
-        headline: 'DIGITAL IDENTITY',
-        category: 'FinTech Mobile App',
-        badge: '03 / BIOMETRIC VERIFY',
-        code: 'CPL #013',
-        desc: 'Secure digital identity verification mobile app featuring OCR document scanning, biometric facial matching, and anti-fraud validation.',
-        desc1: 'AI-POWERED ID RECOGNITION',
-        desc2: 'INSTANT BIOMETRIC VERIFICATION',
-        client: 'VeriTrust Global Identity',
+        title: 'Online Learning',
+        headline: 'STUDENT ELEARNING',
+        category: 'Education Technology',
+        badge: '04 / ELEARNING PLATFORM',
+        code: 'CPL #028',
+        desc: 'A web-based eLearning platform with course management, student progress tracking, and interactive lessons.',
+        desc1: 'COURSE & CONTENT MANAGEMENT',
+        desc2: 'STUDENT PROGRESS TRACKING',
+        client: 'Cloud Production LTD Product',
         year: 'Production Verified',
-        role: 'Cross-Platform Mobile (Flutter) • Computer Vision',
-        metrics: '99.7% Accuracy • Sub-3s Verification',
-        overview: 'A next-generation mobile KYC application providing financial institutions and online platforms with frictionless customer onboarding. Features automated passport and national ID OCR, liveness detection, and biometric 3D facial matching.',
-        deliverables: ['Real-time Document OCR Engine', '3D Liveness & Anti-Spoofing Detection', 'Cross-Platform Flutter Client', 'Secure Compliance & Audit Portal'],
-        accentColor: '#7C3AED',
-        accentDark: '#6D28D9',
-        imgUrl: 'assets/images/portfolio-id-check-kyc.jpg'
+        role: 'Full-Stack Web Development • Education Platform',
+        metrics: 'Interactive Course Delivery',
+        overview: 'A web-based eLearning platform for students, covering course management, student progress tracking, and interactive lessons from one dashboard.',
+        deliverables: ['Course Management Dashboard', 'Student Progress Tracking', 'Interactive Lesson Delivery', 'Enrollment & Access Control'],
+        accentColor: '#2563EB',
+        accentDark: '#1D4ED8',
+        imgUrl: 'assets/images/portfolio-live/online-learning-platform.png'
       },
       {
-        title: 'Word Quest Game',
-        headline: 'PUZZLE ANDROID',
-        category: 'Mobile Game Dev',
-        badge: '04 / INTERACTIVE PLAY',
-        code: 'CPL #014',
-        desc: 'Engaging brain-training vocabulary puzzle Android game featuring procedural level generation and dynamic animations.',
-        desc1: 'PROCEDURAL PUZZLE ENGINE',
-        desc2: 'SMOOTH ADAPTIVE GAMEPLAY',
-        client: 'PlayQuest Digital Media',
+        title: 'Health Tracker App',
+        headline: 'WELLNESS MOBILE',
+        category: 'Healthcare Mobile',
+        badge: '05 / HEALTH TRACKING APP',
+        code: 'CPL #029',
+        desc: 'A personal health tracking app for monitoring vitals, appointments, and wellness goals on the go.',
+        desc1: 'VITALS & APPOINTMENT TRACKING',
+        desc2: 'PERSONAL WELLNESS GOALS',
+        client: 'Cloud Production LTD Product',
         year: 'Production Verified',
-        role: 'Mobile Game Development (Android / Unity)',
-        metrics: '100k+ Downloads • 4.8★ Rating',
-        overview: 'An addictive vocabulary and puzzle game developed for Android devices. Features procedural level generation, dynamic difficulty adaptation, rewarding particle feedback, localized dictionaries, and offline gameplay capabilities.',
-        deliverables: ['Custom Word Search Logic Engine', 'Interactive Particle & Motion System', 'Global Leaderboards & Achievement APIs', 'Optimized Low-Power Android Build'],
-        accentColor: '#EA580C',
-        accentDark: '#C2410C',
-        imgUrl: 'assets/images/portfolio-word-quest-game.jpg'
-      },
-      {
-        title: 'Arousal Retail',
-        headline: 'JAPAN E-COMMERCE',
-        category: 'International E-Commerce',
-        badge: '05 / TOKYO PARTNER',
-        code: 'CPL #015',
-        desc: 'High-performance Japanese retail and multi-vendor e-commerce platform built in collaboration with Japanese partners.',
-        desc1: 'JAPANESE RETAIL CLOUD',
-        desc2: 'LOCALIZED PAYMENT & LOGISTICS',
-        client: 'Arousal Tech Japan & Cloud Production JP',
-        year: 'Production Verified',
-        role: 'Enterprise Web Platform • Next.js & Microservices',
-        metrics: '300% Sales Growth • 99.99% Uptime',
-        overview: 'A modern, high-traffic e-commerce and retail platform engineered for Japanese consumer markets. Built in tight collaboration with Arousal Tech Japan, featuring Japanese UI typography, seamless local payment gateway integrations (PayPay, Line Pay), and warehouse logistics automation.',
-        deliverables: ['Next.js Headless Storefront', 'Microservices Order Engine', 'Japanese Payment & Shipping Integrations', 'Multi-Vendor Merchant Portal'],
+        role: 'Cross-Platform Mobile Development',
+        metrics: 'On-the-Go Health Monitoring',
+        overview: 'A personal health management mobile app that lets users monitor vitals, track appointments, and stay on top of wellness goals from their phone.',
+        deliverables: ['Vitals Monitoring Dashboard', 'Appointment Scheduling', 'Wellness Goal Tracking', 'Reminders & Notifications'],
         accentColor: '#E11D48',
         accentDark: '#BE123C',
-        imgUrl: 'assets/images/portfolio-arousal-retail.jpg'
+        imgUrl: 'assets/images/portfolio-live/health-management.svg'
       },
       {
-        title: 'Enterprise ERP',
-        headline: 'BUSINESS AUTOMATION',
-        category: 'Custom Software & ERP',
-        badge: '06 / CLOUD ARCHITECTURE',
-        code: 'CPL #016',
-        desc: 'Complete business automation platform unifying supply chain, payroll, accounting, and resource planning.',
-        desc1: 'END-TO-END BUSINESS AUTOMATION',
-        desc2: 'CENTRALIZED ERP PLATFORM',
-        client: 'Global Logistics & Manufacturing Group',
+        title: 'Ecommerce Storefront',
+        headline: 'CUSTOM STOREFRONT',
+        category: 'E-Commerce Platform',
+        badge: '06 / ONLINE STOREFRONT',
+        code: 'CPL #030',
+        desc: 'A custom online storefront with product catalogs, secure checkout, and order management built for growth.',
+        desc1: 'PRODUCT CATALOG & CHECKOUT',
+        desc2: 'ORDER MANAGEMENT BUILT FOR GROWTH',
+        client: 'Cloud Production LTD Product',
         year: 'Production Verified',
-        role: 'Full-Cycle Enterprise Software (.NET / Python / React)',
-        metrics: '40% Operational Efficiency Gain',
-        overview: 'A comprehensive custom Enterprise Resource Planning (ERP) platform developed for enterprise operations. Eliminates paper workflows, unifies disparate branch offices, automates VAT/tax calculations, and delivers executive business intelligence dashboards.',
-        deliverables: ['Custom Accounting & Ledger Engine', 'Automated HR & Payroll Module', 'Procurement & Warehouse Pipeline', 'Role-Based Access & Audit Logs'],
-        accentColor: '#4F46E5',
-        accentDark: '#4338CA',
-        imgUrl: 'assets/images/portfolio-enterprise-erp.jpg'
-      },
-      {
-        title: 'Agentic RAG Engine',
-        headline: 'GEN AI & LLMS',
-        category: 'AI-Powered Solutions',
-        badge: '07 / AUTONOMOUS AGENTS',
-        code: 'CPL #017',
-        desc: 'Intelligent multi-agent document intelligence and reasoning system combining LangChain, vector search, and custom LLMs.',
-        desc1: 'VECTOR DATABASE EMBEDDINGS',
-        desc2: 'AUTONOMOUS MULTI-AGENT WORKFLOW',
-        client: 'Techs Cafe Japan Research',
-        year: 'Production Verified',
-        role: 'Agentic AI Systems • Pinecone / CrewAI / Claude',
-        metrics: 'Sub-second Semantic Retrieval • Zero Hallucination',
-        overview: 'An advanced enterprise generative AI platform leveraging Retrieval Augmented Generation (RAG) and autonomous agent swarms. Ingests thousands of complex corporate documents, technical specs, and legal agreements, providing grounded context-aware answers and automated reporting.',
-        deliverables: ['LangChain + Claude/OpenAI Pipeline', 'Pinecone / Weaviate Vector Indexing', 'Multi-Agent Autonomous DAG Workflows', 'Strict Guardrails & Citation Audit'],
-        accentColor: '#059669',
-        accentDark: '#047857',
-        imgUrl: 'assets/images/portfolio-rag-engine.svg'
-      },
-      {
-        title: 'Cloud Telehealth',
-        headline: 'CONNECTED IOT',
-        category: 'Healthcare Cloud Platform',
-        badge: '08 / REMOTE MONITORING',
-        code: 'CPL #018',
-        desc: 'Remote patient monitoring and telemedicine cloud suite connecting medical devices, clinics, and doctors.',
-        desc1: 'REAL-TIME VITALS STREAMING',
-        desc2: 'HIPAA-COMPLIANT TELEHEALTH',
-        client: 'CareFirst Global Health',
-        year: 'Production Verified',
-        role: 'Cloud IoT Architecture • Mobile & WebRTC',
-        metrics: 'Sub-50ms WebRTC Video • IoT Telemetry',
-        overview: 'A robust cloud-native telehealth suite facilitating encrypted high-definition doctor-patient video consultations, integrated electronic health records (EHR), and automated Bluetooth/IoT medical device data synchronization.',
-        deliverables: ['WebRTC HD Video Consultation System', 'IoT Vitals Telemetry Ingestion Hub', 'E-Prescription & Pharmacy Dispatch API', 'Secure Patient Health Record Vault'],
+        role: 'Full-Stack Web Development • E-Commerce',
+        metrics: 'Secure Checkout & Order Management',
+        overview: 'A custom e-commerce site built with product catalogs, secure checkout, and order management designed to scale as the storefront grows.',
+        deliverables: ['Product Catalog & Search', 'Secure Checkout Flow', 'Order Management Dashboard', 'Inventory & Pricing Controls'],
         accentColor: '#D97706',
         accentDark: '#B45309',
-        imgUrl: 'assets/images/portfolio-cloud-telehealth.jpg'
+        imgUrl: 'assets/images/portfolio-live/ecommerce-site.png'
+      },
+      {
+        title: 'Colle Pochi',
+        headline: 'CLIENT OPERATIONS',
+        category: 'Custom Web Application',
+        badge: '07 / CLIENT WEB APP',
+        code: 'CPL #031',
+        desc: 'A custom web application built for Colle Pochi to streamline day-to-day operations and client interactions.',
+        desc1: 'STREAMLINED DAILY OPERATIONS',
+        desc2: 'CLIENT INTERACTION MANAGEMENT',
+        client: 'Colle Pochi',
+        year: 'Production Verified',
+        role: 'Full-Stack Web Development • Custom Business App',
+        metrics: 'Streamlined Operations Workflow',
+        overview: 'A custom web application built for Colle Pochi to streamline day-to-day operations and client interactions in one connected system.',
+        deliverables: ['Operations Dashboard', 'Client Interaction Management', 'Custom Workflow Tools', 'Role-Based Access'],
+        accentColor: '#0D9488',
+        accentDark: '#0F766E',
+        imgUrl: 'assets/images/portfolio-live/colle-pochi.png'
+      },
+      {
+        title: 'WordPress eLearning',
+        headline: 'ELEARNING THEME',
+        category: 'WordPress eLearning',
+        badge: '08 / WORDPRESS THEME',
+        code: 'CPL #032',
+        desc: 'A WordPress eLearning theme built for course listings, student enrollment, and content delivery.',
+        desc1: 'COURSE LISTINGS & ENROLLMENT',
+        desc2: 'FLEXIBLE CONTENT DELIVERY',
+        client: 'Cloud Production LTD Product',
+        year: 'Production Verified',
+        role: 'WordPress Theme Development • Education',
+        metrics: 'Course Listing & Enrollment Ready',
+        overview: 'An education-focused WordPress theme built for eLearning websites, covering course listings, student enrollment, and content delivery out of the box.',
+        deliverables: ['Course Listing Templates', 'Student Enrollment Flow', 'Content Delivery Layout', 'WordPress Customizer Options'],
+        accentColor: '#4F46E5',
+        accentDark: '#4338CA',
+        imgUrl: 'assets/images/portfolio-live/elearning-website.png'
       }
     ];
 

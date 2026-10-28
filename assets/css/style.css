@@ -130,7 +130,49 @@
       background: var(--brand-gradient);
       color: #FFFFFF !important;
     }
-
+    /* header */
+    #main-header-bg{
+          background-color: rgb(27 45 56);
+    }
+    #main-header-bg .text-neutral-300{
+      letter-spacing: .1em;
+      font-size: 17px;
+    }
+     #main-header-bg .nav-item{
+      letter-spacing: .1em;
+      font-size: 17px;
+      color: #fff;
+     }
+     .text-neutral-300.leading-relaxed {
+      font-size: 1rem;
+      letter-spacing: .05em;
+    }
+    div .uppercase{
+      letter-spacing: .03em;
+    }
+    p.font-normal{
+      font-size: 1rem;
+      letter-spacing: .05em;
+    }
+    #testimonial-text{
+      font-size: 18px;
+      letter-spacing: .08em;
+    }
+    p.text-neutral-600{
+      letter-spacing: .05em;
+    }
+    p.text-neutral-700{
+      letter-spacing: .05em;
+    }
+    a.tracking-\[-0\.03em\] {
+      letter-spacing: 0.05em;
+    }
+    #what-we-do .gradient-cloud-text{
+      color: #000;
+        background: None;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #000;
+    }
     /* Hero headline word-cycle (SMART / BETTER / FASTER) */
     .hero-cycle-word {
       display: inline-block;
@@ -171,6 +213,44 @@
       animation-play-state: paused;
     }
 
+    /* Our Promise circle: continuous breathing (closer/further) motion */
+    @keyframes promiseBreathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+    .promise-breathe {
+      animation: promiseBreathe 3.5s ease-in-out infinite;
+    }
+
+    /* Production AI & Cloud Stack: individual tech cards */
+    .stack-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      width: 150px;
+      height: 130px;
+      padding: 1.25rem 1rem;
+      background: #FFF;
+      border-radius: 1rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #262626;
+      text-align: center;
+      white-space: normal;
+    }
+    .stack-card i {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
     /* Trionn Dribbble / Creative Lab Section */
     #dribbble-section {
       background-color: #C3C3C3;
@@ -205,25 +285,6 @@
     }
     .trionn-btn:hover .btn-arrow {
       transform: translate(3px, -2px);
-    }
-
-    /* Trionn Vision Section & Cascading Stripes Animation */
-    #vision-section {
-      background-color: #1C1C1C;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #s3-text {
-      mix-blend-mode: difference;
-    }
-
-
-    .stripe-item {
-      background-color: #D2D2D2;
-      will-change: transform;
-      transform: scaleY(0);
-      transform-origin: center bottom;
     }
 
     @keyframes trionnMarqueeAnim {
@@ -583,6 +644,20 @@
       border-style: dotted;
       border-color: rgba(167, 139, 250, 0.12);
       animation-duration: 38s;
+    }
+
+    /* Bolder rings for the WHAT WE DO service-card icons (light background) */
+    .wwd-icon-box .nn-neuron-orbit {
+      border-width: 2.5px;
+      opacity: 1;
+    }
+    .wwd-icon-box .nn-neuron-orbit-2 {
+      border-width: 2px;
+      border-color: var(--accent-soft, rgba(167, 139, 250, 0.35));
+      opacity: 0.6;
+    }
+    .wwd-icon-box .nn-neuron-halo {
+      opacity: 0.9;
     }
 
     .nn-neuron-icon {
