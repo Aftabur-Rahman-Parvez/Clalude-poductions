@@ -130,6 +130,24 @@
       background: var(--brand-gradient);
       color: #FFFFFF !important;
     }
+
+    #main-header-bg {
+      background: radial-gradient(ellipse 65% 120% at 10% 0%, rgba(20, 184, 166, 0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 120% at 90% 0%, rgba(59, 130, 246, 0.20) 0%, transparent 70%),
+        rgba(14, 27, 32, 0.85) !important;
+      border-bottom-color: transparent !important;
+      backdrop-filter: none !important;
+    }
+
+    #main-header-bg.is-scrolled {
+      /* background:
+        radial-gradient(ellipse 65% 120% at 10% 0%, rgba(20, 184, 166, 0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 120% at 90% 0%, rgba(59, 130, 246, 0.20) 0%, transparent 70%),
+        rgba(14, 27, 32, 0.85) !important; */
+      background: radial-gradient(ellipse 65% 120% at 10% 0%, rgb(20 184 166 / 28%) 0%, #00000000 70%), radial-gradient(ellipse 60% 120% at 90% 0%, rgb(59 130 246 / 42%) 0%, #00000057 70%), rgb(14 27 32 / 76%) !important;  
+      border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+      backdrop-filter: blur(20px) !important;
+    }
     /* header */
     #main-header-bg{
           background-color: rgb(27 45 56);
@@ -137,6 +155,7 @@
     #main-header-bg .text-neutral-300{
       letter-spacing: .1em;
       font-size: 17px;
+      border: none;
     }
      #main-header-bg .nav-item{
       letter-spacing: .1em;
@@ -172,7 +191,11 @@
         background: None;
     -webkit-background-clip: text;
     -webkit-text-fill-color: #000;
+  }
+    #search-wrap button{
+      background-color: none;
     }
+
     /* Hero headline word-cycle (SMART / BETTER / FASTER) */
     .hero-cycle-word {
       display: inline-block;
@@ -237,18 +260,29 @@
       border-radius: 1rem;
       box-shadow: 0 4px 14px rgba(0,0,0,0.08);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
+      font-size: 1rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: #262626;
       text-align: center;
       white-space: normal;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .stack-card i {
-      width: 26px;
-      height: 26px;
+    .stack-card:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+    }
+    .stack-card i,
+    .stack-card svg {
+      width: 34px;
+      height: 34px;
       flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    .stack-card:hover i,
+    .stack-card:hover svg {
+      transform: scale(1.12);
     }
 
     /* Trionn Dribbble / Creative Lab Section */

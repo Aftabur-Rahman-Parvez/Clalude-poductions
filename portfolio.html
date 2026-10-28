@@ -144,17 +144,17 @@
     </section>
 
     <!-- FILTER + PORTFOLIO GRID -->
-    <section class="py-20 sm:py-24 bg-[#F3F3F5] relative">
+    <section id="portfolio-grid-section" class="py-20 sm:py-24 bg-[#F3F3F5] relative">
       <div class="max-w-[1400px] mx-auto px-6 sm:px-10">
 
         <!-- Filter Tabs -->
         <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-14 sm:mb-16">
-          <button onclick="cpFilterProjects('all', this)" class="cp-filter-btn is-active px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider gradient-cloud-bg text-white transition-all duration-300">All</button>
-          <button onclick="cpFilterProjects('web', this)" class="cp-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-black/10 hover:border-cyan-500/50 shadow-sm transition-all duration-300">Web</button>
-          <button onclick="cpFilterProjects('app', this)" class="cp-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-black/10 hover:border-cyan-500/50 shadow-sm transition-all duration-300">Apps</button>
-          <button onclick="cpFilterProjects('game', this)" class="cp-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-black/10 hover:border-cyan-500/50 shadow-sm transition-all duration-300">Games</button>
-          <button onclick="cpFilterProjects('ai-projects', this)" class="cp-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-black/10 hover:border-cyan-500/50 shadow-sm transition-all duration-300">AI Projects</button>
-          <button onclick="cpFilterProjects('upcoming', this)" class="cp-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-black/10 hover:border-cyan-500/50 shadow-sm transition-all duration-300">Upcoming</button>
+          <button onclick="cpFilterProjects('all', this)" class="wwa-reveal cp-filter-btn is-active px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider gradient-cloud-bg text-white transition-colors duration-300">All</button>
+          <button onclick="cpFilterProjects('web', this)" class="wwa-reveal cp-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-black/10 hover:border-cyan-500/50 shadow-sm transition-colors duration-300">Web</button>
+          <button onclick="cpFilterProjects('app', this)" class="wwa-reveal cp-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-black/10 hover:border-cyan-500/50 shadow-sm transition-colors duration-300">Apps</button>
+          <button onclick="cpFilterProjects('game', this)" class="wwa-reveal cp-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-black/10 hover:border-cyan-500/50 shadow-sm transition-colors duration-300">Games</button>
+          <button onclick="cpFilterProjects('ai-projects', this)" class="wwa-reveal cp-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-black/10 hover:border-cyan-500/50 shadow-sm transition-colors duration-300">AI Projects</button>
+          <button onclick="cpFilterProjects('upcoming', this)" class="wwa-reveal cp-filter-btn px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider bg-white text-neutral-700 hover:text-black border border-black/10 hover:border-cyan-500/50 shadow-sm transition-colors duration-300">Upcoming</button>
         </div>
 
         <!-- Grid: real production & upcoming work, mirrored from cloudproductionltd.com/portfolio.html -->
@@ -663,11 +663,42 @@
       renderPortfolioGrid();
 
       if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
         gsap.set('.hero-reveal', { opacity: 0, y: 28 });
         gsap.to('.hero-reveal', { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out', delay: 0.15 });
 
+        // Filter tabs: staggered rise-up reveal on scroll — same pattern as contact.html / events.html
+        gsap.set('#portfolio-grid-section .wwa-reveal', { y: 30, opacity: 0 });
+        gsap.to('#portfolio-grid-section .wwa-reveal', {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.08,
+          overwrite: 'auto',
+          scrollTrigger: {
+            trigger: '#portfolio-grid-section',
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
+        });
+
+        // Portfolio grid cards: reveal as the grid scrolls into view
         gsap.set('.cp-portfolio-item', { opacity: 0, y: 24 });
-        gsap.to('.cp-portfolio-item', { opacity: 1, y: 0, duration: 0.55, stagger: 0.045, ease: 'power3.out', delay: 0.45 });
+        gsap.to('.cp-portfolio-item', {
+          opacity: 1,
+          y: 0,
+          duration: 0.55,
+          stagger: 0.045,
+          ease: 'power3.out',
+          overwrite: 'auto',
+          scrollTrigger: {
+            trigger: '#cp-portfolio-grid',
+            start: 'top 90%',
+            toggleActions: 'play none none none'
+          }
+        });
       }
 
       // Close project modal on Escape / backdrop click

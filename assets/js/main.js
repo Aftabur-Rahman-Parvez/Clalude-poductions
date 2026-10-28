@@ -455,23 +455,23 @@
     // Initialize Trionn Dribbble Design In Motion 3D Curved Cards & Dark Stripes Transition
     const dribbleProjectsData = [
       {
-        title: 'B2B Marketing AI',
-        headline: 'AI OUTREACH ENGINE',
-        category: 'AI-Powered Solutions',
-        badge: '01 / AI MARKETING AUTOMATION',
+        title: 'Floor Inventory',
+        headline: 'SALES FLOOR ERP',
+        category: 'Retail Enterprise',
+        badge: '01 / RETAIL INVENTORY',
         code: 'CPL #025',
-        desc: 'AI-driven lead discovery, personalized outreach, smart scheduling, and contact form automation for B2B campaigns.',
-        desc1: 'AUTOMATED LEAD DISCOVERY',
-        desc2: 'PERSONALIZED OUTREACH AT SCALE',
+        desc: 'Real-time stock tracking and sales floor inventory management built to cut shortages and manual reconciliation.',
+        desc1: 'REAL-TIME STOCK TRACKING',
+        desc2: 'AUTOMATED RECONCILIATION',
         client: 'Cloud Production LTD Product',
         year: 'Production Verified',
-        role: 'AI & Backend Engineering • LangChain / RAG Pipeline',
-        metrics: 'Up to 90% Workload Reduction',
-        overview: 'An AI-driven marketing automation platform that discovers qualified B2B prospects, understands each business context, and generates personalized outreach across email and contact forms — combining lead discovery, AI content generation, and scheduled delivery with full visibility into what was sent, what failed, and what needs follow-up.',
-        deliverables: ['Lead Discovery by Industry & Location', 'AI-Generated Personalized Campaigns', 'Smart Scheduling & Follow-ups', 'Delivery Monitoring & Diagnostics'],
-        accentColor: '#7C3AED',
-        accentDark: '#6D28D9',
-        imgUrl: 'assets/images/portfolio-live/b2b-marketing.png'
+        role: 'Enterprise Web & Mobile • Retail Systems',
+        metrics: 'Reduced Manual Reconciliation',
+        overview: 'A real-time inventory management system built for sales floors, tracking stock levels as they move and cutting down on shortages and manual stock reconciliation across locations.',
+        deliverables: ['Real-Time Stock Dashboard', 'Low-Stock & Shortage Alerts', 'Multi-Location Tracking', 'Reconciliation Reporting'],
+        accentColor: '#16A34A',
+        accentDark: '#15803D',
+        imgUrl: 'assets/images/portfolio-live/inventory-management.png'
       },
       {
         title: 'Cloud HR Track',
@@ -1596,4 +1596,18 @@
       document.addEventListener('DOMContentLoaded', initCustomCursor);
     } else {
       initCustomCursor();
+    }
+
+    function initStickyHeaderBg() {
+      const header = document.getElementById('main-header-bg');
+      if (!header) return;
+      const applyState = () => header.classList.toggle('is-scrolled', window.scrollY > 20);
+      applyState();
+      window.addEventListener('scroll', applyState, { passive: true });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initStickyHeaderBg);
+    } else {
+      initStickyHeaderBg();
     }
