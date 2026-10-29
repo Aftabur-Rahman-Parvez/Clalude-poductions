@@ -455,156 +455,118 @@
     // Initialize Trionn Dribbble Design In Motion 3D Curved Cards & Dark Stripes Transition
     const dribbleProjectsData = [
       {
-        title: 'Floor Inventory',
-        headline: 'SALES FLOOR ERP',
-        category: 'Retail Enterprise',
-        badge: '01 / RETAIL INVENTORY',
-        code: 'CPL #025',
-        desc: 'Real-time stock tracking and sales floor inventory management built to cut shortages and manual reconciliation.',
-        desc1: 'REAL-TIME STOCK TRACKING',
-        desc2: 'AUTOMATED RECONCILIATION',
+        title: 'Agentic RAG Engine',
+        headline: 'AUTONOMOUS MULTI-AGENT',
+        category: 'AI & Agentic Systems',
+        badge: '01 / AI & AGENTIC SYSTEMS',
+        code: 'CPL #017',
+        desc: 'Multi-agent document intelligence and reasoning pipeline combining LangChain, hybrid vector search, and strict hallucination guardrails.',
+        desc1: 'HYBRID VECTOR SEARCH',
+        desc2: 'HALLUCINATION GUARDRAILS',
         client: 'Cloud Production LTD Product',
         year: 'Production Verified',
-        role: 'Enterprise Web & Mobile • Retail Systems',
-        metrics: 'Reduced Manual Reconciliation',
-        overview: 'A real-time inventory management system built for sales floors, tracking stock levels as they move and cutting down on shortages and manual stock reconciliation across locations.',
-        deliverables: ['Real-Time Stock Dashboard', 'Low-Stock & Shortage Alerts', 'Multi-Location Tracking', 'Reconciliation Reporting'],
-        accentColor: '#16A34A',
-        accentDark: '#15803D',
-        imgUrl: 'assets/images/portfolio-live/inventory-management.png'
-      },
-      {
-        title: 'Cloud HR Track',
-        headline: 'WORKFORCE CLOUD',
-        category: 'HR & Workforce Tech',
-        badge: '02 / HR MANAGEMENT PLATFORM',
-        code: 'CPL #026',
-        desc: 'Cloud-based HR platform for simpler employee management, workflow transparency, and team alignment.',
-        desc1: 'CUSTOMIZABLE HR WORKFLOWS',
-        desc2: 'RECRUITMENT & PERFORMANCE TRACKING',
-        client: 'Cloud Production LTD Product',
-        year: 'Production Verified',
-        role: 'Full-Stack Web • Node.js / Next.js / PostgreSQL',
-        metrics: 'Lightweight, Fully Customizable Platform',
-        overview: 'A modern cloud-based HR Management platform built from scratch to replace complex enterprise HR tools with a lightweight, fully customizable solution — covering employee data, recruitment and candidate tracking, performance management, and team collaboration.',
-        deliverables: ['Centralized Employee Database', 'Recruitment & Candidate Tracking', 'Performance & KPI Management', 'Team Communication & Collaboration'],
-        accentColor: '#0891B2',
+        role: 'AI Engineering • Multi-Agent Systems',
+        metrics: 'Autonomous Reasoning Pipeline',
+        overview: 'An autonomous multi-agent document intelligence system built on LangChain and hybrid vector search, engineered with strict hallucination guardrails so every answer stays grounded in source material.',
+        deliverables: ['Multi-Agent Reasoning Pipeline', 'Hybrid Vector Search', 'Hallucination Guardrails', 'Document Intelligence Layer'],
+        accentColor: '#06B6D4',
         accentDark: '#0E7490',
-        imgUrl: 'assets/images/portfolio-live/cloud-hr-track.png'
+        imgUrl: 'assets/images/portfolio-rag-engine.svg'
       },
       {
-        title: 'Floor Inventory',
-        headline: 'SALES FLOOR ERP',
-        category: 'Retail Enterprise',
-        badge: '03 / RETAIL INVENTORY',
-        code: 'CPL #027',
-        desc: 'Real-time stock tracking and sales floor inventory management built to cut shortages and manual reconciliation.',
-        desc1: 'REAL-TIME STOCK TRACKING',
-        desc2: 'AUTOMATED RECONCILIATION',
+        title: 'ID Check & KYC',
+        headline: 'COMPUTER VISION & MOBILE',
+        category: 'Fintech & Identity',
+        badge: '02 / FINTECH & IDENTITY',
+        code: 'CPL #013',
+        desc: 'Digital biometric customer verification app with automated passport OCR extraction, 3D facial liveness matching, and anti-spoofing defense.',
+        desc1: 'PASSPORT OCR EXTRACTION',
+        desc2: '3D FACIAL LIVENESS MATCHING',
         client: 'Cloud Production LTD Product',
         year: 'Production Verified',
-        role: 'Enterprise Web & Mobile • Retail Systems',
-        metrics: 'Reduced Manual Reconciliation',
-        overview: 'A real-time inventory management system built for sales floors, tracking stock levels as they move and cutting down on shortages and manual stock reconciliation across locations.',
-        deliverables: ['Real-Time Stock Dashboard', 'Low-Stock & Shortage Alerts', 'Multi-Location Tracking', 'Reconciliation Reporting'],
-        accentColor: '#16A34A',
-        accentDark: '#15803D',
-        imgUrl: 'assets/images/portfolio-live/inventory-management.png'
-      },
-      {
-        title: 'Online Learning',
-        headline: 'STUDENT ELEARNING',
-        category: 'Education Technology',
-        badge: '04 / ELEARNING PLATFORM',
-        code: 'CPL #028',
-        desc: 'A web-based eLearning platform with course management, student progress tracking, and interactive lessons.',
-        desc1: 'COURSE & CONTENT MANAGEMENT',
-        desc2: 'STUDENT PROGRESS TRACKING',
-        client: 'Cloud Production LTD Product',
-        year: 'Production Verified',
-        role: 'Full-Stack Web Development • Education Platform',
-        metrics: 'Interactive Course Delivery',
-        overview: 'A web-based eLearning platform for students, covering course management, student progress tracking, and interactive lessons from one dashboard.',
-        deliverables: ['Course Management Dashboard', 'Student Progress Tracking', 'Interactive Lesson Delivery', 'Enrollment & Access Control'],
-        accentColor: '#2563EB',
-        accentDark: '#1D4ED8',
-        imgUrl: 'assets/images/portfolio-live/online-learning-platform.png'
-      },
-      {
-        title: 'Health Tracker App',
-        headline: 'WELLNESS MOBILE',
-        category: 'Healthcare Mobile',
-        badge: '05 / HEALTH TRACKING APP',
-        code: 'CPL #029',
-        desc: 'A personal health tracking app for monitoring vitals, appointments, and wellness goals on the go.',
-        desc1: 'VITALS & APPOINTMENT TRACKING',
-        desc2: 'PERSONAL WELLNESS GOALS',
-        client: 'Cloud Production LTD Product',
-        year: 'Production Verified',
-        role: 'Cross-Platform Mobile Development',
-        metrics: 'On-the-Go Health Monitoring',
-        overview: 'A personal health management mobile app that lets users monitor vitals, track appointments, and stay on top of wellness goals from their phone.',
-        deliverables: ['Vitals Monitoring Dashboard', 'Appointment Scheduling', 'Wellness Goal Tracking', 'Reminders & Notifications'],
-        accentColor: '#E11D48',
-        accentDark: '#BE123C',
-        imgUrl: 'assets/images/portfolio-live/health-management.svg'
-      },
-      {
-        title: 'Ecommerce Storefront',
-        headline: 'CUSTOM STOREFRONT',
-        category: 'E-Commerce Platform',
-        badge: '06 / ONLINE STOREFRONT',
-        code: 'CPL #030',
-        desc: 'A custom online storefront with product catalogs, secure checkout, and order management built for growth.',
-        desc1: 'PRODUCT CATALOG & CHECKOUT',
-        desc2: 'ORDER MANAGEMENT BUILT FOR GROWTH',
-        client: 'Cloud Production LTD Product',
-        year: 'Production Verified',
-        role: 'Full-Stack Web Development • E-Commerce',
-        metrics: 'Secure Checkout & Order Management',
-        overview: 'A custom e-commerce site built with product catalogs, secure checkout, and order management designed to scale as the storefront grows.',
-        deliverables: ['Product Catalog & Search', 'Secure Checkout Flow', 'Order Management Dashboard', 'Inventory & Pricing Controls'],
-        accentColor: '#D97706',
-        accentDark: '#B45309',
-        imgUrl: 'assets/images/portfolio-live/ecommerce-site.png'
-      },
-      {
-        title: 'Colle Pochi',
-        headline: 'CLIENT OPERATIONS',
-        category: 'Custom Web Application',
-        badge: '07 / CLIENT WEB APP',
-        code: 'CPL #031',
-        desc: 'A custom web application built for Colle Pochi to streamline day-to-day operations and client interactions.',
-        desc1: 'STREAMLINED DAILY OPERATIONS',
-        desc2: 'CLIENT INTERACTION MANAGEMENT',
-        client: 'Colle Pochi',
-        year: 'Production Verified',
-        role: 'Full-Stack Web Development • Custom Business App',
-        metrics: 'Streamlined Operations Workflow',
-        overview: 'A custom web application built for Colle Pochi to streamline day-to-day operations and client interactions in one connected system.',
-        deliverables: ['Operations Dashboard', 'Client Interaction Management', 'Custom Workflow Tools', 'Role-Based Access'],
+        role: 'Mobile & Computer Vision • Identity Verification',
+        metrics: 'Automated Biometric Verification',
+        overview: 'A digital biometric customer verification app combining automated passport OCR extraction, 3D facial liveness matching, and anti-spoofing defense for secure, fast onboarding.',
+        deliverables: ['Passport OCR Extraction', '3D Facial Liveness Matching', 'Anti-Spoofing Defense', 'Mobile Verification Flow'],
         accentColor: '#0D9488',
         accentDark: '#0F766E',
-        imgUrl: 'assets/images/portfolio-live/colle-pochi.png'
+        imgUrl: 'assets/images/portfolio-id-check-kyc.jpg'
       },
       {
-        title: 'WordPress eLearning',
-        headline: 'ELEARNING THEME',
-        category: 'WordPress eLearning',
-        badge: '08 / WORDPRESS THEME',
-        code: 'CPL #032',
-        desc: 'A WordPress eLearning theme built for course listings, student enrollment, and content delivery.',
-        desc1: 'COURSE LISTINGS & ENROLLMENT',
-        desc2: 'FLEXIBLE CONTENT DELIVERY',
+        title: 'Arousal Retail Japan',
+        headline: 'TOKYO ENTERPRISE PARTNER',
+        category: 'Japan E-Commerce',
+        badge: '03 / JAPAN E-COMMERCE',
+        code: 'CPL #015',
+        desc: 'High-concurrency retail platform engineered for Japanese consumer markets with Next.js headless storefront, PayPay integration, and warehouse sync.',
+        desc1: 'NEXT.JS HEADLESS STOREFRONT',
+        desc2: 'PAYPAY & WAREHOUSE SYNC',
+        client: 'Arousal Tech Japan',
+        year: 'Production Verified',
+        role: 'Full-Stack Web • Japan E-Commerce',
+        metrics: 'High-Concurrency Retail Platform',
+        overview: 'A high-concurrency retail platform built for Japanese consumer markets on a Next.js headless storefront, with PayPay payment integration and real-time warehouse sync.',
+        deliverables: ['Next.js Headless Storefront', 'PayPay Payment Integration', 'Warehouse Sync', 'High-Concurrency Architecture'],
+        accentColor: '#2563EB',
+        accentDark: '#1D4ED8',
+        imgUrl: 'assets/images/portfolio-arousal-retail.jpg'
+      },
+      {
+        title: 'Floor Inventory ERP',
+        headline: 'RETAIL ERP & SCANNER',
+        category: 'Enterprise Automation',
+        badge: '04 / ENTERPRISE AUTOMATION',
+        code: 'CPL #012',
+        desc: 'Real-time sales floor inventory management system featuring mobile barcode/RFID reconciliation, automated alerts, and multi-store purchase orders.',
+        desc1: 'BARCODE / RFID RECONCILIATION',
+        desc2: 'MULTI-STORE PURCHASE ORDERS',
         client: 'Cloud Production LTD Product',
         year: 'Production Verified',
-        role: 'WordPress Theme Development • Education',
-        metrics: 'Course Listing & Enrollment Ready',
-        overview: 'An education-focused WordPress theme built for eLearning websites, covering course listings, student enrollment, and content delivery out of the box.',
-        deliverables: ['Course Listing Templates', 'Student Enrollment Flow', 'Content Delivery Layout', 'WordPress Customizer Options'],
+        role: 'Enterprise Web & Mobile • Retail Systems',
+        metrics: 'Reduced Manual Reconciliation',
+        overview: 'A real-time sales floor inventory management system with mobile barcode and RFID reconciliation, automated low-stock alerts, and multi-store purchase order handling.',
+        deliverables: ['Mobile Barcode/RFID Reconciliation', 'Automated Low-Stock Alerts', 'Multi-Store Purchase Orders', 'Real-Time Stock Dashboard'],
+        accentColor: '#16A34A',
+        accentDark: '#15803D',
+        imgUrl: 'assets/images/portfolio-floor-inventory.jpg'
+      },
+      {
+        title: 'Elmi Laboratory',
+        headline: 'DIAGNOSTIC PORTAL',
+        category: 'Healthcare & Diagnostics',
+        badge: '05 / HEALTHCARE WEB',
+        code: 'CPL #011',
+        desc: 'Medical lab test platform with real-time appointment booking, test catalog, and automated patient report delivery.',
+        desc1: 'REAL-TIME APPOINTMENT BOOKING',
+        desc2: 'AUTOMATED PDF REPORT DELIVERY',
+        client: 'Elmi Diagnostic Centre',
+        year: 'Production Verified',
+        role: 'Full-Stack Web • Patient Portal',
+        metrics: '10k+ Monthly Bookings',
+        overview: 'A full-cycle medical diagnostic portal engineered for Elmi Laboratory, streamlining clinical test appointments, automated barcode sample tracking, and instant PDF report delivery with end-to-end security.',
+        deliverables: ['Real-Time Appointment Booking', 'Specimen Barcode Tracking', 'Automated PDF Report Delivery', 'Patient Portal Dashboard'],
+        accentColor: '#0891B2',
+        accentDark: '#0E7490',
+        imgUrl: 'assets/images/portfolio-elmi-laboratory.jpg'
+      },
+      {
+        title: 'Enterprise Cloud ERP',
+        headline: 'BUSINESS AUTOMATION',
+        category: 'Enterprise Systems',
+        badge: '06 / ENTERPRISE SYSTEMS',
+        code: 'CPL #016',
+        desc: 'Comprehensive custom Enterprise Resource Planning platform unifying multi-branch supply chains, automated payroll, VAT accounting, and executive analytics.',
+        desc1: 'MULTI-BRANCH SUPPLY CHAINS',
+        desc2: 'AUTOMATED PAYROLL & VAT',
+        client: 'Cloud Production LTD Product',
+        year: 'Production Verified',
+        role: 'Enterprise Web • Business Automation',
+        metrics: 'Unified Multi-Branch Operations',
+        overview: 'A comprehensive custom ERP platform unifying multi-branch supply chains, automated payroll, VAT accounting, and executive analytics into one system.',
+        deliverables: ['Multi-Branch Supply Chain Management', 'Automated Payroll & VAT Accounting', 'Executive Analytics Dashboard', 'Role-Based Access Control'],
         accentColor: '#4F46E5',
         accentDark: '#4338CA',
-        imgUrl: 'assets/images/portfolio-live/elearning-website.png'
+        imgUrl: 'assets/images/portfolio-enterprise-erp.jpg'
       }
     ];
 
@@ -1063,14 +1025,10 @@
           updateQuickPillState(2);
         } else if (progress < 0.54) {
           updateQuickPillState(3);
-        } else if (progress < 0.63) {
+        } else if (progress < 0.68) {
           updateQuickPillState(4);
-        } else if (progress < 0.69) {
-          updateQuickPillState(5);
-        } else if (progress < 0.75) {
-          updateQuickPillState(6);
         } else if (progress <= 0.91) {
-          updateQuickPillState(7);
+          updateQuickPillState(5);
         } else {
           updateQuickPillState(-1);
         }
@@ -1092,6 +1050,7 @@
         const metricsEl = document.getElementById('inspect-metrics');
         const yearEl = document.getElementById('inspect-year');
         const linkEl = document.getElementById('inspect-link');
+        const imageEl = document.getElementById('inspect-image');
 
         if (countEl) countEl.textContent = `PROJECT 0${idx + 1} / 0${dribbleProjectsData.length}`;
         if (codeEl) codeEl.textContent = p.code;
@@ -1105,6 +1064,10 @@
         if (metricsEl) metricsEl.textContent = p.metrics || '60 FPS WebGL';
         if (yearEl) yearEl.textContent = p.year || '2026 Archive';
         if (linkEl) linkEl.href = 'https://dribbble.com';
+        if (imageEl) {
+          imageEl.src = p.imgUrl || 'assets/images/fallback-ai-rag.svg';
+          imageEl.alt = p.title || 'Case study visual';
+        }
 
         if (typeof lucide !== 'undefined') lucide.createIcons();
       }
@@ -1232,8 +1195,8 @@
         const targetItem = cardMeshes[idx];
 
         if (targetItem) {
-          const spreadRatio = Math.min(1.0, window.innerWidth / 1520);
           const responsiveScale = Math.min(1.0, Math.max(0.72, window.innerWidth / 1440));
+          const spreadRatio = responsiveScale;
 
           gsap.to(targetItem.mesh.position, {
             x: targetItem.state.x * spreadRatio,
@@ -1323,8 +1286,8 @@
       }, { passive: true });
 
       function updateCards() {
-        const spreadRatio = Math.min(1.0, window.innerWidth / 1520);
         const responsiveScale = Math.min(1.0, Math.max(0.72, window.innerWidth / 1440));
+        const spreadRatio = responsiveScale;
 
         if (isInspecting) {
           // Strictly ensure ONLY the inspected card is visible during inspection
@@ -1436,31 +1399,31 @@
       tl.to(bottomWord, { x: -280, duration: 0.78, ease: 'none' }, 0.12);
 
       // 3. Phase 2: Row 1 Entrance (Cards 0, 1, 2, 3) - Extra Large 3.50x2.28 cards
-      // Card 0 -> Outer Left (-5.45)
-      tl.fromTo(cardMeshes[0].state,
-        { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: -5.45, y: 0.05, z: -0.10, rotX: 0.04, rotY: 0.06, rotZ: -0.015, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
-        0.12
+      // Card 0 -> Outer Left (-5.70), already in place from the very start so the
+      // section never looks empty before the user has scrolled into the pin.
+      tl.set(cardMeshes[0].state,
+        { x: -5.70, y: 0.05, z: -0.10, rotX: 0.04, rotY: 0.06, rotZ: -0.015, scale: 1.0, opacity: 1 },
+        0
       );
 
-      // Card 1 -> Outer Right (+5.45)
+      // Card 1 -> Outer Right (+5.70)
       tl.fromTo(cardMeshes[1].state,
         { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: 5.45, y: 0.05, z: -0.10, rotX: 0.04, rotY: -0.06, rotZ: 0.015, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
+        { x: 5.70, y: 0.05, z: -0.10, rotX: 0.04, rotY: -0.06, rotZ: 0.015, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
         0.17
       );
 
-      // Card 2 -> Inner Left (-1.82)
+      // Card 2 -> Inner Left (-2.00)
       tl.fromTo(cardMeshes[2].state,
         { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: -1.82, y: 0.05, z: 0.20, rotX: 0.02, rotY: 0.02, rotZ: -0.008, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
+        { x: -2.00, y: 0.05, z: 0.20, rotX: 0.02, rotY: 0.02, rotZ: -0.008, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
         0.22
       );
 
-      // Card 3 -> Inner Right (+1.82)
+      // Card 3 -> Inner Right (+2.00)
       tl.fromTo(cardMeshes[3].state,
         { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: 1.82, y: 0.05, z: 0.20, rotX: 0.02, rotY: -0.02, rotZ: 0.008, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
+        { x: 2.00, y: 0.05, z: 0.20, rotX: 0.02, rotY: -0.02, rotZ: 0.008, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
         0.27
       );
 
@@ -1477,33 +1440,19 @@
         }, 0.52 + i * 0.012);
       });
 
-      // 5. Phase 3b: Row 2 Entrance (Cards 4, 5, 6, 7) - Extra Large 3.50x2.28 cards
-      // Card 4 -> Outer Left (-5.45)
+      // 5. Phase 3b: Row 2 Entrance (Cards 4, 5) - Extra Large 3.50x2.28 cards
+      // Card 4 -> Left (-2.75)
       tl.fromTo(cardMeshes[4].state,
         { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: -5.45, y: 0.05, z: -0.10, rotX: 0.04, rotY: 0.06, rotZ: -0.015, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
+        { x: -2.75, y: 0.05, z: 0.05, rotX: 0.03, rotY: 0.04, rotZ: -0.012, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
         0.57
       );
 
-      // Card 5 -> Outer Right (+5.45)
+      // Card 5 -> Right (+2.75)
       tl.fromTo(cardMeshes[5].state,
         { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: 5.45, y: 0.05, z: -0.10, rotX: 0.04, rotY: -0.06, rotZ: 0.015, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
-        0.62
-      );
-
-      // Card 6 -> Inner Left (-1.82)
-      tl.fromTo(cardMeshes[6].state,
-        { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: -1.82, y: 0.05, z: 0.20, rotX: 0.02, rotY: 0.02, rotZ: -0.008, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
-        0.67
-      );
-
-      // Card 7 -> Inner Right (+1.82)
-      tl.fromTo(cardMeshes[7].state,
-        { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: 1.82, y: 0.05, z: 0.20, rotX: 0.02, rotY: -0.02, rotZ: 0.008, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
-        0.72
+        { x: 2.75, y: 0.05, z: 0.05, rotX: 0.03, rotY: -0.04, rotZ: 0.012, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
+        0.68
       );
 
       // Row 2 interact & resting window: 0.86 to 0.92
