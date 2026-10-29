@@ -9,7 +9,7 @@
     body {
       background-color: var(--brand-bg);
       color: #E2E8F0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: "Inter", sans-serif;
       letter-spacing: -0.015em;
       line-height: 1.65;
       overflow-x: hidden;
@@ -69,9 +69,9 @@
       letter-spacing: -0.02em;
     }
 
-    /* Header Navbar Typography: Times New Roman */
+    /* Header Navbar Typography: Inter */
     .nav-item, nav button, #mobile-menu button {
-      font-family: 'Times New Roman', Times, Baskerville, Georgia, serif !important;
+      font-family: "Inter", sans-serif !important;
     }
 
     /* Trionn Monospace UI Tags & Buttons */
@@ -159,7 +159,7 @@
     }
      #main-header-bg .nav-item{
       letter-spacing: .1em;
-      font-size: 17px;
+      font-size: 16px;
       color: #fff;
      }
      .text-neutral-300.leading-relaxed {
@@ -194,6 +194,14 @@
   }
     #search-wrap button{
       /* background-color: none; */
+    }
+
+    footer .text-xs {
+      font-size: 0.9rem;
+    }
+
+    footer h4 + ul {
+      font-family: "Inter", sans-serif;
     }
 
     /* Hero headline word-cycle (SMART / BETTER / FASTER) */

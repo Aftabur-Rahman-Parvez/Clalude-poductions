@@ -26,7 +26,7 @@
             }
           },
           fontFamily: {
-            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
             display: ['"Familjen Grotesk"', 'sans-serif'],
             mono: ['"Martian Mono"', 'monospace'],
             editorial: ['"Instrument Serif"', '"PP Editorial New"', 'serif']
