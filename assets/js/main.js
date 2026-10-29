@@ -56,7 +56,6 @@
     // Initialize Lucide Icons, 3D Particle Canvas, and Trionn Vision Animation
     function initAllInteractive() {
       lucide.createIcons();
-      initDribbble3D();
       initNeuralBrain();
       initHeroWordCycle();
 
@@ -74,7 +73,6 @@
     }
 
     window.addEventListener('load', () => {
-      initDribbble3D();
       initNeuralBrain();
       if (typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.refresh();
@@ -452,8 +450,10 @@
       e.target.reset();
     }
 
-    // Initialize Trionn Dribbble Design In Motion 3D Curved Cards & Dark Stripes Transition
-    const dribbleProjectsData = [
+    // Case study data for the "PROVEN TRACK RECORD" showcase grid and its
+    // inspection drawer. The grid markup owns the images, titles and descriptions;
+    // the sync below keeps this data aligned with it.
+    const trackRecordProjects = [
       {
         title: 'Agentic RAG Engine',
         headline: 'AUTONOMOUS MULTI-AGENT',
@@ -461,8 +461,6 @@
         badge: '01 / AI & AGENTIC SYSTEMS',
         code: 'CPL #017',
         desc: 'Multi-agent document intelligence and reasoning pipeline combining LangChain, hybrid vector search, and strict hallucination guardrails.',
-        desc1: 'HYBRID VECTOR SEARCH',
-        desc2: 'HALLUCINATION GUARDRAILS',
         client: 'Cloud Production LTD Product',
         year: 'Production Verified',
         role: 'AI Engineering • Multi-Agent Systems',
@@ -480,8 +478,6 @@
         badge: '02 / FINTECH & IDENTITY',
         code: 'CPL #013',
         desc: 'Digital biometric customer verification app with automated passport OCR extraction, 3D facial liveness matching, and anti-spoofing defense.',
-        desc1: 'PASSPORT OCR EXTRACTION',
-        desc2: '3D FACIAL LIVENESS MATCHING',
         client: 'Cloud Production LTD Product',
         year: 'Production Verified',
         role: 'Mobile & Computer Vision • Identity Verification',
@@ -499,8 +495,6 @@
         badge: '03 / JAPAN E-COMMERCE',
         code: 'CPL #015',
         desc: 'High-concurrency retail platform engineered for Japanese consumer markets with Next.js headless storefront, PayPay integration, and warehouse sync.',
-        desc1: 'NEXT.JS HEADLESS STOREFRONT',
-        desc2: 'PAYPAY & WAREHOUSE SYNC',
         client: 'Arousal Tech Japan',
         year: 'Production Verified',
         role: 'Full-Stack Web • Japan E-Commerce',
@@ -518,8 +512,6 @@
         badge: '04 / ENTERPRISE AUTOMATION',
         code: 'CPL #012',
         desc: 'Real-time sales floor inventory management system featuring mobile barcode/RFID reconciliation, automated alerts, and multi-store purchase orders.',
-        desc1: 'BARCODE / RFID RECONCILIATION',
-        desc2: 'MULTI-STORE PURCHASE ORDERS',
         client: 'Cloud Production LTD Product',
         year: 'Production Verified',
         role: 'Enterprise Web & Mobile • Retail Systems',
@@ -537,8 +529,6 @@
         badge: '05 / HEALTHCARE WEB',
         code: 'CPL #011',
         desc: 'Medical lab test platform with real-time appointment booking, test catalog, and automated patient report delivery.',
-        desc1: 'REAL-TIME APPOINTMENT BOOKING',
-        desc2: 'AUTOMATED PDF REPORT DELIVERY',
         client: 'Elmi Diagnostic Centre',
         year: 'Production Verified',
         role: 'Full-Stack Web • Patient Portal',
@@ -556,8 +546,6 @@
         badge: '06 / ENTERPRISE SYSTEMS',
         code: 'CPL #016',
         desc: 'Comprehensive custom Enterprise Resource Planning platform unifying multi-branch supply chains, automated payroll, VAT accounting, and executive analytics.',
-        desc1: 'MULTI-BRANCH SUPPLY CHAINS',
-        desc2: 'AUTOMATED PAYROLL & VAT',
         client: 'Cloud Production LTD Product',
         year: 'Production Verified',
         role: 'Enterprise Web • Business Automation',
@@ -570,8 +558,33 @@
       }
     ];
 
+    // Sync the case study data with the "PROVEN TRACK RECORD" showcase grid.
+    // The grid markup owns the images, titles and descriptions; this copies them across
+    // so the grid and the inspection drawer can never drift apart.
+    (function syncTrackRecordProjectsFromGrid() {
+      const cards = document.querySelectorAll('#project-showcase .showcase-grid > div');
+      if (!cards.length) return;
+
+      cards.forEach((card, index) => {
+        const project = trackRecordProjects[index];
+        if (!project) return;
+
+        const img = card.querySelector('[data-track-record-image]');
+        const title = card.querySelector('[data-track-record-title]');
+        const desc = card.querySelector('[data-track-record-desc]');
+
+        if (img) project.imgUrl = img.getAttribute('data-track-record-image') || img.getAttribute('src') || project.imgUrl;
+        if (title) project.title = title.textContent.trim() || project.title;
+        if (desc) {
+          // The short description mirrors the track-record grid.
+          // `overview` stays the longer editorial copy for the inspector panel.
+          project.desc = desc.textContent.trim() || project.desc;
+        }
+      });
+    })();
+
     window.openCardInspect = function(idx) {
-      const p = dribbleProjectsData[idx];
+      const p = trackRecordProjects[idx];
       if (!p) return;
 
       const countEl = document.getElementById('inspect-counter');
@@ -587,7 +600,7 @@
       const yearEl = document.getElementById('inspect-year');
       const imageEl = document.getElementById('inspect-image');
 
-      if (countEl) countEl.textContent = `CASE STUDY 0${idx + 1} / 0${dribbleProjectsData.length}`;
+      if (countEl) countEl.textContent = `CASE STUDY 0${idx + 1} / 0${trackRecordProjects.length}`;
       if (codeEl) codeEl.textContent = p.code;
       if (catEl) catEl.textContent = p.category;
       if (titleEl) titleEl.textContent = p.title.toUpperCase();
@@ -603,8 +616,8 @@
         imageEl.alt = p.title || 'Case study visual';
       }
 
-      const overlay = document.getElementById('dribbble-inspect-overlay');
-      const panel = document.getElementById('dribbble-inspect-content');
+      const overlay = document.getElementById('track-record-inspect-overlay');
+      const panel = document.getElementById('track-record-inspect-content');
       if (overlay && panel) {
         overlay.style.pointerEvents = 'auto';
         overlay.style.opacity = '1';
@@ -615,8 +628,8 @@
     };
 
     window.closeCardInspect = function() {
-      const overlay = document.getElementById('dribbble-inspect-overlay');
-      const panel = document.getElementById('dribbble-inspect-content');
+      const overlay = document.getElementById('track-record-inspect-overlay');
+      const panel = document.getElementById('track-record-inspect-content');
       if (overlay && panel) {
         overlay.style.opacity = '0';
         overlay.style.pointerEvents = 'none';
@@ -708,778 +721,6 @@
         panel.style.opacity = '0';
       }
     };
-
-    function createEditorialCardTexture(cfg, index, total) {
-      const c = document.createElement('canvas');
-      c.width = 800;
-      c.height = 520;
-      const ctx = c.getContext('2d');
-
-      // Card Base
-      ctx.fillStyle = '#FFFFFF';
-      ctx.fillRect(0, 0, 800, 520);
-
-      // Left split for photography / visual art
-      const splitW = 370;
-      const grad = ctx.createLinearGradient(0, 0, splitW, 520);
-      grad.addColorStop(0, cfg.accentColor);
-      grad.addColorStop(1, cfg.accentDark);
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, splitW, 520);
-
-      // Decorative focal circle
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(splitW / 2, 260, 105, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.16)';
-      ctx.fill();
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-      ctx.stroke();
-      ctx.restore();
-
-      // Project number & badge
-      const numStr = `0${index + 1} / 0${total}`;
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
-      ctx.font = 'bold 15px "Martian Mono", monospace';
-      ctx.fillText(`${numStr} • ${cfg.badge.toUpperCase()}`, 28, 48);
-
-      // Left Title
-      ctx.fillStyle = '#FFFFFF';
-      ctx.font = 'bold 40px "Familjen Grotesk", sans-serif';
-      const words = cfg.title.split(' ');
-      let ty = 210;
-      words.forEach(w => {
-        ctx.fillText(w.toUpperCase(), 28, ty);
-        ty += 44;
-      });
-
-      // Left Category
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.88)';
-      ctx.font = 'bold 14px "Martian Mono", monospace';
-      ctx.fillText(cfg.category.toUpperCase(), 28, 385);
-
-      // Right split: Swiss Editorial Content
-      ctx.fillStyle = '#1A1A1A';
-      ctx.font = 'bold 14px "Martian Mono", monospace';
-      ctx.fillText('FEATURED EXPLORATION', splitW + 40, 50);
-
-      ctx.fillStyle = '#666666';
-      ctx.font = '13px "Martian Mono", monospace';
-      ctx.fillText(cfg.code, splitW + 40, 82);
-
-      ctx.fillStyle = '#111111';
-      ctx.font = 'bold 46px "Familjen Grotesk", sans-serif';
-      ctx.fillText(cfg.headline, splitW + 40, 165);
-
-      // Technical crosshair
-      ctx.strokeStyle = '#AAAAAA';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.moveTo(splitW + 40, 210); ctx.lineTo(splitW + 75, 210);
-      ctx.moveTo(splitW + 57, 193); ctx.lineTo(splitW + 57, 227);
-      ctx.stroke();
-
-      // Description lines
-      ctx.fillStyle = '#444444';
-      ctx.font = '15px "Martian Mono", monospace';
-      ctx.fillText(cfg.desc1, splitW + 40, 268);
-      ctx.fillText(cfg.desc2, splitW + 40, 296);
-
-      // Concept summary
-      ctx.fillStyle = '#777777';
-      ctx.font = '13px "Martian Mono", monospace';
-      ctx.fillText(cfg.desc.slice(0, 42), splitW + 40, 360);
-      if (cfg.desc.length > 42) {
-        ctx.fillText(cfg.desc.slice(42, 85) + '...', splitW + 40, 382);
-      }
-
-      // Footer
-      ctx.fillStyle = '#888888';
-      ctx.font = '12px "Martian Mono", monospace';
-      ctx.fillText('© CLOUD PRODUCTION LAB', splitW + 40, 435);
-
-      ctx.fillStyle = '#111111';
-      ctx.font = 'bold 16px "Martian Mono", monospace';
-      ctx.fillText('✦ VIEW ON DRIBBBLE ↗', splitW + 40, 478);
-
-      // High-Gloss Clearcoat Specular Sheen (Collector's Acetate Finish)
-      const glossGrad = ctx.createLinearGradient(0, 0, 800, 520);
-      glossGrad.addColorStop(0, 'rgba(255, 255, 255, 0.32)');
-      glossGrad.addColorStop(0.25, 'rgba(255, 255, 255, 0.12)');
-      glossGrad.addColorStop(0.48, 'rgba(255, 255, 255, 0.0)');
-      glossGrad.addColorStop(0.72, 'rgba(255, 255, 255, 0.07)');
-      glossGrad.addColorStop(1, 'rgba(255, 255, 255, 0.22)');
-      ctx.fillStyle = glossGrad;
-      ctx.fillRect(0, 0, 800, 520);
-
-      // Top Specular Highlight Edge
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(2, 2); ctx.lineTo(798, 2);
-      ctx.stroke();
-
-      // Left Specular Highlight Edge
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.60)';
-      ctx.lineWidth = 2.5;
-      ctx.beginPath();
-      ctx.moveTo(2, 2); ctx.lineTo(2, 518);
-      ctx.stroke();
-
-      // Outer Card Hairline
-      ctx.strokeStyle = 'rgba(0, 0, 0, 0.18)';
-      ctx.lineWidth = 3;
-      ctx.strokeRect(0, 0, 800, 520);
-
-      const texture = new THREE.CanvasTexture(c);
-      texture.minFilter = THREE.LinearFilter;
-      texture.magFilter = THREE.LinearFilter;
-
-      if (cfg.imgUrl) {
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-        img.onload = () => {
-          ctx.drawImage(img, 0, 0, splitW, 520);
-          ctx.fillStyle = 'rgba(0, 0, 0, 0.38)';
-          ctx.fillRect(0, 0, splitW, 520);
-          
-          ctx.fillStyle = '#FFFFFF';
-          ctx.font = 'bold 15px "Martian Mono", monospace';
-          ctx.fillText(`${numStr} • ${cfg.badge.toUpperCase()}`, 28, 48);
-          
-          ctx.font = 'bold 40px "Familjen Grotesk", sans-serif';
-          let ty2 = 210;
-          words.forEach(w => {
-            ctx.fillText(w.toUpperCase(), 28, ty2);
-            ty2 += 44;
-          });
-          
-          ctx.font = 'bold 14px "Martian Mono", monospace';
-          ctx.fillText(cfg.category.toUpperCase(), 28, 385);
-
-          // Re-apply gloss sheen over loaded image
-          const imgGloss = ctx.createLinearGradient(0, 0, splitW, 520);
-          imgGloss.addColorStop(0, 'rgba(255, 255, 255, 0.28)');
-          imgGloss.addColorStop(0.35, 'rgba(255, 255, 255, 0.08)');
-          imgGloss.addColorStop(0.60, 'rgba(255, 255, 255, 0.0)');
-          imgGloss.addColorStop(1, 'rgba(255, 255, 255, 0.15)');
-          ctx.fillStyle = imgGloss;
-          ctx.fillRect(0, 0, splitW, 520);
-
-          // Top highlight
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.80)';
-          ctx.lineWidth = 3;
-          ctx.beginPath();
-          ctx.moveTo(2, 2); ctx.lineTo(splitW, 2);
-          ctx.stroke();
-
-          texture.needsUpdate = true;
-        };
-        img.src = cfg.imgUrl;
-      }
-
-      return texture;
-    }
-
-        let isDribbbleInitialized = false;
-
-    function initDribbble3D() {
-      if (isDribbbleInitialized) return;
-      const canvas = document.getElementById('dribbble-canvas');
-      const section = document.getElementById('dribbble-section');
-      if (!canvas || !section) return;
-      if (typeof THREE === 'undefined' || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-      isDribbbleInitialized = true;
-      gsap.registerPlugin(ScrollTrigger);
-
-      ScrollTrigger.getAll().forEach(st => {
-        if (st.vars.id === "dribbble-pin") st.kill();
-      });
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 100);
-      camera.position.set(0, 0, 11.5);
-
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-      // Commanding Ultra-Large 3D Cards: 3.50 x 2.28 (55% larger area than original)
-      const cardGeo = new THREE.PlaneGeometry(3.50, 2.28);
-      const cardMeshes = [];
-
-      dribbleProjectsData.forEach((data, index) => {
-        const texture = createEditorialCardTexture(data, index, dribbleProjectsData.length);
-        const mat = new THREE.MeshBasicMaterial({ 
-          map: texture, 
-          side: THREE.DoubleSide,
-          transparent: true,
-          opacity: 0.0
-        });
-        const mesh = new THREE.Mesh(cardGeo, mat);
-        mesh.visible = false;
-        scene.add(mesh);
-
-        cardMeshes.push({ 
-          mesh, 
-          data,
-          index,
-          row: Math.floor(index / 4), // Row 0 or Row 1
-          slot: index % 4,            // Slot 0 (Left Out), 1 (Right Out), 2 (Left In), 3 (Right In)
-          state: {
-            x: 0,
-            y: -4.0,
-            z: -0.8,
-            rotX: 0.12,
-            rotY: 0,
-            rotZ: 0,
-            scale: 0.88,
-            opacity: 0.0
-          }
-        });
-      });
-      window.cardMeshes = cardMeshes;
-      window.dribbbleScene = scene;
-      window.dribbbleCamera = camera;
-
-      let mouseX = 0, mouseY = 0;
-      let isInspecting = false;
-      let inspectedIndex = -1;
-      let hoveredIndex = -1;
-
-      window.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-      });
-
-      // Raycaster for Hover & Click Detection
-      const raycaster = new THREE.Raycaster();
-      const mouseVec = new THREE.Vector2();
-
-      function getIntersectedCardIndex(e) {
-        const rect = canvas.getBoundingClientRect();
-        mouseVec.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-        mouseVec.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-        raycaster.setFromCamera(mouseVec, camera);
-        const activeCardObjects = cardMeshes
-          .filter(c => c.mesh.visible && c.state.opacity > 0.3)
-          .map(c => c.mesh);
-        const intersects = raycaster.intersectObjects(activeCardObjects);
-        if (intersects.length > 0) {
-          const hitMesh = intersects[0].object;
-          return cardMeshes.findIndex(c => c.mesh === hitMesh);
-        }
-        return -1;
-      }
-
-      // Hover feedback
-      canvas.addEventListener('mousemove', (e) => {
-        if (isInspecting) {
-          hoveredIndex = -1;
-          return;
-        }
-        const hitIdx = getIntersectedCardIndex(e);
-        hoveredIndex = hitIdx;
-        canvas.style.cursor = (hitIdx !== -1) ? 'pointer' : 'default';
-        if (hitIdx !== -1) {
-          updateQuickPillState(hitIdx);
-        }
-      });
-
-      canvas.addEventListener('mouseleave', () => {
-        hoveredIndex = -1;
-      });
-
-      // Quick switcher pills & inspection trigger
-      window.selectDribbbleCard = function(idx) {
-        if (idx >= 0 && idx < dribbleProjectsData.length) {
-          if (cardMeshes[idx]) {
-            cardMeshes[idx].state.opacity = 1.0;
-            cardMeshes[idx].state.scale = 1.0;
-            cardMeshes[idx].mesh.visible = true;
-          }
-          openCardInspection(idx);
-        }
-      };
-
-      function updateQuickPillState(idx) {
-        document.querySelectorAll('.dribbble-pill').forEach((btn, i) => {
-          if (i === idx) {
-            btn.className = 'dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold bg-[#111113] text-white shadow-xs cursor-pointer transition-all';
-          } else {
-            btn.className = 'dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer';
-          }
-        });
-      }
-
-      function updatePillsByProgress(progress) {
-        if (progress < 0.12) {
-          updateQuickPillState(-1);
-        } else if (progress < 0.18) {
-          updateQuickPillState(0);
-        } else if (progress < 0.24) {
-          updateQuickPillState(1);
-        } else if (progress < 0.30) {
-          updateQuickPillState(2);
-        } else if (progress < 0.54) {
-          updateQuickPillState(3);
-        } else if (progress < 0.68) {
-          updateQuickPillState(4);
-        } else if (progress <= 0.91) {
-          updateQuickPillState(5);
-        } else {
-          updateQuickPillState(-1);
-        }
-      }
-
-      function populateInspectData(idx) {
-        const p = dribbleProjectsData[idx];
-        if (!p) return;
-
-        const countEl = document.getElementById('inspect-counter');
-        const codeEl = document.getElementById('inspect-code');
-        const catEl = document.getElementById('inspect-category');
-        const titleEl = document.getElementById('inspect-title');
-        const headEl = document.getElementById('inspect-headline');
-        const descEl = document.getElementById('inspect-desc');
-        const overEl = document.getElementById('inspect-overview');
-        const roleEl = document.getElementById('inspect-role');
-        const clientEl = document.getElementById('inspect-client');
-        const metricsEl = document.getElementById('inspect-metrics');
-        const yearEl = document.getElementById('inspect-year');
-        const linkEl = document.getElementById('inspect-link');
-        const imageEl = document.getElementById('inspect-image');
-
-        if (countEl) countEl.textContent = `PROJECT 0${idx + 1} / 0${dribbleProjectsData.length}`;
-        if (codeEl) codeEl.textContent = p.code;
-        if (catEl) catEl.textContent = p.category;
-        if (titleEl) titleEl.textContent = p.title.toUpperCase();
-        if (headEl) headEl.textContent = p.headline;
-        if (descEl) descEl.textContent = p.desc;
-        if (overEl) overEl.textContent = p.overview || p.desc;
-        if (roleEl) roleEl.textContent = p.role || '3D WebGL • Digital Product';
-        if (clientEl) clientEl.textContent = p.client || 'Cloud Production Lab';
-        if (metricsEl) metricsEl.textContent = p.metrics || '60 FPS WebGL';
-        if (yearEl) yearEl.textContent = p.year || '2026 Archive';
-        if (linkEl) linkEl.href = 'https://dribbble.com';
-        if (imageEl) {
-          imageEl.src = p.imgUrl || 'assets/images/fallback-ai-rag.svg';
-          imageEl.alt = p.title || 'Case study visual';
-        }
-
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      }
-
-      function openCardInspection(idx) {
-        if (isInspecting) {
-          if (inspectedIndex === idx) return;
-          const prevItem = cardMeshes[inspectedIndex];
-          if (prevItem) {
-            gsap.to(prevItem.mesh.position, { x: prevItem.state.x, y: prevItem.state.y, z: prevItem.state.z, duration: 0.45 });
-            gsap.to(prevItem.mesh.rotation, { x: prevItem.state.rotX, y: prevItem.state.rotY, z: prevItem.state.rotZ, duration: 0.45 });
-            gsap.to(prevItem.mesh.scale, { x: prevItem.state.scale, y: prevItem.state.scale, z: 1, duration: 0.45 });
-            gsap.to(prevItem.mesh.material, { opacity: 0.0, duration: 0.3, onComplete: () => { prevItem.mesh.visible = false; } });
-          }
-          inspectedIndex = idx;
-          populateInspectData(idx);
-          const targetItem = cardMeshes[idx];
-          targetItem.mesh.visible = true;
-          gsap.to(targetItem.mesh.material, { opacity: 1.0, duration: 0.3 });
-          gsap.to(targetItem.mesh.position, { x: -2.25, y: 0.0, z: 3.3, duration: 0.6, ease: 'power3.out' });
-          gsap.to(targetItem.mesh.rotation, { x: 0, y: 0, z: 0, duration: 0.6, ease: 'power3.out' });
-          gsap.to(targetItem.mesh.scale, { x: 1.08, y: 1.08, z: 1, duration: 0.6, ease: 'power3.out' });
-          updateQuickPillState(idx);
-          return;
-        }
-        isInspecting = true;
-        inspectedIndex = idx;
-        updateQuickPillState(idx);
-
-        populateInspectData(idx);
-
-        // 1. Activate Ambient Bokeh Studio Blur Backdrop (Blurs all background elements)
-        const blurEl = document.getElementById('dribbble-inspection-blur');
-        if (blurEl) {
-          blurEl.style.opacity = '1';
-          blurEl.style.pointerEvents = 'auto';
-        }
-
-        // 2. Hide all other 7 cards immediately so ONLY the inspected card remains
-        cardMeshes.forEach((item, i) => {
-          if (i !== idx) {
-            item.mesh.visible = false;
-            item.mesh.material.opacity = 0.0;
-          }
-        });
-
-        // 3. Slide in the Luxury Glassmorphic Description Card from the right
-        const overlay = document.getElementById('dribbble-inspect-overlay');
-        const panel = document.getElementById('dribbble-inspect-content');
-
-        if (overlay && panel) {
-          overlay.style.pointerEvents = 'auto';
-          gsap.to(overlay, { opacity: 1, duration: 0.45 });
-          gsap.fromTo(panel, { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.55, ease: 'power3.out' });
-        }
-
-        const targetItem = cardMeshes[idx];
-        const targetMesh = targetItem.mesh;
-        targetMesh.visible = true;
-        targetMesh.material.opacity = 1.0;
-        gsap.killTweensOf(targetMesh.position);
-        gsap.killTweensOf(targetMesh.rotation);
-        gsap.killTweensOf(targetMesh.scale);
-
-        // Fade bottom row UI completely
-        gsap.to('#dribbble-bottom-row', { opacity: 0, duration: 0.45 });
-
-        // Bring inspected card to sharp focus on left side
-        gsap.to(targetMesh.position, {
-          x: -2.25,
-          y: 0.0,
-          z: 3.3,
-          duration: 0.8,
-          ease: 'power3.out'
-        });
-
-        // Straighten rotation to 0 for pure reading clarity
-        gsap.to(targetMesh.rotation, {
-          x: 0,
-          y: 0,
-          z: 0,
-          duration: 0.8,
-          ease: 'power3.out'
-        });
-
-        gsap.to(targetMesh.scale, {
-          x: 1.08,
-          y: 1.08,
-          z: 1,
-          duration: 0.8,
-          ease: 'power3.out'
-        });
-
-        // Dim background marquee words to soft blur bokeh
-        gsap.to(['#dribbble-top-word', '#dribbble-bottom-word', '#dribbble-subtitle'], { opacity: 0.06, duration: 0.5 });
-      }
-
-      function closeCardInspection() {
-        if (!isInspecting) return;
-        updateQuickPillState(-1);
-
-        // 1. Fade out the studio blur backdrop
-        const blurEl = document.getElementById('dribbble-inspection-blur');
-        if (blurEl) {
-          blurEl.style.opacity = '0';
-          blurEl.style.pointerEvents = 'none';
-        }
-
-        const overlay = document.getElementById('dribbble-inspect-overlay');
-        const panel = document.getElementById('dribbble-inspect-content');
-
-        if (overlay && panel) {
-          overlay.style.pointerEvents = 'none';
-          gsap.to(overlay, { opacity: 0, duration: 0.35 });
-          gsap.to(panel, { x: 40, opacity: 0, duration: 0.35 });
-        }
-
-        // Restore background words and bottom row
-        gsap.to(['#dribbble-top-word', '#dribbble-bottom-word'], { opacity: 1.0, duration: 0.5 });
-        gsap.to('#dribbble-subtitle', { opacity: 1.0, duration: 0.5 });
-        gsap.to('#dribbble-bottom-row', { opacity: 1.0, duration: 0.5 });
-
-        // Animate inspected card back into its place in the row
-        const idx = inspectedIndex;
-        const targetItem = cardMeshes[idx];
-
-        if (targetItem) {
-          const responsiveScale = Math.min(1.0, Math.max(0.72, window.innerWidth / 1440));
-          const spreadRatio = responsiveScale;
-
-          gsap.to(targetItem.mesh.position, {
-            x: targetItem.state.x * spreadRatio,
-            y: targetItem.state.y,
-            z: targetItem.state.z,
-            duration: 0.7,
-            ease: 'power3.out',
-            onComplete: () => {
-              isInspecting = false;
-              inspectedIndex = -1;
-            }
-          });
-
-          gsap.to(targetItem.mesh.rotation, {
-            x: targetItem.state.rotX,
-            y: targetItem.state.rotY,
-            z: targetItem.state.rotZ,
-            duration: 0.7,
-            ease: 'power3.out'
-          });
-
-          gsap.to(targetItem.mesh.scale, {
-            x: targetItem.state.scale * responsiveScale,
-            y: targetItem.state.scale * responsiveScale,
-            z: 1,
-            duration: 0.7,
-            ease: 'power3.out'
-          });
-        } else {
-          isInspecting = false;
-          inspectedIndex = -1;
-        }
-
-        // Smoothly fade in all other cards
-        cardMeshes.forEach((item, i) => {
-          if (i !== idx) {
-            item.mesh.visible = (item.state.opacity > 0.01);
-            gsap.fromTo(item.mesh.material, { opacity: 0 }, { opacity: item.state.opacity, duration: 0.5 });
-          }
-        });
-      }
-
-      // Handle card click on canvas
-      canvas.addEventListener('click', (e) => {
-        if (!isInspecting) {
-          const hitIdx = getIntersectedCardIndex(e);
-          if (hitIdx !== -1) {
-            openCardInspection(hitIdx);
-          }
-        }
-      });
-
-      // Close button listener
-      const closeBtn = document.getElementById('inspect-close-btn');
-      if (closeBtn) {
-        closeBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          closeCardInspection();
-        });
-      }
-
-      // Close on clicking backdrop outside description card
-      const overlayEl = document.getElementById('dribbble-inspect-overlay');
-      if (overlayEl) {
-        overlayEl.addEventListener('click', (e) => {
-          const panel = document.getElementById('dribbble-inspect-content');
-          if (panel && !panel.contains(e.target)) {
-            closeCardInspection();
-          }
-        });
-      }
-
-      // Keyboard Escape to close
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && isInspecting) {
-          closeCardInspection();
-        }
-      });
-
-      // Automatically return card to row on scroll
-      window.addEventListener('wheel', () => {
-        if (isInspecting) closeCardInspection();
-      }, { passive: true });
-
-      window.addEventListener('touchmove', () => {
-        if (isInspecting) closeCardInspection();
-      }, { passive: true });
-
-      function updateCards() {
-        const responsiveScale = Math.min(1.0, Math.max(0.72, window.innerWidth / 1440));
-        const spreadRatio = responsiveScale;
-
-        if (isInspecting) {
-          // Strictly ensure ONLY the inspected card is visible during inspection
-          cardMeshes.forEach((item, i) => {
-            if (i !== inspectedIndex) {
-              item.mesh.visible = false;
-              item.mesh.material.opacity = 0;
-            }
-          });
-        } else {
-          cardMeshes.forEach((item, i) => {
-            const isHovered = (i === hoveredIndex && item.state.opacity > 0.4);
-            const hoverZ = isHovered ? 0.65 : 0;
-            const hoverScale = isHovered ? 1.05 : 1.0;
-
-            item.mesh.position.set(
-              item.state.x * spreadRatio,
-              item.state.y,
-              item.state.z + hoverZ
-            );
-
-            item.mesh.rotation.set(
-              item.state.rotX * (isHovered ? 0.2 : 1.0),
-              item.state.rotY * (isHovered ? 0.2 : 1.0),
-              item.state.rotZ * (isHovered ? 0.2 : 1.0)
-            );
-
-            item.mesh.scale.set(
-              item.state.scale * responsiveScale * hoverScale,
-              item.state.scale * responsiveScale * hoverScale,
-              1
-            );
-
-            item.mesh.visible = (item.state.opacity > 0.01);
-            item.mesh.material.opacity = item.state.opacity;
-          });
-        }
-
-        // Parallax camera (subtle when inspecting, responsive when browsing)
-        const pFactor = isInspecting ? 0.08 : 0.35;
-        camera.position.x += (mouseX * pFactor - camera.position.x) * 0.05;
-        camera.position.y += (-mouseY * (pFactor * 0.7) - camera.position.y) * 0.05;
-        camera.lookAt(0, 0, 0);
-
-        renderer.render(scene, camera);
-      }
-
-      let isRunning = true;
-      function animate() {
-        if (!isRunning) return;
-        requestAnimationFrame(animate);
-        updateCards();
-      }
-      animate();
-
-      window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-
-      const stripes = section.querySelectorAll('.dribble-stripe-item');
-      const topWord = document.getElementById('dribbble-top-word');
-      const bottomWord = document.getElementById('dribbble-bottom-word');
-      const subtitle = document.getElementById('dribbble-subtitle');
-      const bottomRow = document.getElementById('dribbble-bottom-row');
-
-      // ScrollTrigger timeline: Ultra-smooth, comfortable 2-stage row alternating entrance
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          id: 'dribbble-pin',
-          trigger: section,
-          start: 'top top',
-          end: '+=850%',
-          pin: true,
-          anticipatePin: 1,
-          scrub: 1.2,
-          pinSpacing: true,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            if (isInspecting && Math.abs(self.getVelocity()) > 30) closeCardInspection();
-            if (!isInspecting && hoveredIndex === -1) {
-              updatePillsByProgress(self.progress);
-            }
-          }
-        },
-        defaults: { ease: 'none' }
-      });
-
-      // 1. Initial State Setup
-      gsap.set(topWord, { x: -550, opacity: 0 });
-      gsap.set(bottomWord, { x: 550, opacity: 0 });
-      if (subtitle) gsap.set(subtitle, { opacity: 0, y: 20 });
-      if (bottomRow) gsap.set(bottomRow, { opacity: 0, y: 15 });
-      gsap.set(stripes, { scaleY: 0, transformOrigin: 'bottom center' });
-
-      // 2. Phase 1: Entrance of 'Design in ... motion' typography (0.0 to 0.12)
-      tl.fromTo(topWord, { x: -550, opacity: 0 }, { x: -50, opacity: 1, duration: 0.12, ease: 'sine.out' }, 0);
-      tl.fromTo(bottomWord, { x: 550, opacity: 0 }, { x: 50, opacity: 1, duration: 0.12, ease: 'sine.out' }, 0);
-      if (subtitle) {
-        tl.fromTo(subtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.10, ease: 'sine.out' }, 0.02);
-      }
-      if (bottomRow) {
-        tl.fromTo(bottomRow, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.10, ease: 'power2.out' }, 0.03);
-      }
-
-      // Continuous Typography Parallax Glide (0.12 to 0.90)
-      tl.to(topWord, { x: 280, duration: 0.78, ease: 'none' }, 0.12);
-      tl.to(bottomWord, { x: -280, duration: 0.78, ease: 'none' }, 0.12);
-
-      // 3. Phase 2: Row 1 Entrance (Cards 0, 1, 2, 3) - Extra Large 3.50x2.28 cards
-      // Card 0 -> Outer Left (-5.70), already in place from the very start so the
-      // section never looks empty before the user has scrolled into the pin.
-      tl.set(cardMeshes[0].state,
-        { x: -5.70, y: 0.05, z: -0.10, rotX: 0.04, rotY: 0.06, rotZ: -0.015, scale: 1.0, opacity: 1 },
-        0
-      );
-
-      // Card 1 -> Outer Right (+5.70)
-      tl.fromTo(cardMeshes[1].state,
-        { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: 5.70, y: 0.05, z: -0.10, rotX: 0.04, rotY: -0.06, rotZ: 0.015, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
-        0.17
-      );
-
-      // Card 2 -> Inner Left (-2.00)
-      tl.fromTo(cardMeshes[2].state,
-        { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: -2.00, y: 0.05, z: 0.20, rotX: 0.02, rotY: 0.02, rotZ: -0.008, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
-        0.22
-      );
-
-      // Card 3 -> Inner Right (+2.00)
-      tl.fromTo(cardMeshes[3].state,
-        { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: 2.00, y: 0.05, z: 0.20, rotX: 0.02, rotY: -0.02, rotZ: 0.008, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
-        0.27
-      );
-
-      // Row 1 interact & resting window: 0.41 to 0.52
-
-      // 4. Phase 3: Row 1 Exits Upward (0.52 to 0.62)
-      [0, 1, 2, 3].forEach((idx, i) => {
-        tl.to(cardMeshes[idx].state, {
-          y: 4.2,
-          opacity: 0,
-          scale: 0.92,
-          duration: 0.10,
-          ease: 'sine.inOut'
-        }, 0.52 + i * 0.012);
-      });
-
-      // 5. Phase 3b: Row 2 Entrance (Cards 4, 5) - Extra Large 3.50x2.28 cards
-      // Card 4 -> Left (-2.75)
-      tl.fromTo(cardMeshes[4].state,
-        { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: -2.75, y: 0.05, z: 0.05, rotX: 0.03, rotY: 0.04, rotZ: -0.012, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
-        0.57
-      );
-
-      // Card 5 -> Right (+2.75)
-      tl.fromTo(cardMeshes[5].state,
-        { x: 0, y: -4.0, z: -0.8, rotX: 0.12, rotY: 0, rotZ: 0, scale: 0.88, opacity: 0 },
-        { x: 2.75, y: 0.05, z: 0.05, rotX: 0.03, rotY: -0.04, rotZ: 0.012, scale: 1.0, opacity: 1, duration: 0.14, ease: 'sine.out' },
-        0.68
-      );
-
-      // Row 2 interact & resting window: 0.86 to 0.92
-
-      // 6. Phase 4: Cascade 5 dark stripes from bottom (0.91 to 1.00)
-      for (let i = 0; i < 5; i++) {
-        const startTime = 0.91 + 0.06 * (4 - i) / 4;
-        const endTime = startTime + 0.09;
-        tl.to(stripes[i], {
-          scaleY: 1,
-          duration: endTime - startTime,
-          ease: 'none'
-        }, startTime);
-      }
-
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-      }
-    }
-
-    // Auto-invoke Dribbble 3D Initialization
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initDribbble3D);
-    } else {
-      initDribbble3D();
-    }
-    window.addEventListener('load', initDribbble3D);
 
 
     // Toast Notification helper

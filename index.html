@@ -20,8 +20,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Martian+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Three.js for 3D Background Particles -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <!-- GSAP & ScrollTrigger for Trionn Vision Section Animation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -801,6 +799,7 @@
                 <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
                   <img src="assets/images/portfolio-rag-engine.svg"
                        alt="Agentic RAG Engine"
+                       data-track-record-image="assets/images/portfolio-rag-engine.svg"
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                        onerror="this.src='assets/images/fallback-ai-rag.svg'">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -815,10 +814,10 @@
 
                 <!-- Tags & Title -->
                 <span class="font-mono text-xs font-semibold text-cyan-700 tracking-[0.2em] uppercase block">AI & AGENTIC SYSTEMS</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-cyan-700 transition-colors">
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-cyan-700 transition-colors" data-track-record-title>
                   Agentic RAG Engine
                 </h3>
-                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal" data-track-record-desc>
                   Multi-agent document intelligence and reasoning pipeline combining LangChain, hybrid vector search, and strict hallucination guardrails.
                 </p>
 
@@ -836,8 +835,9 @@
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
                 <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
-                  <img src="assets/images/portfolio-id-check-kyc.jpg" 
-                       alt="ID Check KYC Verification" 
+                  <img src="assets/images/portfolio-id-check-kyc.jpg"
+                       alt="ID Check KYC Verification"
+                       data-track-record-image="assets/images/portfolio-id-check-kyc.jpg"
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                        onerror="this.src='assets/images/fallback-id-check.svg'">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -852,10 +852,10 @@
 
                 <!-- Tags & Title -->
                 <span class="font-mono text-xs font-semibold text-teal-700 tracking-[0.2em] uppercase block">FINTECH & IDENTITY</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-teal-700 transition-colors">
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-teal-700 transition-colors" data-track-record-title>
                   ID Check & KYC
                 </h3>
-                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal" data-track-record-desc>
                   Digital biometric customer verification app with automated passport OCR extraction, 3D facial liveness matching, and anti-spoofing defense.
                 </p>
 
@@ -873,8 +873,9 @@
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
                 <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
-                  <img src="assets/images/portfolio-arousal-retail.jpg" 
-                       alt="Arousal Retail Japan Cloud" 
+                  <img src="assets/images/portfolio-arousal-retail.jpg"
+                       alt="Arousal Retail Japan Cloud"
+                       data-track-record-image="assets/images/portfolio-arousal-retail.jpg"
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                        onerror="this.src='assets/images/fallback-our-mission.svg'">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -889,10 +890,10 @@
 
                 <!-- Tags & Title -->
                 <span class="font-mono text-xs font-semibold text-blue-700 tracking-[0.2em] uppercase block">JAPAN E-COMMERCE</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-blue-700 transition-colors">
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-blue-700 transition-colors" data-track-record-title>
                   Arousal Retail Japan
                 </h3>
-                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal" data-track-record-desc>
                   High-concurrency retail platform engineered for Japanese consumer markets with Next.js headless storefront, PayPay integration, and warehouse sync.
                 </p>
 
@@ -910,8 +911,9 @@
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
                 <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
-                  <img src="assets/images/portfolio-floor-inventory.jpg" 
-                       alt="Sales Floor Inventory ERP" 
+                  <img src="assets/images/portfolio-floor-inventory.jpg"
+                       alt="Sales Floor Inventory ERP"
+                       data-track-record-image="assets/images/portfolio-floor-inventory.jpg"
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                        onerror="this.src='assets/images/fallback-sales-floor.svg'">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -926,10 +928,10 @@
 
                 <!-- Tags & Title -->
                 <span class="font-mono text-xs font-semibold text-emerald-700 tracking-[0.2em] uppercase block">ENTERPRISE AUTOMATION</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-emerald-700 transition-colors">
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-emerald-700 transition-colors" data-track-record-title>
                   Floor Inventory ERP
                 </h3>
-                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal" data-track-record-desc>
                   Real-time sales floor inventory management system featuring mobile barcode/RFID reconciliation, automated alerts, and multi-store purchase orders.
                 </p>
 
@@ -947,8 +949,9 @@
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
                 <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
-                  <img src="assets/images/portfolio-elmi-laboratory.jpg" 
-                       alt="Elmi Laboratory Diagnostics" 
+                  <img src="assets/images/portfolio-elmi-laboratory.jpg"
+                       alt="Elmi Laboratory Diagnostics"
+                       data-track-record-image="assets/images/portfolio-elmi-laboratory.jpg"
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                        onerror="this.src='assets/images/fallback-elmi-laboratory.svg'">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -963,10 +966,10 @@
 
                 <!-- Tags & Title -->
                 <span class="font-mono text-xs font-semibold text-cyan-700 tracking-[0.2em] uppercase block">HEALTHCARE WEB</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-cyan-700 transition-colors">
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-cyan-700 transition-colors" data-track-record-title>
                   Elmi Diagnostic Portal
                 </h3>
-                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal" data-track-record-desc>
                   End-to-end medical test portal with real-time patient appointment booking, specimen barcode tracking, and automated encrypted PDF report delivery.
                 </p>
 
@@ -984,8 +987,9 @@
               <div>
                 <!-- Image Container with Uniform Aspect Ratio -->
                 <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-black/5 bg-[#E8E8EA]">
-                  <img src="assets/images/portfolio-enterprise-erp.jpg" 
-                       alt="Enterprise ERP Platform" 
+                  <img src="assets/images/portfolio-enterprise-erp.jpg"
+                       alt="Enterprise ERP Platform"
+                       data-track-record-image="assets/images/portfolio-enterprise-erp.jpg"
                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                        onerror="this.src='assets/images/fallback-cloud-arch.svg'">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -1000,10 +1004,10 @@
 
                 <!-- Tags & Title -->
                 <span class="font-mono text-xs font-semibold text-indigo-700 tracking-[0.2em] uppercase block">ENTERPRISE SYSTEMS</span>
-                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-indigo-700 transition-colors">
+                <h3 class="text-2xl font-display font-bold mt-1.5 mb-2.5 tracking-tight text-black group-hover:text-indigo-700 transition-colors" data-track-record-title>
                   Enterprise Cloud ERP
                 </h3>
-                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed mb-4 font-normal" data-track-record-desc>
                   Comprehensive custom Enterprise Resource Planning platform unifying multi-branch supply chains, automated payroll, VAT accounting, and executive analytics.
                 </p>
 
@@ -1021,9 +1025,9 @@
         </div>
 
         <!-- Interactive Case Study Inspection Drawer Modal -->
-        <div id="dribbble-inspect-overlay" class="fixed inset-0 z-50 flex items-center justify-end px-4 sm:px-8 lg:px-12 pointer-events-none opacity-0 transition-opacity duration-300" style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(12px);">
+        <div id="track-record-inspect-overlay" class="fixed inset-0 z-50 flex items-center justify-end px-4 sm:px-8 lg:px-12 pointer-events-none opacity-0 transition-opacity duration-300" style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(12px);">
           
-          <div id="dribbble-inspect-content" class="relative overflow-hidden w-full max-w-xl lg:max-w-6xl rounded-3xl p-6 sm:p-8 bg-[#0C1218] border border-cyan-400/20 shadow-2xl transform translate-x-12 transition-all duration-300 max-h-[90vh] overflow-y-auto text-white" style="pointer-events:none">
+          <div id="track-record-inspect-content" class="relative overflow-hidden w-full max-w-xl lg:max-w-6xl rounded-3xl p-6 sm:p-8 bg-[#0C1218] border border-cyan-400/20 shadow-2xl transform translate-x-12 transition-all duration-300 max-h-[90vh] overflow-y-auto text-white" style="pointer-events:none">
 
             <!-- Header: Counter & Close Button -->
             <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
@@ -1121,173 +1125,6 @@
         </div>
 
       </section>
-
-      <section id="dribbble-section" class="relative min-h-screen h-screen w-full overflow-hidden select-none bg-[#C3C3C3]">
-
-        <!-- Background Large Typography: DESIGN IN ... MOTION (Exact Trionn 1:1 Architecture) -->
-        <div class="pointer-events-none select-none dribble-title absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full overflow-visible whitespace-nowrap z-0" style="z-index: 5;">
-          <div class="flex flex-col w-full overflow-visible">
-            <h2 id="dribbble-top-word" class="text-[#1F1F21] relative font-display leading-[0.8] uppercase font-bold text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] tracking-[-0.05em] will-change-transform self-start opacity-0" style="transform: translate3d(-550px, 0px, 0px);">
-              Design in
-            </h2>
-            <span id="dribbble-subtitle" class="text-[#444447] relative font-mono text-xs sm:text-sm tracking-[0.24em] uppercase font-bold my-2 sm:my-3 mx-auto text-center opacity-0 will-change-transform" style="transform: translate3d(0px, 20px, 0px);">
-              Exploring ideas through daily design practice.
-            </span>
-            <h2 id="dribbble-bottom-word" class="text-[#1F1F21] relative font-display leading-[0.8] uppercase font-bold text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] tracking-[-0.05em] will-change-transform self-end text-right opacity-0" style="transform: translate3d(550px, 0px, 0px);">
-              motion
-            </h2>
-          </div>
-        </div>
-
-        <!-- Middle Layer: Three.js 3D Curved Project Cards Canvas -->
-        <!-- Ambient Studio Frosted Glass Blur Layer (Activated on Card Inspection - Blurs all background elements into a dreamy luxury bokeh) -->
-        <div id="dribbble-inspection-blur" class="absolute inset-0 z-10 pointer-events-none opacity-0 transition-opacity duration-600 ease-out" style="z-index: 10; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); background: radial-gradient(circle at 35% 50%, rgba(224, 226, 232, 0.76) 0%, rgba(180, 182, 192, 0.86) 100%);"></div>
-
-        <canvas id="dribbble-canvas" class="absolute inset-0 w-full h-full z-20 cursor-pointer" style="z-index: 20;"></canvas>
-
-        <!-- Foreground UI Layer (1:1 Trionn Container Architecture - Pure Uncluttered Design) -->
-        <div class="tr__container relative z-20 w-full h-full min-h-screen flex flex-col justify-between items-center pb-10 sm:pb-12 px-6 sm:px-10 lg:px-16 pointer-events-none" style="z-index: 25;">
-
-          <!-- Open Header Space for 3D Cards flow -->
-          <div class="hidden md:block flex-1"></div>
-
-          <!-- Bottom Row: Exact Trionn Philosophy, Quick Selector & Signature View on Dribbble Button -->
-          <div id="dribbble-bottom-row" class="w-full max-w-[1520px] mx-auto flex flex-col md:flex-row items-center md:items-end justify-between gap-6 pointer-events-auto transition-opacity duration-500">
-            <div class="max-w-xs text-center md:text-left">
-              <p class="font-mono text-xs sm:text-sm text-[#222225] leading-relaxed font-semibold">
-                Concepts, explorations, and interface <br class="hidden sm:inline">experiments shared openly as part of <br class="hidden sm:inline">our creative process.
-              </p>
-            </div>
-
-            <!-- Quick Project Selector Pills (01 to 06) -->
-            <div class="flex items-center gap-1.5 p-1.5 rounded-full bg-[#111113]/8 border border-[#111113]/15 backdrop-blur-md shadow-xs">
-              <span class="hidden xl:inline text-[9px] font-mono font-bold text-[#555558] uppercase pl-2 pr-1">PROJECTS:</span>
-              <button onclick="selectDribbbleCard(0)" title="01 / Agentic RAG Engine" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">01</button>
-              <button onclick="selectDribbbleCard(1)" title="02 / ID Check & KYC" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">02</button>
-              <button onclick="selectDribbbleCard(2)" title="03 / Arousal Retail Japan" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">03</button>
-              <button onclick="selectDribbbleCard(3)" title="04 / Floor Inventory ERP" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">04</button>
-              <button onclick="selectDribbbleCard(4)" title="05 / Elmi Diagnostic Portal" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">05</button>
-              <button onclick="selectDribbbleCard(5)" title="06 / Enterprise Cloud ERP" class="dribbble-pill w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold text-[#111113] hover:bg-[#111113] hover:text-white transition-all cursor-pointer">06</button>
-            </div>
-
-            <!-- Trionn Signature Button with Dual-Underline Wipe -->
-            <div class="button_wrapper relative uppercase transition-opacity duration-300 hover:opacity-95 shrink-0">
-              <a target="_blank" class="trionn-btn relative inline-flex items-center gap-3 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F1F21] pb-1 cursor-pointer no-underline" href="https://dribbble.com/trionnstudio">
-                <span class="underline pointer-events-none absolute inset-x-0 bottom-0 h-[2px]">
-                  <span class="u-right absolute inset-x-0 bottom-0 h-[2px] bg-[#1F1F21] scale-x-100 will-change-transform"></span>
-                  <span class="u-left absolute inset-x-0 bottom-0 h-[2px] bg-[#1F1F21] scale-x-0 will-change-transform"></span>
-                </span>
-                <span class="word relative inline-flex tracking-wider">View on Dribbble</span>
-                <span class="btn-arrow inline-flex items-center justify-center pl-1">
-                  <svg width="11" height="10" viewBox="0 0 10 9" fill="none" class="w-2.5 h-2.5"><path d="M5.47372 8.652V6.552L8.32972 3.752V4.9L5.47372 2.1V-3.09944e-06L9.32372 3.836V4.816L5.47372 8.652ZM-0.000281237 5.11V3.542H8.60972V5.11H-0.000281237Z" fill="#1F1F21"></path></svg>
-                </span>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-                <!-- Interactive Project Inspection Detail Panel (Triggered when any 3D card is clicked) -->
-        <div id="dribbble-inspect-overlay" class="absolute inset-0 z-30 flex items-center justify-end px-6 sm:px-12 lg:px-20 pointer-events-none opacity-0 transition-opacity duration-500" style="z-index: 30;">
-
-          <div id="dribbble-inspect-content" class="relative overflow-hidden w-full max-w-xl rounded-[2.2rem] p-6 sm:p-8 md:p-10 transform translate-x-12 transition-all duration-500 max-h-[88vh] overflow-y-auto pointer-events-auto" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.38) 38%, rgba(246, 248, 255, 0.48) 72%, rgba(255, 255, 255, 0.64) 100%); backdrop-filter: blur(54px) saturate(240%) brightness(106%); -webkit-backdrop-filter: blur(54px) saturate(240%) brightness(106%); border: 1px solid rgba(255, 255, 255, 0.92); box-shadow: 0 45px 120px -20px rgba(0, 0, 0, 0.18), 0 20px 45px -12px rgba(0, 0, 0, 0.07), 0 0 75px -10px rgba(255, 255, 255, 0.75), inset 0 2px 3px 0 rgba(255, 255, 255, 1.0), inset 1.5px 0 2px 0 rgba(255, 255, 255, 0.90), inset -1px 0 2px 0 rgba(255, 255, 255, 0.50), inset 0 -2px 3px 0 rgba(0, 0, 0, 0.04);">
-
-            <!-- Luminous Specular Glare & Optical Glass Refraction Layers -->
-            <div class="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-white/80 via-white/25 to-transparent pointer-events-none rounded-t-[2.2rem]"></div>
-            <div class="absolute -top-40 -left-40 w-[180%] h-80 bg-gradient-to-br from-white/45 via-white/12 to-transparent -rotate-15 pointer-events-none blur-sm"></div>
-            <div class="absolute top-1/4 right-0 w-72 h-72 rounded-full bg-gradient-to-br from-cyan-200/25 via-indigo-100/20 to-transparent blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-white/35 blur-2xl pointer-events-none"></div>
-            <!-- Header: Project Counter, Code & Close Button -->
-            <div class="flex items-center justify-between border-b border-[#111113]/10 pb-4 mb-6">
-              <div class="flex items-center gap-3">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#111113] animate-pulse"></span>
-                <span id="inspect-counter" class="font-mono text-xs font-bold tracking-widest text-[#111113] uppercase">
-                  PROJECT 01 / 08
-                </span>
-                <span class="text-[#88888B]">•</span>
-                <span id="inspect-code" class="font-mono text-xs font-semibold text-[#555558]">
-                  CPL #011
-                </span>
-              </div>
-
-              <button id="inspect-close-btn" class="group flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/70 hover:bg-[#111113] hover:text-white border border-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] backdrop-blur-md transition-all text-xs font-mono font-bold text-[#111113] cursor-pointer">
-                <span>CLOSE</span>
-                <i data-lucide="x" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-
-            <!-- Title & Category -->
-            <div class="space-y-2">
-              <span id="inspect-category" class="inline-block font-mono text-[11px] font-bold uppercase tracking-wider text-[#111113] px-4 py-1.5 rounded-full bg-white/70 border border-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] backdrop-blur-md">
-                Healthcare & Diagnostics
-              </span>
-              <h3 id="inspect-title" class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-[#111113] leading-[0.95]">
-                ELMI LABORATORY
-              </h3>
-              <p id="inspect-headline" class="font-display text-xl sm:text-2xl font-bold uppercase text-[#444448] tracking-tight">
-                DIAGNOSTIC PORTAL
-              </p>
-            </div>
-
-            <!-- Narrative / Descriptions -->
-            <div class="mt-6 space-y-3 font-mono text-xs sm:text-sm text-[#2D2D31] leading-relaxed border-t border-[#111113]/10 pt-5">
-              <p id="inspect-desc" class="font-semibold text-[#111113]">
-                Medical lab test platform with real-time appointment booking, test catalog, and automated patient report delivery.
-              </p>
-              <p id="inspect-overview" class="text-[#4A4A4E] text-xs leading-relaxed">
-                A full-cycle medical diagnostic portal engineered for Elmi Laboratory, streamlining clinical test appointments, automated barcode sample tracking, and instant PDF report delivery with end-to-end security.
-              </p>
-            </div>
-
-            <!-- Metadata Grid: Role, Client, Metrics, Timeline -->
-            <div class="grid grid-cols-2 gap-3.5 my-6 py-4 border-y border-[#111113]/10 font-mono text-[11px]">
-              <div class="p-4 rounded-2xl bg-white/45 hover:bg-white/60 border border-white/80 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1.5px_rgba(255,255,255,0.9)] backdrop-blur-md transition-all">
-                <span class="text-[#68686D] uppercase tracking-wider text-[9px] block font-bold">DISCIPLINE</span>
-                <span id="inspect-role" class="font-bold text-[#111113] mt-0.5 block">Full-Stack Web • Patient Portal</span>
-              </div>
-              <div class="p-4 rounded-2xl bg-white/45 hover:bg-white/60 border border-white/80 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1.5px_rgba(255,255,255,0.9)] backdrop-blur-md transition-all">
-                <span class="text-[#68686D] uppercase tracking-wider text-[9px] block font-bold">COLLABORATION</span>
-                <span id="inspect-client" class="font-bold text-[#111113] mt-0.5 block">Elmi Diagnostic Centre</span>
-              </div>
-              <div class="p-4 rounded-2xl bg-white/45 hover:bg-white/60 border border-white/80 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1.5px_rgba(255,255,255,0.9)] backdrop-blur-md transition-all">
-                <span class="text-[#68686D] uppercase tracking-wider text-[9px] block font-bold">PERFORMANCE</span>
-                <span id="inspect-metrics" class="font-bold text-[#111113] mt-0.5 block">10k+ Monthly Bookings • Zero Downtime</span>
-              </div>
-              <div class="p-4 rounded-2xl bg-white/45 hover:bg-white/60 border border-white/80 shadow-[0_4px_16px_rgba(0,0,0,0.03),inset_0_1px_1.5px_rgba(255,255,255,0.9)] backdrop-blur-md transition-all">
-                <span class="text-[#68686D] uppercase tracking-wider text-[9px] block font-bold">TIMELINE</span>
-                <span id="inspect-year" class="font-bold text-[#111113] mt-0.5 block">Production Verified</span>
-              </div>
-            </div>
-
-            <!-- Action Buttons & Scroll Hint -->
-            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
-              <a id="inspect-link" href="https://dribbble.com" target="_blank" rel="noopener noreferrer"
-                 class="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#111113] text-white hover:bg-neutral-800 font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-md">
-                <span>VIEW ON DRIBBBLE</span>
-                <i data-lucide="arrow-up-right" class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-              </a>
-
-              <span class="font-mono text-[10px] text-[#666669] flex items-center gap-1.5">
-                <i data-lucide="mouse" class="w-3.5 h-3.5"></i>
-                <span>Scroll down/up to resume 3D stream</span>
-              </span>
-            </div>
-
-          </div>
-
-        </div>
-
-                <!-- 5 Dark Cascading Transition Stripes (Rises from bottom to transition to dark section) -->
-        <div class="dribble-stripes-container absolute inset-0 pointer-events-none flex flex-col w-full h-full z-40" style="z-index: 40;">
-          <div class="dribble-stripe-item flex-1 w-full h-full bg-[#040508]" style="transform: scaleY(0); transform-origin: bottom center; will-change: transform; padding-bottom: 1px;"></div>
-          <div class="dribble-stripe-item flex-1 w-full h-full bg-[#040508]" style="transform: scaleY(0); transform-origin: bottom center; will-change: transform; margin-top: -1px; padding-bottom: 1px;"></div>
-          <div class="dribble-stripe-item flex-1 w-full h-full bg-[#040508]" style="transform: scaleY(0); transform-origin: bottom center; will-change: transform; margin-top: -1px; padding-bottom: 1px;"></div>
-          <div class="dribble-stripe-item flex-1 w-full h-full bg-[#040508]" style="transform: scaleY(0); transform-origin: bottom center; will-change: transform; margin-top: -1px; padding-bottom: 1px;"></div>
-          <div class="dribble-stripe-item flex-1 w-full h-full bg-[#040508]" style="transform: scaleY(0); transform-origin: bottom center; will-change: transform; margin-top: -1px; padding-bottom: 1px;"></div>
-        </div>
-
-      </section>
-
 <section id="our-promise" class="py-24 sm:py-24 lg:py-24 bg-[#D2D2D2] border-y border-black/10 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

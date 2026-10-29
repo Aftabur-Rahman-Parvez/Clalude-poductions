@@ -293,42 +293,7 @@
       transform: scale(1.12);
     }
 
-    /* Trionn Dribbble / Creative Lab Section */
-    #dribbble-section {
-      background-color: #C3C3C3;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .dribble-stripe-item {
-      background-color: #040508;
-      will-change: transform;
-      transform: scaleY(0);
-      transform-origin: center bottom;
-    }
-
     /* Trionn Button Dual-Underline Hover Effect */
-    .trionn-btn .u-right {
-      transform-origin: right center;
-      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .trionn-btn .u-left {
-      transform-origin: left center;
-      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .trionn-btn:hover .u-right {
-      transform: scaleX(0);
-    }
-    .trionn-btn:hover .u-left {
-      transform: scaleX(1);
-    }
-    .trionn-btn .btn-arrow {
-      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .trionn-btn:hover .btn-arrow {
-      transform: translate(3px, -2px);
-    }
-
     @keyframes trionnMarqueeAnim {
       0% { transform: translate3d(0, 0, 0); }
       100% { transform: translate3d(-50%, 0, 0); }
@@ -893,21 +858,21 @@
     }
   
     /* Ultra-sleek frosted glass scrollbar for inspection panel */
-    #dribbble-inspect-content {
+    #track-record-inspect-content {
       scrollbar-width: thin;
       scrollbar-color: rgba(17, 17, 19, 0.15) transparent;
     }
-    #dribbble-inspect-content::-webkit-scrollbar {
+    #track-record-inspect-content::-webkit-scrollbar {
       width: 5px;
     }
-    #dribbble-inspect-content::-webkit-scrollbar-track {
+    #track-record-inspect-content::-webkit-scrollbar-track {
       background: transparent;
     }
-    #dribbble-inspect-content::-webkit-scrollbar-thumb {
+    #track-record-inspect-content::-webkit-scrollbar-thumb {
       background: rgba(17, 17, 19, 0.16);
       border-radius: 9999px;
     }
-    #dribbble-inspect-content::-webkit-scrollbar-thumb:hover {
+    #track-record-inspect-content::-webkit-scrollbar-thumb:hover {
       background: rgba(17, 17, 19, 0.32);
     }
 
