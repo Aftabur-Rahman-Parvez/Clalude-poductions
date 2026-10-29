@@ -193,7 +193,7 @@
     -webkit-text-fill-color: #000;
   }
     #search-wrap button{
-      background-color: none;
+      /* background-color: none; */
     }
 
     /* Hero headline word-cycle (SMART / BETTER / FASTER) */
